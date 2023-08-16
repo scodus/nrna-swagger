@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "b0c4abb7-1cdb-4b52-b799-7c4a130f55b7",
+		"name": "NRNA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19791325",
+		"_collection_link": "https://nepal-commerce.postman.co/workspace/Team-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&creator=19791325&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Contact Us",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"name\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"subject\": \"subject\",\n    \"message\": \"message\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/contact-us",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contact-us"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "News",
+			"item": [
+				{
+					"name": "get all news",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/news",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"news"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "get all events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Site Settings",
+			"item": [
+				{
+					"name": "get all site settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/site-settings",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"site-settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

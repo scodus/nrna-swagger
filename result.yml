@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: NRNA
+  description: NRNA API documentation
+  version: '1.0'
+  x-logo:
+    url: https://github.com/joolfe/logoBanner.png
+    backgroundColor: '#FFFFFF'
+    altText: logo
+  termsOfService: '#'
+  contact:
+    name: Scodus
+    url: https://scodus.com
+    email: scodusnp@gmail.com
+  license:
+    name: MIT
+    url: https://es.wikipedia.org/wiki/Licencia_MIT
+servers:
+  - url: http://{{url}}
+  - url: localhost://
+tags:
+  - name: Contact Us
+  - name: Users
+  - name: News
+  - name: Events
+  - name: Site Settings
+paths:
+  /api/contact-us:
+    post:
+      tags:
+        - Contact Us
+      summary: store
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: name
+                email: email
+                phone: phone
+                subject: subject
+                message: message
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /000/api/users:
+    get:
+      tags:
+        - Users
+      summary: get all users
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /000/api/news:
+    get:
+      tags:
+        - News
+      summary: get all news
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /000/api/events:
+    get:
+      tags:
+        - Events
+      summary: get all events
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /000/api/site-settings:
+    get:
+      tags:
+        - Site Settings
+      summary: get all site settings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
