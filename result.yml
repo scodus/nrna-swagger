@@ -83,11 +83,14 @@ paths:
             schema:
               type: object
               example:
-                email: asd@gmail.com
+                email: asd3@gmail.com
                 name: ASD dfg
+                password: password
+                password_confirmation: password
                 country_of_residence: Nepal
                 phone: '1234'
                 city: KTM
+                approval_status: approved
       parameters:
         - name: Accept
           in: header
