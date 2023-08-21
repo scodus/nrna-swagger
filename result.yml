@@ -57,6 +57,43 @@ paths:
       tags:
         - Users
       summary: get all users
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: deleted_users
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Users
+      summary: create new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: asd@gmail.com
+                name: ASD dfg
+                password: password
+                password_confirmation: password
+                country_of_residence: Nepal
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
