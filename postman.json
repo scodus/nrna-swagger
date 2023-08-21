@@ -60,11 +60,10 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/users?deleted_users=1",
+							"raw": "{{url}}/api/users?deleted_users=",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"users"
@@ -72,7 +71,7 @@
 							"query": [
 								{
 									"key": "deleted_users",
-									"value": "1"
+									"value": ""
 								}
 							]
 						}
@@ -92,7 +91,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"asd@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"password\": \"password\",\n    \"password_confirmation\": \"password\",\n    \"country_of_residence\": \"Nepal\"\n}",
+							"raw": "{\n    \"email\": \"asd@gmail.com\",\n    \"name\": \"ASD dfg\",\n    // \"password\": \"password\",\n    // \"password_confirmation\": \"password\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",\n    \"city\": \"KTM\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"

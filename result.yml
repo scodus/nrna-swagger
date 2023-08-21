@@ -52,7 +52,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /000/api/users:
+  /api/users:
     get:
       tags:
         - Users
@@ -66,13 +66,13 @@ paths:
         - name: deleted_users
           in: query
           schema:
-            type: integer
-          example: '1'
+            type: string
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+  /000/api/users:
     post:
       tags:
         - Users
@@ -85,9 +85,9 @@ paths:
               example:
                 email: asd@gmail.com
                 name: ASD dfg
-                password: password
-                password_confirmation: password
                 country_of_residence: Nepal
+                phone: '1234'
+                city: KTM
       parameters:
         - name: Accept
           in: header
