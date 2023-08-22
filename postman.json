@@ -181,7 +181,7 @@
 					"response": []
 				},
 				{
-					"name": "get all site settings Copy",
+					"name": "store site settings",
 					"request": {
 						"method": "POST",
 						"header": [],

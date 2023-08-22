@@ -133,7 +133,7 @@ paths:
     post:
       tags:
         - Site Settings
-      summary: get all site settings Copy
+      summary: store site settings
       requestBody:
         content:
           multipart/form-data:
