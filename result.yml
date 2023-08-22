@@ -17,7 +17,6 @@ info:
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
   - url: http://{{url}}
-  - url: localhost://
 tags:
   - name: Contact Us
   - name: Users
@@ -72,7 +71,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /000/api/users:
     post:
       tags:
         - Users
@@ -102,7 +100,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /000/api/news:
+  /api/news:
     get:
       tags:
         - News
@@ -112,7 +110,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /000/api/events:
+  /api/events:
     get:
       tags:
         - Events
@@ -122,11 +120,51 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /000/api/site-settings:
+  /api/site-settings:
     get:
       tags:
         - Site Settings
       summary: get all site settings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Site Settings
+      summary: get all site settings Copy
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                address:
+                  type: string
+                phone:
+                  type: string
+                email:
+                  type: string
+                about:
+                  type: string
+                mission:
+                  type: string
+                vision:
+                  type: string
+                tagline_author:
+                  type: string
+                tagline_description:
+                  type: string
+                region_logo:
+                  type: string
+                  format: binary
+                mission_image:
+                  type: string
+                about_image:
+                  type: string
+                vision_image:
+                  type: string
       responses:
         '200':
           description: Successful response

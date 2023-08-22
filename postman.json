@@ -99,11 +99,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/api/users",
+							"raw": "{{url}}/api/users",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"users"
@@ -123,11 +122,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/news",
+							"raw": "{{url}}/api/news",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"news"
@@ -147,11 +145,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/events",
+							"raw": "{{url}}/api/events",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"events"
@@ -171,11 +168,98 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/site-settings",
+							"raw": "{{url}}/api/site-settings",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
+							"path": [
+								"api",
+								"site-settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all site settings Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "about",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mission",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "vision",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "tagline_author",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "tagline_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "region_logo",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mission_image",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "about_image",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "vision_image",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "region_logo",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/site-settings",
+							"host": [
+								"{{url}}"
+							],
 							"path": [
 								"api",
 								"site-settings"
