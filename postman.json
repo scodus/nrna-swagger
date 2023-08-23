@@ -120,7 +120,13 @@
 					"name": "get all news",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}/api/news",
 							"host": [
@@ -129,6 +135,188 @@
 							"path": [
 								"api",
 								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create news",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "News 1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "aldjawlkdj",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "inactive",
+									"type": "text"
+								},
+								{
+									"key": "feature_image",
+									"type": "file",
+									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+								},
+								{
+									"key": "created_by",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/news",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update news",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "News 1 edited",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "aldjawlkdj edited",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								},
+								{
+									"key": "feature_image",
+									"type": "file",
+									"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "created_by",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/news/:news_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"news",
+								":news_id"
+							],
+							"variable": [
+								{
+									"key": "news_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/news/:news_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"news",
+								":news_id"
+							],
+							"variable": [
+								{
+									"key": "news_id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/news/:news_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"news",
+								":news_id"
+							],
+							"variable": [
+								{
+									"key": "news_id",
+									"value": "4"
+								}
 							]
 						}
 					},
@@ -152,6 +340,248 @@
 							"path": [
 								"api",
 								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Event 1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "aldjawlkdj",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "inactive",
+									"type": "text"
+								},
+								{
+									"key": "event_date",
+									"value": "2023-05-06",
+									"type": "text"
+								},
+								{
+									"key": "event_time",
+									"value": "11:06 am",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Baneshwor",
+									"type": "text"
+								},
+								{
+									"key": "venue",
+									"value": "Baneshword Complex",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "wada@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "map_url",
+									"value": "thpsadjwad.com",
+									"type": "text"
+								},
+								{
+									"key": "feature_image",
+									"type": "file",
+									"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/events",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Event 1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "aldjawlkdj",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "inactive",
+									"type": "text"
+								},
+								{
+									"key": "event_date",
+									"value": "2023-05-06",
+									"type": "text"
+								},
+								{
+									"key": "event_time",
+									"value": "11:06 am",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Baneshwor",
+									"type": "text"
+								},
+								{
+									"key": "venue",
+									"value": "Baneshword Complex",
+									"type": "text"
+								},
+								{
+									"key": "contact_email",
+									"value": "wada@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "contact_phone",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "map_url",
+									"value": "thpsadjwad.com",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "feature_image",
+									"type": "file",
+									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/events/:event_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								":event_id"
+							],
+							"variable": [
+								{
+									"key": "event_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/events/:event_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								":event_id"
+							],
+							"variable": [
+								{
+									"key": "event_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/events/:event_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								":event_id"
+							],
+							"variable": [
+								{
+									"key": "event_id",
+									"value": "2"
+								}
 							]
 						}
 					},
@@ -298,12 +728,12 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "asd3@gmail.com",
+									"value": "superadmin@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "passwords",
+									"value": "password",
 									"type": "text"
 								}
 							]

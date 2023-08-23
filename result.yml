@@ -111,6 +111,136 @@ paths:
       tags:
         - News
       summary: get all news
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - News
+      summary: create news
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: News 1
+                description:
+                  type: string
+                  example: aldjawlkdj
+                status:
+                  type: string
+                  example: inactive
+                feature_image:
+                  type: string
+                  format: binary
+                created_by:
+                  type: integer
+                  example: '1'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/news/{news_id}:
+    post:
+      tags:
+        - News
+      summary: update news
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: News 1 edited
+                description:
+                  type: string
+                  example: aldjawlkdj edited
+                status:
+                  type: string
+                  example: active
+                feature_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+                created_by:
+                  type: integer
+                  example: '1'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: news_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - News
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: news_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '9'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - News
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: news_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '4'
       responses:
         '200':
           description: Successful response
@@ -121,6 +251,166 @@ paths:
       tags:
         - Events
       summary: get all events
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Events
+      summary: create event
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Event 1
+                description:
+                  type: string
+                  example: aldjawlkdj
+                status:
+                  type: string
+                  example: inactive
+                event_date:
+                  type: string
+                  example: '2023-05-06'
+                event_time:
+                  type: string
+                  example: 11:06 am
+                location:
+                  type: string
+                  example: Baneshwor
+                venue:
+                  type: string
+                  example: Baneshword Complex
+                contact_email:
+                  type: string
+                  example: wada@gmail.com
+                contact_phone:
+                  type: integer
+                  example: '123123'
+                map_url:
+                  type: string
+                  example: thpsadjwad.com
+                feature_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/events/{event_id}:
+    post:
+      tags:
+        - Events
+      summary: update event
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Event 1
+                description:
+                  type: string
+                  example: aldjawlkdj
+                status:
+                  type: string
+                  example: inactive
+                event_date:
+                  type: string
+                  example: '2023-05-06'
+                event_time:
+                  type: string
+                  example: 11:06 am
+                location:
+                  type: string
+                  example: Baneshwor
+                venue:
+                  type: string
+                  example: Baneshword Complex
+                contact_email:
+                  type: string
+                  example: wada@gmail.com
+                contact_phone:
+                  type: integer
+                  example: '123123'
+                map_url:
+                  type: string
+                  example: thpsadjwad.com
+                _method:
+                  type: string
+                  example: PUT
+                feature_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: event_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Events
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: event_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Events
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: event_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -197,10 +487,10 @@ paths:
               properties:
                 email:
                   type: string
-                  example: asd3@gmail.com
+                  example: superadmin@gmail.com
                 password:
                   type: string
-                  example: passwords
+                  example: password
       parameters:
         - name: Accept
           in: header
