@@ -110,6 +110,104 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "change approval status",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "approval_status",
+									"value": "approved",
+									"description": "value: [approved, pending, rejected]",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "patch",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/:slug/approval-status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":slug",
+								"approval-status"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change status",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "1",
+									"description": "value: [0, 1]",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "patch",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/:slug/status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":slug",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -241,19 +339,19 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/api/news/:news_id",
+							"raw": "{{url}}/api/news/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"news",
-								":news_id"
+								":slug"
 							],
 							"variable": [
 								{
-									"key": "news_id",
-									"value": "5"
+									"key": "slug",
+									"value": ""
 								}
 							]
 						}
@@ -272,19 +370,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/news/:news_id",
+							"raw": "{{url}}/api/news/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"news",
-								":news_id"
+								":slug"
 							],
 							"variable": [
 								{
-									"key": "news_id",
-									"value": "9"
+									"key": "slug",
+									"value": ""
 								}
 							]
 						}
@@ -303,19 +401,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/news/:news_id",
+							"raw": "{{url}}/api/news/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"news",
-								":news_id"
+								":slug"
 							],
 							"variable": [
 								{
-									"key": "news_id",
-									"value": "4"
+									"key": "slug",
+									"value": ""
 								}
 							]
 						}
@@ -506,19 +604,19 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/api/events/:event_id",
+							"raw": "{{url}}/api/events/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"events",
-								":event_id"
+								":slug"
 							],
 							"variable": [
 								{
-									"key": "event_id",
-									"value": "3"
+									"key": "slug",
+									"value": ""
 								}
 							]
 						}
@@ -537,19 +635,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/events/:event_id",
+							"raw": "{{url}}/api/events/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"events",
-								":event_id"
+								":slug"
 							],
 							"variable": [
 								{
-									"key": "event_id",
-									"value": "2"
+									"key": "slug",
+									"value": "event-1"
 								}
 							]
 						}
@@ -568,19 +666,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/events/:event_id",
+							"raw": "{{url}}/api/events/:slug",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"events",
-								":event_id"
+								":slug"
 							],
 							"variable": [
 								{
-									"key": "event_id",
-									"value": "2"
+									"key": "slug",
+									"value": ""
 								}
 							]
 						}
