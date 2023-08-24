@@ -4,7 +4,7 @@
 		"name": "NRNA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19791325",
-		"_collection_link": "https://nepal-commerce.postman.co/workspace/Team-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=19791325"
+		"_collection_link": "https://nepal-commerce.postman.co/workspace/630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=19791325"
 	},
 	"item": [
 		{
@@ -148,7 +148,7 @@
 				{
 					"name": "change approval status",
 					"request": {
-						"method": "PATCH",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
@@ -161,15 +161,14 @@
 							"formdata": [
 								{
 									"key": "approval_status",
-									"value": "approved",
+									"value": "pending",
 									"description": "value: [approved, pending, rejected]",
 									"type": "text"
 								},
 								{
 									"key": "_method",
 									"value": "patch",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
@@ -187,7 +186,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": ""
+									"value": "asd-dfg-2"
 								}
 							]
 						}
@@ -197,7 +196,7 @@
 				{
 					"name": "change status",
 					"request": {
-						"method": "PATCH",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
@@ -210,15 +209,14 @@
 							"formdata": [
 								{
 									"key": "status",
-									"value": "1",
+									"value": "0",
 									"description": "value: [0, 1]",
 									"type": "text"
 								},
 								{
 									"key": "_method",
 									"value": "patch",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
@@ -236,7 +234,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": ""
+									"value": "asd-dfg-2"
 								}
 							]
 						}
@@ -448,6 +446,197 @@
 								{
 									"key": "slug",
 									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ncc",
+			"item": [
+				{
+					"name": "get all ncc",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/ncc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ncc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create ncc",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "country_name",
+									"value": "Nepal",
+									"type": "text"
+								},
+								{
+									"key": "admin_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/ncc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ncc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update ncc",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "country_name",
+									"value": "Indias",
+									"type": "text"
+								},
+								{
+									"key": "admin_id",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/ncc/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ncc",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "indias"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/ncc/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ncc",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "nepal"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/ncc/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ncc",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "nepal"
 								}
 							]
 						}
@@ -983,14 +1172,12 @@
 								{
 									"key": "new_password",
 									"value": "pass",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "new_password_confirmation",
 									"value": "pass",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								}
 							]
 						},
