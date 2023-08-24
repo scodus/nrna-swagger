@@ -26,6 +26,7 @@ tags:
   - name: Contact Us
   - name: Users
   - name: News
+  - name: Ncc
   - name: Events
   - name: Site Settings
   - name: Auth
@@ -134,7 +135,7 @@ paths:
           content:
             application/json: {}
   /api/users/{slug}/approval-status:
-    patch:
+    post:
       tags:
         - Users
       summary: change approval status
@@ -147,7 +148,7 @@ paths:
                 approval_status:
                   type: string
                   description: 'value: [approved, pending, rejected]'
-                  example: approved
+                  example: pending
                 _method:
                   type: string
                   example: patch
@@ -162,13 +163,14 @@ paths:
           schema:
             type: string
           required: true
+          example: asd-dfg-2
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
   /api/users/{slug}/status:
-    patch:
+    post:
       tags:
         - Users
       summary: change status
@@ -181,7 +183,7 @@ paths:
                 status:
                   type: integer
                   description: 'value: [0, 1]'
-                  example: '1'
+                  example: '0'
                 _method:
                   type: string
                   example: patch
@@ -196,6 +198,7 @@ paths:
           schema:
             type: string
           required: true
+          example: asd-dfg-2
       responses:
         '200':
           description: Successful response
@@ -333,6 +336,133 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ncc:
+    get:
+      tags:
+        - Ncc
+      summary: get all ncc
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Ncc
+      summary: create ncc
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                country_name:
+                  type: string
+                  example: Nepal
+                admin_id:
+                  type: string
+                logo:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ncc/{slug}:
+    post:
+      tags:
+        - Ncc
+      summary: update ncc
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                country_name:
+                  type: string
+                  example: Indias
+                admin_id:
+                  type: integer
+                  example: '20'
+                logo:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: PUT
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: indias
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Ncc
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: nepal
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Ncc
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: nepal
       responses:
         '200':
           description: Successful response
