@@ -4,7 +4,7 @@
 		"name": "NRNA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19791325",
-		"_collection_link": "https://nepal-commerce.postman.co/workspace/630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=19791325"
+		"_collection_link": "https://nepal-commerce.postman.co/workspace/Team-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=19791325"
 	},
 	"item": [
 		{
@@ -91,7 +91,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"asd1@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
+							"raw": "{\n    \"email\": \"leon.schiffer360@gmail.com\",\n    \"name\": \"Bishal Gurung\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -209,7 +209,7 @@
 							"formdata": [
 								{
 									"key": "status",
-									"value": "0",
+									"value": "1",
 									"description": "value: [0, 1]",
 									"type": "text"
 								},
@@ -234,7 +234,7 @@
 							"variable": [
 								{
 									"key": "slug",
-									"value": "asd-dfg-2"
+									"value": "yogen-bahadur-chettri"
 								}
 							]
 						}
@@ -497,7 +497,7 @@
 							"formdata": [
 								{
 									"key": "country_name",
-									"value": "Nepal",
+									"value": "China",
 									"type": "text"
 								},
 								{
@@ -508,7 +508,7 @@
 								{
 									"key": "logo",
 									"type": "file",
-									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+									"src": []
 								}
 							]
 						},
@@ -637,6 +637,176 @@
 								{
 									"key": "slug",
 									"value": "nepal"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Question",
+			"item": [
+				{
+					"name": "get all questions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/questions?status=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"questions"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create question",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"What is your name?\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Anzila Gurung\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/questions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update question",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"What is your name?\",\n    \"status\": 0,\n    \"options\": [\n        \"ASd\",\n        \"Ashok Chapagain\",\n        \"Anzila Gurung\"\n    ],\n    \"_method\": \"PUT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/questions/:question_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								":question_id"
+							],
+							"variable": [
+								{
+									"key": "question_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/questions/:question_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								":question_id"
+							],
+							"variable": [
+								{
+									"key": "question_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/questions/:question_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								":question_id"
+							],
+							"variable": [
+								{
+									"key": "question_id",
+									"value": "1"
 								}
 							]
 						}
@@ -1088,7 +1258,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "asd1@gmail.com",
+									"value": "leon.schiffer360@gmail.com",
 									"type": "text"
 								}
 							]
