@@ -27,6 +27,7 @@ tags:
   - name: Users
   - name: News
   - name: Ncc
+  - name: Question
   - name: Events
   - name: Site Settings
   - name: Auth
@@ -88,8 +89,8 @@ paths:
             schema:
               type: object
               example:
-                email: asd1@gmail.com
-                name: ASD dfg
+                email: leon.schiffer360@gmail.com
+                name: Bishal Gurung
                 password: password
                 password_confirmation: password
                 country_of_residence: Nepal
@@ -183,7 +184,7 @@ paths:
                 status:
                   type: integer
                   description: 'value: [0, 1]'
-                  example: '0'
+                  example: '1'
                 _method:
                   type: string
                   example: patch
@@ -198,7 +199,7 @@ paths:
           schema:
             type: string
           required: true
-          example: asd-dfg-2
+          example: yogen-bahadur-chettri
       responses:
         '200':
           description: Successful response
@@ -369,7 +370,7 @@ paths:
               properties:
                 country_name:
                   type: string
-                  example: Nepal
+                  example: China
                 admin_id:
                   type: string
                 logo:
@@ -463,6 +464,130 @@ paths:
             type: string
           required: true
           example: nepal
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/questions:
+    get:
+      tags:
+        - Question
+      summary: get all questions
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Question
+      summary: create question
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                question: What is your name?
+                options:
+                  - Bishal
+                  - Ashok Chapagain
+                  - Anzila Gurung
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/questions/{question_id}:
+    post:
+      tags:
+        - Question
+      summary: update question
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                question: What is your name?
+                status: 0
+                options:
+                  - ASd
+                  - Ashok Chapagain
+                  - Anzila Gurung
+                _method: PUT
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: question_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Question
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: question_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Question
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: question_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -737,7 +862,7 @@ paths:
               properties:
                 email:
                   type: string
-                  example: asd1@gmail.com
+                  example: leon.schiffer360@gmail.com
       parameters:
         - name: Accept
           in: header
