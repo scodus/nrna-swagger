@@ -79,7 +79,7 @@
 					"response": []
 				},
 				{
-					"name": "create new user",
+					"name": "create new user public",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -91,7 +91,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"asd3@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
+							"raw": "{\n    \"email\": \"asd1@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -106,6 +106,40 @@
 							"path": [
 								"api",
 								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new user admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"asd2@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/admin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"admin"
 							]
 						}
 					},
@@ -747,12 +781,12 @@
 								},
 								{
 									"key": "mission",
-									"value": "",
+									"value": "asdwdawdwad",
 									"type": "text"
 								},
 								{
 									"key": "vision",
-									"value": "",
+									"value": "aaa",
 									"type": "text"
 								},
 								{
@@ -831,7 +865,7 @@
 								},
 								{
 									"key": "password",
-									"value": "password",
+									"value": "pass",
 									"type": "text"
 								}
 							]
@@ -844,6 +878,130 @@
 							"path": [
 								"api",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send forgot password mail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "asd1@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/forgot-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "DhTvi4nS",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "pass",
+									"type": "text"
+								},
+								{
+									"key": "new_password_confirmation",
+									"value": "pass",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/reset-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify mail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "tnaUdTW5",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "pass",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "new_password_confirmation",
+									"value": "pass",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/verify-mail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"verify-mail"
 							]
 						}
 					},

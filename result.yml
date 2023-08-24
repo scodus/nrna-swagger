@@ -80,17 +80,44 @@ paths:
     post:
       tags:
         - Users
-      summary: create new user
+      summary: create new user public
       requestBody:
         content:
           application/json:
             schema:
               type: object
               example:
-                email: asd3@gmail.com
+                email: asd1@gmail.com
                 name: ASD dfg
                 password: password
                 password_confirmation: password
+                country_of_residence: Nepal
+                phone: '1234'
+                city: KTM
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/users/admin:
+    post:
+      tags:
+        - Users
+      summary: create new user admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: asd2@gmail.com
+                name: ASD dfg
                 country_of_residence: Nepal
                 phone: '1234'
                 city: KTM
@@ -509,8 +536,10 @@ paths:
                   type: string
                 mission:
                   type: string
+                  example: asdwdawdwad
                 vision:
                   type: string
+                  example: aaa
                 tagline_author:
                   type: string
                 tagline_description:
@@ -553,7 +582,94 @@ paths:
                   example: superadmin@gmail.com
                 password:
                   type: string
-                  example: password
+                  example: pass
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/forgot-password:
+    post:
+      tags:
+        - Auth
+      summary: send forgot password mail
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: asd1@gmail.com
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/reset-password:
+    post:
+      tags:
+        - Auth
+      summary: reset password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: DhTvi4nS
+                new_password:
+                  type: string
+                  example: pass
+                new_password_confirmation:
+                  type: string
+                  example: pass
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/verify-mail:
+    post:
+      tags:
+        - Auth
+      summary: verify mail
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: tnaUdTW5
+                new_password:
+                  type: string
+                  example: pass
+                new_password_confirmation:
+                  type: string
+                  example: pass
       parameters:
         - name: Accept
           in: header
