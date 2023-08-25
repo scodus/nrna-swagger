@@ -752,6 +752,47 @@
 					"response": []
 				},
 				{
+					"name": "update status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": true,\n    \"_method\": \"PATCH\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/questions/:question_id/status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								":question_id",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "question_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "find by id",
 					"request": {
 						"method": "GET",
@@ -1359,6 +1400,79 @@
 							"path": [
 								"api",
 								"verify-mail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Survey",
+			"item": [
+				{
+					"name": "save answers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 21,\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 1\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 3\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 4\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/surveys/answer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"surveys",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check if user has already taken survey",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 21\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/surveys/has-already-taken",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"surveys",
+								"has-already-taken"
 							]
 						}
 					},

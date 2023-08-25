@@ -31,6 +31,7 @@ tags:
   - name: Events
   - name: Site Settings
   - name: Auth
+  - name: Survey
 paths:
   /api/contact-us:
     post:
@@ -593,6 +594,36 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/questions/{question_id}/status:
+    post:
+      tags:
+        - Question
+      summary: update status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                status: true
+                _method: PATCH
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: question_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/events:
     get:
       tags:
@@ -925,6 +956,61 @@ paths:
                 new_password_confirmation:
                   type: string
                   example: pass
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/surveys/answer:
+    post:
+      tags:
+        - Survey
+      summary: save answers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_id: 21
+                question_answers:
+                  - question_id: 1
+                    option_id: 1
+                  - question_id: 2
+                    option_id: 3
+                  - question_id: 3
+                    option_id: 4
+                  - question_id: 4
+                    option_id: 5
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/surveys/has-already-taken:
+    post:
+      tags:
+        - Survey
+      summary: check if user has already taken survey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_id: 21
       parameters:
         - name: Accept
           in: header
