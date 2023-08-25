@@ -27,11 +27,13 @@ tags:
   - name: Users
   - name: News
   - name: Ncc
+  - name: Advice
   - name: Question
   - name: Events
   - name: Site Settings
   - name: Auth
   - name: Survey
+  - name: Countries
 paths:
   /api/contact-us:
     post:
@@ -49,6 +51,21 @@ paths:
                 phone: phone
                 subject: subject
                 message: message
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Contact Us
+      summary: get all contact us
       parameters:
         - name: Accept
           in: header
@@ -343,6 +360,40 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/news/{slug}/status:
+    post:
+      tags:
+        - News
+      summary: update news status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: active
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: news-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/ncc:
     get:
       tags:
@@ -465,6 +516,104 @@ paths:
             type: string
           required: true
           example: nepal
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/advices:
+    get:
+      tags:
+        - Advice
+      summary: get all advice
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Advice
+      summary: create advice
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Bishal Gurung
+                country_of_residence:
+                  type: string
+                  example: Nepal
+                email:
+                  type: string
+                  example: grgbishal360@gmail.com
+                phone:
+                  type: integer
+                  example: '98989'
+                advice:
+                  type: string
+                  example: This is a advice
+                logo:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/advices/{advice_id}:
+    get:
+      tags:
+        - Advice
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: advice_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Advice
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: advice_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -792,6 +941,40 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/events/{slug}/status:
+    post:
+      tags:
+        - Events
+      summary: update event status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: active
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: event-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/site-settings:
     get:
       tags:
@@ -1017,6 +1200,16 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/countries:
+    get:
+      tags:
+        - Countries
+      summary: get all country list
       responses:
         '200':
           description: Successful response

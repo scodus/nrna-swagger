@@ -42,6 +42,30 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get all contact us",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/contact-us",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contact-us"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -391,6 +415,53 @@
 					"response": []
 				},
 				{
+					"name": "update news status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "patch",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/news/:slug/status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"news",
+								":slug",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "news-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "find by id",
 					"request": {
 						"method": "GET",
@@ -637,6 +708,156 @@
 								{
 									"key": "slug",
 									"value": "nepal"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Advice",
+			"item": [
+				{
+					"name": "get all advice",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/advices",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"advices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create advice",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Bishal Gurung",
+									"type": "text"
+								},
+								{
+									"key": "country_of_residence",
+									"value": "Nepal",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "grgbishal360@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "98989",
+									"type": "text"
+								},
+								{
+									"key": "advice",
+									"value": "This is a advice",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/advices",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"advices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/advices/:advice_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"advices",
+								":advice_id"
+							],
+							"variable": [
+								{
+									"key": "advice_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/advices/:advice_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"advices",
+								":advice_id"
+							],
+							"variable": [
+								{
+									"key": "advice_id",
+									"value": "1"
 								}
 							]
 						}
@@ -1118,6 +1339,53 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "update event status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "patch",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/events/:slug/status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								":slug",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "event-1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1473,6 +1741,29 @@
 								"api",
 								"surveys",
 								"has-already-taken"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Countries",
+			"item": [
+				{
+					"name": "get all country list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/countries",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"countries"
 							]
 						}
 					},
