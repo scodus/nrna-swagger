@@ -805,7 +805,7 @@ paths:
             schema:
               type: object
               example:
-                ncc_id: 1
+                ncc_id: null
                 member_id: 21
                 designation: Supervisor
                 order: 1
@@ -1102,6 +1102,17 @@ paths:
       tags:
         - Site Settings
       summary: get all site settings
+      parameters:
+        - name: settingable_type
+          in: query
+          schema:
+            type: string
+          example: user
+        - name: settingable_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -1127,10 +1138,10 @@ paths:
                   type: string
                 mission:
                   type: string
-                  example: asdwdawdwad
+                  example: ccc
                 vision:
                   type: string
-                  example: aaa
+                  example: bbb
                 tagline_author:
                   type: string
                 tagline_description:
@@ -1142,8 +1153,16 @@ paths:
                   type: string
                 about_image:
                   type: string
+                  format: binary
                 vision_image:
                   type: string
+                settingable_type:
+                  type: string
+                  description: 'values: [ncc, user]'
+                  example: user
+                settingable_id:
+                  type: integer
+                  example: '2'
       security:
         - noauthAuth: []
       parameters:

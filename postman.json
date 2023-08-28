@@ -1123,7 +1123,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+							"raw": "{\n    \"ncc_id\": null,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1568,13 +1568,23 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/site-settings",
+							"raw": "{{url}}/api/site-settings?settingable_type=user&settingable_id=2",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"site-settings"
+							],
+							"query": [
+								{
+									"key": "settingable_type",
+									"value": "user"
+								},
+								{
+									"key": "settingable_id",
+									"value": "2"
+								}
 							]
 						}
 					},
@@ -1619,12 +1629,12 @@
 								},
 								{
 									"key": "mission",
-									"value": "asdwdawdwad",
+									"value": "ccc",
 									"type": "text"
 								},
 								{
 									"key": "vision",
-									"value": "aaa",
+									"value": "bbb",
 									"type": "text"
 								},
 								{
@@ -1649,8 +1659,8 @@
 								},
 								{
 									"key": "about_image",
-									"value": "",
-									"type": "text"
+									"type": "file",
+									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
 								},
 								{
 									"key": "vision_image",
@@ -1661,6 +1671,17 @@
 									"key": "region_logo",
 									"type": "file",
 									"src": []
+								},
+								{
+									"key": "settingable_type",
+									"value": "user",
+									"description": "values: [ncc, user]",
+									"type": "text"
+								},
+								{
+									"key": "settingable_id",
+									"value": "2",
+									"type": "text"
 								}
 							]
 						},
