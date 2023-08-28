@@ -1078,6 +1078,176 @@
 			]
 		},
 		{
+			"name": "Our team",
+			"item": [
+				{
+					"name": "get all team members",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/our-teams?ncc_id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"our-teams"
+							],
+							"query": [
+								{
+									"key": "ncc_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create team member",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/our-teams",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"our-teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update question",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"_method\": \"put\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/our-teams/:our_team_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"our-teams",
+								":our_team_id"
+							],
+							"variable": [
+								{
+									"key": "our_team_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/our-teams/:our_team_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"our-teams",
+								":our_team_id"
+							],
+							"variable": [
+								{
+									"key": "our_team_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/our-teams/:our_team_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"our-teams",
+								":our_team_id"
+							],
+							"variable": [
+								{
+									"key": "our_team_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Events",
 			"item": [
 				{

@@ -29,6 +29,7 @@ tags:
   - name: Ncc
   - name: Advice
   - name: Question
+  - name: Our team
   - name: Events
   - name: Site Settings
   - name: Auth
@@ -768,6 +769,127 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/our-teams:
+    get:
+      tags:
+        - Our team
+      summary: get all team members
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Our team
+      summary: create team member
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ncc_id: 1
+                member_id: 21
+                designation: Supervisor
+                order: 1
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/our-teams/{our_team_id}:
+    post:
+      tags:
+        - Our team
+      summary: update question
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ncc_id: 1
+                member_id: 21
+                designation: Supervisor
+                order: 1
+                _method: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: our_team_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Our team
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: our_team_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Our team
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: our_team_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
