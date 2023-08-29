@@ -148,7 +148,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"asd2@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
+							"raw": "{\n    \"email\": \"asd4@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -164,6 +164,47 @@
 								"api",
 								"users",
 								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update by admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"asd4@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"123\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\",   // nullable\n    \"password\": \"abcdef\",  //nullable\n    \"password_confirmation\": \"abcdef\",\n    \"_method\": \"PUT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/:slug/admin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":slug",
+								"admin"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "asd-dfg-3"
+								}
 							]
 						}
 					},
