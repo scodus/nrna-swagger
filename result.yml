@@ -29,6 +29,7 @@ tags:
   - name: Ncc
   - name: Advice
   - name: Question
+  - name: Banner
   - name: Our team
   - name: Ncc Candidate
   - name: Events
@@ -812,6 +813,174 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/banners:
+    get:
+      tags:
+        - Banner
+      summary: get all banners
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: bannerable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: bannerable_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Banner
+      summary: create banner
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Banner 1
+                subtitle:
+                  type: string
+                  example: Banner Subtitle 1
+                description:
+                  type: string
+                  example: aldjwalkdj
+                link:
+                  type: string
+                  example: https://google.com
+                status:
+                  type: string
+                  example: active
+                bannerable_type:
+                  type: string
+                  example: ncc
+                bannerable_id:
+                  type: integer
+                  example: '1'
+                image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/banners/{banner_id}:
+    post:
+      tags:
+        - Banner
+      summary: update banner
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Banner 1 edited
+                subtitle:
+                  type: string
+                  example: Banner Subtitle 1 edited
+                description:
+                  type: string
+                  example: aldjwalkdj edited
+                link:
+                  type: string
+                  example: https://google.com edited
+                status:
+                  type: string
+                  example: inactive
+                bannerable_type:
+                  type: string
+                  example: ncc
+                bannerable_id:
+                  type: integer
+                  example: '1'
+                _method:
+                  type: string
+                  example: PUT
+                image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: banner_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Banner
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: banner_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Banner
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: banner_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/our-teams:
     get:
       tags:
@@ -914,7 +1083,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Ncc Candidate
+        - Our team
       summary: delete
       parameters:
         - name: Accept
@@ -1028,6 +1197,26 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Ncc Candidate
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_candidate_id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response

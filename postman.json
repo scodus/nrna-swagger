@@ -1119,6 +1119,257 @@
 			]
 		},
 		{
+			"name": "Banner",
+			"item": [
+				{
+					"name": "get all banners",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/banners?bannerable_type=ncc&bannerable_id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"banners"
+							],
+							"query": [
+								{
+									"key": "bannerable_type",
+									"value": "ncc"
+								},
+								{
+									"key": "bannerable_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create banner",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Banner 1",
+									"type": "text"
+								},
+								{
+									"key": "subtitle",
+									"value": "Banner Subtitle 1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "aldjwalkdj",
+									"type": "text"
+								},
+								{
+									"key": "link",
+									"value": "https://google.com",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								},
+								{
+									"key": "bannerable_type",
+									"value": "ncc",
+									"type": "text"
+								},
+								{
+									"key": "bannerable_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/banners",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"banners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update banner",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Banner 1 edited",
+									"type": "text"
+								},
+								{
+									"key": "subtitle",
+									"value": "Banner Subtitle 1 edited",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "aldjwalkdj edited",
+									"type": "text"
+								},
+								{
+									"key": "link",
+									"value": "https://google.com edited",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "inactive",
+									"type": "text"
+								},
+								{
+									"key": "bannerable_type",
+									"value": "ncc",
+									"type": "text"
+								},
+								{
+									"key": "bannerable_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/banners/:banner_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"banners",
+								":banner_id"
+							],
+							"variable": [
+								{
+									"key": "banner_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/banners/:banner_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"banners",
+								":banner_id"
+							],
+							"variable": [
+								{
+									"key": "banner_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/banners/:banner_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"banners",
+								":banner_id"
+							],
+							"variable": [
+								{
+									"key": "banner_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Our team",
 			"item": [
 				{
@@ -1437,19 +1688,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/our-teams/:our_team_id",
+							"raw": "{{url}}/api/ncc-candidates/:ncc_candidate_id",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"our-teams",
-								":our_team_id"
+								"ncc-candidates",
+								":ncc_candidate_id"
 							],
 							"variable": [
 								{
-									"key": "our_team_id",
-									"value": "1"
+									"key": "ncc_candidate_id",
+									"value": ""
 								}
 							]
 						}
