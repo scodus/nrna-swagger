@@ -1185,7 +1185,7 @@
 					"response": []
 				},
 				{
-					"name": "update question",
+					"name": "update team member",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1217,7 +1217,7 @@
 							"variable": [
 								{
 									"key": "our_team_id",
-									"value": "1"
+									"value": "3"
 								}
 							]
 						}
@@ -1249,6 +1249,176 @@
 								{
 									"key": "our_team_id",
 									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/our-teams/:our_team_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"our-teams",
+								":our_team_id"
+							],
+							"variable": [
+								{
+									"key": "our_team_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ncc Candidate",
+			"item": [
+				{
+					"name": "get all ncc candidates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/ncc-candidates?ncc_id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ncc-candidates"
+							],
+							"query": [
+								{
+									"key": "ncc_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create ncc candidate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 23,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/ncc-candidates",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ncc-candidates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update ncc candidate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"_method\": \"put\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/ncc-candidates/:ncc_candidate_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ncc-candidates",
+								":ncc_candidate_id"
+							],
+							"variable": [
+								{
+									"key": "ncc_candidate_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/ncc-candidates/:ncc_candidate_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"ncc-candidates",
+								":ncc_candidate_id"
+							],
+							"variable": [
+								{
+									"key": "ncc_candidate_id",
+									"value": "2"
 								}
 							]
 						}
@@ -1715,8 +1885,8 @@
 								},
 								{
 									"key": "settingable_type",
-									"value": "user",
-									"description": "values: [ncc, user]",
+									"value": "nbns",
+									"description": "values: [ncc, nbns]",
 									"type": "text"
 								},
 								{

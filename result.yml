@@ -30,6 +30,7 @@ tags:
   - name: Advice
   - name: Question
   - name: Our team
+  - name: Ncc Candidate
   - name: Events
   - name: Site Settings
   - name: Auth
@@ -861,7 +862,7 @@ paths:
     post:
       tags:
         - Our team
-      summary: update question
+      summary: update team member
       requestBody:
         content:
           application/json:
@@ -884,7 +885,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '3'
       responses:
         '200':
           description: Successful response
@@ -913,7 +914,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Our team
+        - Ncc Candidate
       summary: delete
       parameters:
         - name: Accept
@@ -927,6 +928,106 @@ paths:
             type: integer
           required: true
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ncc-candidates:
+    get:
+      tags:
+        - Ncc Candidate
+      summary: get all ncc candidates
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Ncc Candidate
+      summary: create ncc candidate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ncc_id: 1
+                member_id: 23
+                designation: Supervisor
+                order: 1
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ncc-candidates/{ncc_candidate_id}:
+    post:
+      tags:
+        - Ncc Candidate
+      summary: update ncc candidate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ncc_id: 1
+                member_id: 21
+                designation: Supervisor
+                order: 1
+                _method: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_candidate_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Ncc Candidate
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_candidate_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -1195,8 +1296,8 @@ paths:
                   type: string
                 settingable_type:
                   type: string
-                  description: 'values: [ncc, user]'
-                  example: user
+                  description: 'values: [ncc, nbns]'
+                  example: nbns
                 settingable_id:
                   type: integer
                   example: '2'
