@@ -1629,14 +1629,14 @@ paths:
             schema:
               type: object
               example:
-                user_id: 21
+                user_id: 20
                 question_answers:
                   - question_id: 1
-                    option_id: 1
+                    option_id: 2
                   - question_id: 2
-                    option_id: 3
+                    option_id: 6
                   - question_id: 3
-                    option_id: 4
+                    option_id: 7
                   - question_id: 4
                     option_id: 5
       parameters:
@@ -1661,6 +1661,44 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/surveys/result-user-list:
+    get:
+      tags:
+        - Survey
+      summary: survey user list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/surveys/{user_id}/result-detail:
+    get:
+      tags:
+        - Survey
+      summary: survey answer detail of user
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '21'
       responses:
         '200':
           description: Successful response

@@ -2344,7 +2344,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user_id\": 21,\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 1\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 3\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 4\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
+							"raw": "{\n    \"user_id\": 20,\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2385,6 +2385,63 @@
 								"api",
 								"surveys",
 								"result-by-question"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "survey user list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/surveys/result-user-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"surveys",
+								"result-user-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "survey answer detail of user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/surveys/:user_id/result-detail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"surveys",
+								":user_id",
+								"result-detail"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "21"
+								}
 							]
 						}
 					},
