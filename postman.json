@@ -2366,6 +2366,31 @@
 					"response": []
 				},
 				{
+					"name": "survey result by questions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/surveys/result-by-question",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"surveys",
+								"result-by-question"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "check if user has already taken survey",
 					"request": {
 						"method": "POST",
