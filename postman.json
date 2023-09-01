@@ -8,2501 +8,2604 @@
 	},
 	"item": [
 		{
-			"name": "Contact Us",
+			"name": "Admin",
 			"item": [
 				{
-					"name": "store",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"name\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"subject\": \"subject\",\n    \"message\": \"message\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "Contact Us",
+					"item": [
+						{
+							"name": "get all contact us",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/contact-us",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"contact-us"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{url}}/api/contact-us",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"contact-us"
-							]
+						{
+							"name": "delete contact us",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/contact-us/:contact_us_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"contact-us",
+										":contact_us_id"
+									],
+									"variable": [
+										{
+											"key": "contact_us_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "get all contact us",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/contact-us",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"contact-us"
-							]
+					"name": "Users",
+					"item": [
+						{
+							"name": "get all users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/users?deleted_users=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users"
+									],
+									"query": [
+										{
+											"key": "deleted_users",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new user admin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"asd4@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/users/admin",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update by admin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"asd4@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"123\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\",   // nullable\n    \"password\": \"abcdef\",  //nullable\n    \"password_confirmation\": \"abcdef\",\n    \"_method\": \"PUT\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/users/:slug/admin",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										":slug",
+										"admin"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "asd-dfg-3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change approval status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "approval_status",
+											"value": "pending",
+											"description": "value: [approved, pending, rejected]",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/users/:slug/approval-status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										":slug",
+										"approval-status"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "asd-dfg-2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "1",
+											"description": "value: [0, 1]",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/users/:slug/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										":slug",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "yogen-bahadur-chettri"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
+				},
+				{
+					"name": "News",
+					"item": [
+						{
+							"name": "get all news",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/news",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create news",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "News 1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "aldjawlkdj",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "inactive",
+											"type": "text"
+										},
+										{
+											"key": "feature_image",
+											"type": "file",
+											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+										},
+										{
+											"key": "created_by",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/news",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update news",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "News 1 edited",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "aldjawlkdj edited",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "active",
+											"type": "text"
+										},
+										{
+											"key": "feature_image",
+											"type": "file",
+											"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "created_by",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/news/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update news status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "active",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/news/:slug/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news",
+										":slug",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "news-1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/news/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/news/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ncc",
+					"item": [
+						{
+							"name": "get all ncc",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/ncc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create ncc",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "country_name",
+											"value": "China",
+											"type": "text"
+										},
+										{
+											"key": "admin_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/ncc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update ncc",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "country_name",
+											"value": "Indias",
+											"type": "text"
+										},
+										{
+											"key": "admin_id",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/ncc/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "indias"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/ncc/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "nepal"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/ncc/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "nepal"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Advice",
+					"item": [
+						{
+							"name": "get all advice",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/advices",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"advices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create advice",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Bishal Gurung",
+											"type": "text"
+										},
+										{
+											"key": "country_of_residence",
+											"value": "Nepal",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "grgbishal360@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "98989",
+											"type": "text"
+										},
+										{
+											"key": "advice",
+											"value": "This is a advice",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/advices",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"advices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/advices/:advice_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"advices",
+										":advice_id"
+									],
+									"variable": [
+										{
+											"key": "advice_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/advices/:advice_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"advices",
+										":advice_id"
+									],
+									"variable": [
+										{
+											"key": "advice_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Question",
+					"item": [
+						{
+							"name": "get all questions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/questions?status=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"questions"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create question",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"question\": \"What is your name?\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Anzila Gurung\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/questions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"questions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update question",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"question\": \"What is your name?\",\n    \"status\": 0,\n    \"options\": [\n        \"ASd\",\n        \"Ashok Chapagain\",\n        \"Anzila Gurung\"\n    ],\n    \"_method\": \"PUT\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/questions/:question_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"questions",
+										":question_id"
+									],
+									"variable": [
+										{
+											"key": "question_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": true,\n    \"_method\": \"PATCH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/questions/:question_id/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"questions",
+										":question_id",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "question_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/questions/:question_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"questions",
+										":question_id"
+									],
+									"variable": [
+										{
+											"key": "question_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/questions/:question_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"questions",
+										":question_id"
+									],
+									"variable": [
+										{
+											"key": "question_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "get all banners",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/banners?bannerable_type=ncc&bannerable_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banners"
+									],
+									"query": [
+										{
+											"key": "bannerable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "bannerable_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create banner",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Banner 1",
+											"type": "text"
+										},
+										{
+											"key": "subtitle",
+											"value": "Banner Subtitle 1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "aldjwalkdj",
+											"type": "text"
+										},
+										{
+											"key": "link",
+											"value": "https://google.com",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "active",
+											"type": "text"
+										},
+										{
+											"key": "bannerable_type",
+											"value": "ncc",
+											"type": "text"
+										},
+										{
+											"key": "bannerable_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/banners",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banners"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update banner",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Banner 1 edited",
+											"type": "text"
+										},
+										{
+											"key": "subtitle",
+											"value": "Banner Subtitle 1 edited",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "aldjwalkdj edited",
+											"type": "text"
+										},
+										{
+											"key": "link",
+											"value": "https://google.com edited",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "inactive",
+											"type": "text"
+										},
+										{
+											"key": "bannerable_type",
+											"value": "ncc",
+											"type": "text"
+										},
+										{
+											"key": "bannerable_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/banners/:banner_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banners",
+										":banner_id"
+									],
+									"variable": [
+										{
+											"key": "banner_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/banners/:banner_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banners",
+										":banner_id"
+									],
+									"variable": [
+										{
+											"key": "banner_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/banners/:banner_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banners",
+										":banner_id"
+									],
+									"variable": [
+										{
+											"key": "banner_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Our team",
+					"item": [
+						{
+							"name": "get all team members",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/our-teams?ncc_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"our-teams"
+									],
+									"query": [
+										{
+											"key": "ncc_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create team member",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ncc_id\": null,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/our-teams",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"our-teams"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update team member",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"_method\": \"put\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/our-teams/:our_team_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"our-teams",
+										":our_team_id"
+									],
+									"variable": [
+										{
+											"key": "our_team_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/our-teams/:our_team_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"our-teams",
+										":our_team_id"
+									],
+									"variable": [
+										{
+											"key": "our_team_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/our-teams/:our_team_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"our-teams",
+										":our_team_id"
+									],
+									"variable": [
+										{
+											"key": "our_team_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ncc Candidate",
+					"item": [
+						{
+							"name": "get all ncc candidates",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/ncc-candidates?ncc_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc-candidates"
+									],
+									"query": [
+										{
+											"key": "ncc_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create ncc candidate",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 23,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/ncc-candidates",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc-candidates"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update ncc candidate",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"_method\": \"put\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/ncc-candidates/:ncc_candidate_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc-candidates",
+										":ncc_candidate_id"
+									],
+									"variable": [
+										{
+											"key": "ncc_candidate_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/ncc-candidates/:ncc_candidate_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc-candidates",
+										":ncc_candidate_id"
+									],
+									"variable": [
+										{
+											"key": "ncc_candidate_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/ncc-candidates/:ncc_candidate_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc-candidates",
+										":ncc_candidate_id"
+									],
+									"variable": [
+										{
+											"key": "ncc_candidate_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Events",
+					"item": [
+						{
+							"name": "get all events",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/events",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Event 1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "aldjawlkdj",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "inactive",
+											"type": "text"
+										},
+										{
+											"key": "event_date",
+											"value": "2023-05-06",
+											"type": "text"
+										},
+										{
+											"key": "event_time",
+											"value": "11:06 am",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Baneshwor",
+											"type": "text"
+										},
+										{
+											"key": "venue",
+											"value": "Baneshword Complex",
+											"type": "text"
+										},
+										{
+											"key": "contact_email",
+											"value": "wada@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "contact_phone",
+											"value": "123123",
+											"type": "text"
+										},
+										{
+											"key": "map_url",
+											"value": "thpsadjwad.com",
+											"type": "text"
+										},
+										{
+											"key": "feature_image",
+											"type": "file",
+											"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/events",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Event 1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "aldjawlkdj",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "inactive",
+											"type": "text"
+										},
+										{
+											"key": "event_date",
+											"value": "2023-05-06",
+											"type": "text"
+										},
+										{
+											"key": "event_time",
+											"value": "11:06 am",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Baneshwor",
+											"type": "text"
+										},
+										{
+											"key": "venue",
+											"value": "Baneshword Complex",
+											"type": "text"
+										},
+										{
+											"key": "contact_email",
+											"value": "wada@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "contact_phone",
+											"value": "123123",
+											"type": "text"
+										},
+										{
+											"key": "map_url",
+											"value": "thpsadjwad.com",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "feature_image",
+											"type": "file",
+											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/events/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"events",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "event-1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/events/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"events",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "event-1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/events/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"events",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "event-1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update event status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "active",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/events/:slug/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"events",
+										":slug",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "event-1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Site Settings",
+					"item": [
+						{
+							"name": "get all site settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/site-settings?settingable_type=user&settingable_id=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"site-settings"
+									],
+									"query": [
+										{
+											"key": "settingable_type",
+											"value": "user"
+										},
+										{
+											"key": "settingable_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store site settings",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "address",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "about",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "mission",
+											"value": "ccc",
+											"type": "text"
+										},
+										{
+											"key": "vision",
+											"value": "bbb",
+											"type": "text"
+										},
+										{
+											"key": "tagline_author",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "tagline_description",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "region_logo",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "mission_image",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "about_image",
+											"type": "file",
+											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+										},
+										{
+											"key": "vision_image",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "region_logo",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "settingable_type",
+											"value": "nbns",
+											"description": "values: [ncc, nbns]",
+											"type": "text"
+										},
+										{
+											"key": "settingable_id",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/site-settings",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"site-settings"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Survey",
+					"item": [
+						{
+							"name": "survey result by questions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/surveys/result-by-question",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										"result-by-question"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "survey user list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/surveys/result-user-list",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										"result-user-list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "survey answer detail of user",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/surveys/:user_id/result-detail",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										":user_id",
+										"result-detail"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
 		{
-			"name": "Users",
+			"name": "Public",
 			"item": [
 				{
-					"name": "get all users",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/users?deleted_users=",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"users"
-							],
-							"query": [
-								{
-									"key": "deleted_users",
-									"value": ""
+					"name": "Auth",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "superadmin@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "pass",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create new user public",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"leon.schiffer360@gmail.com\",\n    \"name\": \"Bishal Gurung\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{url}}/api/users",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create new user admin",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"asd4@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "send forgot password mail",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "leon.schiffer360@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/forgot-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"forgot-password"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{url}}/api/users/admin",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"users",
-								"admin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update by admin",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"asd4@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"123\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\",   // nullable\n    \"password\": \"abcdef\",  //nullable\n    \"password_confirmation\": \"abcdef\",\n    \"_method\": \"PUT\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "reset password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "token",
+											"value": "DhTvi4nS",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "pass",
+											"type": "text"
+										},
+										{
+											"key": "new_password_confirmation",
+											"value": "pass",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/reset-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"reset-password"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{url}}/api/users/:slug/admin",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"users",
-								":slug",
-								"admin"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "asd-dfg-3"
+						{
+							"name": "verify mail",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "token",
+											"value": "tnaUdTW5",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "pass",
+											"type": "text"
+										},
+										{
+											"key": "new_password_confirmation",
+											"value": "pass",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/verify-mail",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"verify-mail"
+									]
 								}
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "change approval status",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "approval_status",
-									"value": "pending",
-									"description": "value: [approved, pending, rejected]",
-									"type": "text"
-								},
-								{
-									"key": "_method",
-									"value": "patch",
-									"type": "text"
+					"name": "Countries",
+					"item": [
+						{
+							"name": "get all country list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/countries",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"countries"
+									]
 								}
-							]
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Surveys",
+					"item": [
+						{
+							"name": "save answers",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 20,\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/surveys/answer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"surveys",
+										"answer"
+									]
+								}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "{{url}}/api/users/:slug/approval-status",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"users",
-								":slug",
-								"approval-status"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "asd-dfg-2"
+						{
+							"name": "check if user has already taken survey",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 21\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/surveys/has-already-taken",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"surveys",
+										"has-already-taken"
+									]
 								}
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "change status",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "status",
-									"value": "1",
-									"description": "value: [0, 1]",
-									"type": "text"
+					"name": "Member",
+					"item": [
+						{
+							"name": "create new user public",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"leon.schiffer360@gmail.com\",\n    \"name\": \"Bishal Gurung\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
-								{
-									"key": "_method",
-									"value": "patch",
-									"type": "text"
+								"url": {
+									"raw": "{{url}}/api/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
 								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/users/:slug/status",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"users",
-								":slug",
-								"status"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "yogen-bahadur-chettri"
-								}
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "News",
-			"item": [
-				{
-					"name": "get all news",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/news",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"news"
-							]
-						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "create news",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "title",
-									"value": "News 1",
-									"type": "text"
+					"name": "Contact Us",
+					"item": [
+						{
+							"name": "store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"name\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"subject\": \"subject\",\n    \"message\": \"message\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
-								{
-									"key": "description",
-									"value": "aldjawlkdj",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "inactive",
-									"type": "text"
-								},
-								{
-									"key": "feature_image",
-									"type": "file",
-									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
-								},
-								{
-									"key": "created_by",
-									"value": "1",
-									"type": "text"
+								"url": {
+									"raw": "{{url}}/api/contact-us",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"contact-us"
+									]
 								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/news",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"news"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "update news",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "title",
-									"value": "News 1 edited",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "aldjawlkdj edited",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "active",
-									"type": "text"
-								},
-								{
-									"key": "feature_image",
-									"type": "file",
-									"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text"
-								},
-								{
-									"key": "created_by",
-									"value": "1",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/news/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"news",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update news status",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "status",
-									"value": "active",
-									"type": "text"
-								},
-								{
-									"key": "_method",
-									"value": "patch",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/news/:slug/status",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"news",
-								":slug",
-								"status"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "news-1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "find by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/news/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"news",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/news/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"news",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Ncc",
-			"item": [
-				{
-					"name": "get all ncc",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/ncc",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create ncc",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "country_name",
-									"value": "China",
-									"type": "text"
-								},
-								{
-									"key": "admin_id",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "logo",
-									"type": "file",
-									"src": []
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/ncc",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update ncc",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "country_name",
-									"value": "Indias",
-									"type": "text"
-								},
-								{
-									"key": "admin_id",
-									"value": "20",
-									"type": "text"
-								},
-								{
-									"key": "logo",
-									"type": "file",
-									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/ncc/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "indias"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "find by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/ncc/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "nepal"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/ncc/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "nepal"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Advice",
-			"item": [
-				{
-					"name": "get all advice",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/advices",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"advices"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create advice",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Bishal Gurung",
-									"type": "text"
-								},
-								{
-									"key": "country_of_residence",
-									"value": "Nepal",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "grgbishal360@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "phone",
-									"value": "98989",
-									"type": "text"
-								},
-								{
-									"key": "advice",
-									"value": "This is a advice",
-									"type": "text"
-								},
-								{
-									"key": "logo",
-									"type": "file",
-									"src": []
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/advices",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"advices"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "find by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/advices/:advice_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"advices",
-								":advice_id"
-							],
-							"variable": [
-								{
-									"key": "advice_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/advices/:advice_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"advices",
-								":advice_id"
-							],
-							"variable": [
-								{
-									"key": "advice_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Question",
-			"item": [
-				{
-					"name": "get all questions",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/questions?status=1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"questions"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create question",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"question\": \"What is your name?\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Anzila Gurung\"\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/questions",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"questions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update question",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"question\": \"What is your name?\",\n    \"status\": 0,\n    \"options\": [\n        \"ASd\",\n        \"Ashok Chapagain\",\n        \"Anzila Gurung\"\n    ],\n    \"_method\": \"PUT\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/questions/:question_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								":question_id"
-							],
-							"variable": [
-								{
-									"key": "question_id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update status",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"status\": true,\n    \"_method\": \"PATCH\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/questions/:question_id/status",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								":question_id",
-								"status"
-							],
-							"variable": [
-								{
-									"key": "question_id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "find by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/questions/:question_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								":question_id"
-							],
-							"variable": [
-								{
-									"key": "question_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/questions/:question_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"questions",
-								":question_id"
-							],
-							"variable": [
-								{
-									"key": "question_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Banner",
-			"item": [
-				{
-					"name": "get all banners",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/banners?bannerable_type=ncc&bannerable_id=1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"banners"
-							],
-							"query": [
-								{
-									"key": "bannerable_type",
-									"value": "ncc"
-								},
-								{
-									"key": "bannerable_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create banner",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "title",
-									"value": "Banner 1",
-									"type": "text"
-								},
-								{
-									"key": "subtitle",
-									"value": "Banner Subtitle 1",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "aldjwalkdj",
-									"type": "text"
-								},
-								{
-									"key": "link",
-									"value": "https://google.com",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "active",
-									"type": "text"
-								},
-								{
-									"key": "bannerable_type",
-									"value": "ncc",
-									"type": "text"
-								},
-								{
-									"key": "bannerable_id",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/banners",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"banners"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update banner",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "title",
-									"value": "Banner 1 edited",
-									"type": "text"
-								},
-								{
-									"key": "subtitle",
-									"value": "Banner Subtitle 1 edited",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "aldjwalkdj edited",
-									"type": "text"
-								},
-								{
-									"key": "link",
-									"value": "https://google.com edited",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "inactive",
-									"type": "text"
-								},
-								{
-									"key": "bannerable_type",
-									"value": "ncc",
-									"type": "text"
-								},
-								{
-									"key": "bannerable_id",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/banners/:banner_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"banners",
-								":banner_id"
-							],
-							"variable": [
-								{
-									"key": "banner_id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "find by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/banners/:banner_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"banners",
-								":banner_id"
-							],
-							"variable": [
-								{
-									"key": "banner_id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/banners/:banner_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"banners",
-								":banner_id"
-							],
-							"variable": [
-								{
-									"key": "banner_id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Our team",
-			"item": [
-				{
-					"name": "get all team members",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/our-teams?ncc_id=1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"our-teams"
-							],
-							"query": [
-								{
-									"key": "ncc_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create team member",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"ncc_id\": null,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/our-teams",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"our-teams"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update team member",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"_method\": \"put\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/our-teams/:our_team_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"our-teams",
-								":our_team_id"
-							],
-							"variable": [
-								{
-									"key": "our_team_id",
-									"value": "3"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "find by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/our-teams/:our_team_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"our-teams",
-								":our_team_id"
-							],
-							"variable": [
-								{
-									"key": "our_team_id",
-									"value": "3"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/our-teams/:our_team_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"our-teams",
-								":our_team_id"
-							],
-							"variable": [
-								{
-									"key": "our_team_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Ncc Candidate",
-			"item": [
-				{
-					"name": "get all ncc candidates",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/ncc-candidates?ncc_id=1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc-candidates"
-							],
-							"query": [
-								{
-									"key": "ncc_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create ncc candidate",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 23,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/ncc-candidates",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc-candidates"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update ncc candidate",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"_method\": \"put\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/ncc-candidates/:ncc_candidate_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc-candidates",
-								":ncc_candidate_id"
-							],
-							"variable": [
-								{
-									"key": "ncc_candidate_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "find by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/ncc-candidates/:ncc_candidate_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc-candidates",
-								":ncc_candidate_id"
-							],
-							"variable": [
-								{
-									"key": "ncc_candidate_id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/ncc-candidates/:ncc_candidate_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"ncc-candidates",
-								":ncc_candidate_id"
-							],
-							"variable": [
-								{
-									"key": "ncc_candidate_id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Events",
-			"item": [
-				{
-					"name": "get all events",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/events",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"events"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create event",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "title",
-									"value": "Event 1",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "aldjawlkdj",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "inactive",
-									"type": "text"
-								},
-								{
-									"key": "event_date",
-									"value": "2023-05-06",
-									"type": "text"
-								},
-								{
-									"key": "event_time",
-									"value": "11:06 am",
-									"type": "text"
-								},
-								{
-									"key": "location",
-									"value": "Baneshwor",
-									"type": "text"
-								},
-								{
-									"key": "venue",
-									"value": "Baneshword Complex",
-									"type": "text"
-								},
-								{
-									"key": "contact_email",
-									"value": "wada@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "contact_phone",
-									"value": "123123",
-									"type": "text"
-								},
-								{
-									"key": "map_url",
-									"value": "thpsadjwad.com",
-									"type": "text"
-								},
-								{
-									"key": "feature_image",
-									"type": "file",
-									"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/events",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"events"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update event",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "title",
-									"value": "Event 1",
-									"type": "text"
-								},
-								{
-									"key": "description",
-									"value": "aldjawlkdj",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "inactive",
-									"type": "text"
-								},
-								{
-									"key": "event_date",
-									"value": "2023-05-06",
-									"type": "text"
-								},
-								{
-									"key": "event_time",
-									"value": "11:06 am",
-									"type": "text"
-								},
-								{
-									"key": "location",
-									"value": "Baneshwor",
-									"type": "text"
-								},
-								{
-									"key": "venue",
-									"value": "Baneshword Complex",
-									"type": "text"
-								},
-								{
-									"key": "contact_email",
-									"value": "wada@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "contact_phone",
-									"value": "123123",
-									"type": "text"
-								},
-								{
-									"key": "map_url",
-									"value": "thpsadjwad.com",
-									"type": "text"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text"
-								},
-								{
-									"key": "feature_image",
-									"type": "file",
-									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/events/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"events",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "find by id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/events/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"events",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "event-1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/events/:slug",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"events",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update event status",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "status",
-									"value": "active",
-									"type": "text"
-								},
-								{
-									"key": "_method",
-									"value": "patch",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/events/:slug/status",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"events",
-								":slug",
-								"status"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": "event-1"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Site Settings",
-			"item": [
-				{
-					"name": "get all site settings",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/site-settings?settingable_type=user&settingable_id=2",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"site-settings"
-							],
-							"query": [
-								{
-									"key": "settingable_type",
-									"value": "user"
-								},
-								{
-									"key": "settingable_id",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "store site settings",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "address",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "phone",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "about",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "mission",
-									"value": "ccc",
-									"type": "text"
-								},
-								{
-									"key": "vision",
-									"value": "bbb",
-									"type": "text"
-								},
-								{
-									"key": "tagline_author",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "tagline_description",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "region_logo",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "mission_image",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "about_image",
-									"type": "file",
-									"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
-								},
-								{
-									"key": "vision_image",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "region_logo",
-									"type": "file",
-									"src": []
-								},
-								{
-									"key": "settingable_type",
-									"value": "nbns",
-									"description": "values: [ncc, nbns]",
-									"type": "text"
-								},
-								{
-									"key": "settingable_id",
-									"value": "2",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/site-settings",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"site-settings"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "login",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "superadmin@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "pass",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/login",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "send forgot password mail",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "leon.schiffer360@gmail.com",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/forgot-password",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"forgot-password"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "reset password",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "token",
-									"value": "DhTvi4nS",
-									"type": "text"
-								},
-								{
-									"key": "new_password",
-									"value": "pass",
-									"type": "text"
-								},
-								{
-									"key": "new_password_confirmation",
-									"value": "pass",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/reset-password",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"reset-password"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "verify mail",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "token",
-									"value": "tnaUdTW5",
-									"type": "text"
-								},
-								{
-									"key": "new_password",
-									"value": "pass",
-									"type": "text"
-								},
-								{
-									"key": "new_password_confirmation",
-									"value": "pass",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/verify-mail",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"verify-mail"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Survey",
-			"item": [
-				{
-					"name": "save answers",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"user_id\": 20,\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/surveys/answer",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"surveys",
-								"answer"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "survey result by questions",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/surveys/result-by-question",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"surveys",
-								"result-by-question"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "survey user list",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/surveys/result-user-list",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"surveys",
-								"result-user-list"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "survey answer detail of user",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/surveys/:user_id/result-detail",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"surveys",
-								":user_id",
-								"result-detail"
-							],
-							"variable": [
-								{
-									"key": "user_id",
-									"value": "21"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "check if user has already taken survey",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"user_id\": 21\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/surveys/has-already-taken",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"surveys",
-								"has-already-taken"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Countries",
-			"item": [
-				{
-					"name": "get all country list",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/countries",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"countries"
-							]
-						}
-					},
-					"response": []
+					]
 				}
 			]
 		}

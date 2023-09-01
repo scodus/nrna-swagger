@@ -19,56 +19,37 @@ servers:
   - url: http://{{url}}
 components:
   securitySchemes:
-    noauthAuth:
+    bearerAuth:
       type: http
-      scheme: noauth
+      scheme: bearer
 tags:
-  - name: Contact Us
-  - name: Users
-  - name: News
-  - name: Ncc
-  - name: Advice
-  - name: Question
-  - name: Banner
-  - name: Our team
-  - name: Ncc Candidate
-  - name: Events
-  - name: Site Settings
-  - name: Auth
-  - name: Survey
-  - name: Countries
+  - name: Admin
+  - name: Admin > Contact Us
+  - name: Admin > Users
+  - name: Admin > News
+  - name: Admin > Ncc
+  - name: Admin > Advice
+  - name: Admin > Question
+  - name: Admin > Banner
+  - name: Admin > Our team
+  - name: Admin > Ncc Candidate
+  - name: Admin > Events
+  - name: Admin > Site Settings
+  - name: Admin > Survey
+  - name: Public
+  - name: Public > Auth
+  - name: Public > Countries
+  - name: Public > Surveys
+  - name: Public > Member
+  - name: Public > Contact Us
 paths:
-  /api/contact-us:
-    post:
-      tags:
-        - Contact Us
-      summary: store
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                name: name
-                email: email
-                phone: phone
-                subject: subject
-                message: message
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
+  /admin/contact-us:
     get:
       tags:
-        - Contact Us
+        - Admin > Contact Us
       summary: get all contact us
+      security:
+        - bearerAuth: []
       parameters:
         - name: Accept
           in: header
@@ -80,10 +61,34 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/users:
+  /admin/contact-us/{contact_us_id}:
+    delete:
+      tags:
+        - Admin > Contact Us
+      summary: delete contact us
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: contact_us_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users:
     get:
       tags:
-        - Users
+        - Admin > Users
       summary: get all users
       parameters:
         - name: Accept
@@ -100,38 +105,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/users/admin:
     post:
       tags:
-        - Users
-      summary: create new user public
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                email: leon.schiffer360@gmail.com
-                name: Bishal Gurung
-                password: password
-                password_confirmation: password
-                country_of_residence: Nepal
-                phone: '1234'
-                city: KTM
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/users/admin:
-    post:
-      tags:
-        - Users
+        - Admin > Users
       summary: create new user admin
       requestBody:
         content:
@@ -156,10 +133,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/users/{slug}/admin:
+  /admin/users/{slug}/admin:
     post:
       tags:
-        - Users
+        - Admin > Users
       summary: update by admin
       requestBody:
         content:
@@ -193,10 +170,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/users/{slug}/approval-status:
+  /admin/users/{slug}/approval-status:
     post:
       tags:
-        - Users
+        - Admin > Users
       summary: change approval status
       requestBody:
         content:
@@ -231,7 +208,7 @@ paths:
   /api/users/{slug}/status:
     post:
       tags:
-        - Users
+        - Admin > Users
       summary: change status
       requestBody:
         content:
@@ -263,10 +240,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/news:
+  /admin/news:
     get:
       tags:
-        - News
+        - Admin > News
       summary: get all news
       parameters:
         - name: Accept
@@ -281,7 +258,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - News
+        - Admin > News
       summary: create news
       requestBody:
         content:
@@ -315,10 +292,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/news/{slug}:
+  /admin/news/{slug}:
     post:
       tags:
-        - News
+        - Admin > News
       summary: update news
       requestBody:
         content:
@@ -362,7 +339,7 @@ paths:
             application/json: {}
     get:
       tags:
-        - News
+        - Admin > News
       summary: find by id
       parameters:
         - name: Accept
@@ -382,7 +359,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - News
+        - Admin > News
       summary: delete
       parameters:
         - name: Accept
@@ -400,10 +377,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/news/{slug}/status:
+  /admin/news/{slug}/status:
     post:
       tags:
-        - News
+        - Admin > News
       summary: update news status
       requestBody:
         content:
@@ -434,10 +411,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/ncc:
+  /admin/ncc:
     get:
       tags:
-        - Ncc
+        - Admin > Ncc
       summary: get all ncc
       parameters:
         - name: Accept
@@ -452,7 +429,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Ncc
+        - Admin > Ncc
       summary: create ncc
       requestBody:
         content:
@@ -479,10 +456,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/ncc/{slug}:
+  /admin/ncc/{slug}:
     post:
       tags:
-        - Ncc
+        - Admin > Ncc
       summary: update ncc
       requestBody:
         content:
@@ -521,7 +498,7 @@ paths:
             application/json: {}
     get:
       tags:
-        - Ncc
+        - Admin > Ncc
       summary: find by id
       parameters:
         - name: Accept
@@ -542,7 +519,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Ncc
+        - Admin > Ncc
       summary: delete
       parameters:
         - name: Accept
@@ -561,10 +538,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/advices:
+  /admin/advices:
     get:
       tags:
-        - Advice
+        - Admin > Advice
       summary: get all advice
       parameters:
         - name: Accept
@@ -579,7 +556,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Advice
+        - Admin > Advice
       summary: create advice
       requestBody:
         content:
@@ -616,10 +593,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/advices/{advice_id}:
+  /admin/advices/{advice_id}:
     get:
       tags:
-        - Advice
+        - Admin > Advice
       summary: find by id
       parameters:
         - name: Accept
@@ -640,7 +617,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Advice
+        - Admin > Advice
       summary: delete
       parameters:
         - name: Accept
@@ -659,10 +636,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/questions:
+  /admin/questions:
     get:
       tags:
-        - Question
+        - Admin > Question
       summary: get all questions
       parameters:
         - name: Accept
@@ -682,7 +659,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Question
+        - Admin > Question
       summary: create question
       requestBody:
         content:
@@ -706,10 +683,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/questions/{question_id}:
+  /admin/questions/{question_id}:
     post:
       tags:
-        - Question
+        - Admin > Question
       summary: update question
       requestBody:
         content:
@@ -743,7 +720,7 @@ paths:
             application/json: {}
     get:
       tags:
-        - Question
+        - Admin > Question
       summary: find by id
       parameters:
         - name: Accept
@@ -764,7 +741,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Question
+        - Admin > Question
       summary: delete
       parameters:
         - name: Accept
@@ -783,10 +760,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/questions/{question_id}/status:
+  /admin/questions/{question_id}/status:
     post:
       tags:
-        - Question
+        - Admin > Question
       summary: update status
       requestBody:
         content:
@@ -813,10 +790,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/banners:
+  /admin/banners:
     get:
       tags:
-        - Banner
+        - Admin > Banner
       summary: get all banners
       parameters:
         - name: Accept
@@ -841,7 +818,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Banner
+        - Admin > Banner
       summary: create banner
       requestBody:
         content:
@@ -884,10 +861,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/banners/{banner_id}:
+  /admin/banners/{banner_id}:
     post:
       tags:
-        - Banner
+        - Admin > Banner
       summary: update banner
       requestBody:
         content:
@@ -941,7 +918,7 @@ paths:
             application/json: {}
     get:
       tags:
-        - Banner
+        - Admin > Banner
       summary: find by id
       parameters:
         - name: Accept
@@ -962,7 +939,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Banner
+        - Admin > Banner
       summary: delete
       parameters:
         - name: Accept
@@ -981,10 +958,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/our-teams:
+  /admin/our-teams:
     get:
       tags:
-        - Our team
+        - Admin > Our team
       summary: get all team members
       parameters:
         - name: Accept
@@ -1004,7 +981,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Our team
+        - Admin > Our team
       summary: create team member
       requestBody:
         content:
@@ -1027,10 +1004,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/our-teams/{our_team_id}:
+  /admin/our-teams/{our_team_id}:
     post:
       tags:
-        - Our team
+        - Admin > Our team
       summary: update team member
       requestBody:
         content:
@@ -1062,7 +1039,7 @@ paths:
             application/json: {}
     get:
       tags:
-        - Our team
+        - Admin > Our team
       summary: find by id
       parameters:
         - name: Accept
@@ -1083,7 +1060,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Our team
+        - Admin > Our team
       summary: delete
       parameters:
         - name: Accept
@@ -1102,10 +1079,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/ncc-candidates:
+  /admin/ncc-candidates:
     get:
       tags:
-        - Ncc Candidate
+        - Admin > Ncc Candidate
       summary: get all ncc candidates
       parameters:
         - name: Accept
@@ -1125,7 +1102,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Ncc Candidate
+        - Admin > Ncc Candidate
       summary: create ncc candidate
       requestBody:
         content:
@@ -1148,10 +1125,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/ncc-candidates/{ncc_candidate_id}:
+  /admin/ncc-candidates/{ncc_candidate_id}:
     post:
       tags:
-        - Ncc Candidate
+        - Admin > Ncc Candidate
       summary: update ncc candidate
       requestBody:
         content:
@@ -1183,7 +1160,7 @@ paths:
             application/json: {}
     get:
       tags:
-        - Ncc Candidate
+        - Admin > Ncc Candidate
       summary: find by id
       parameters:
         - name: Accept
@@ -1204,7 +1181,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Ncc Candidate
+        - Admin > Ncc Candidate
       summary: delete
       parameters:
         - name: Accept
@@ -1222,10 +1199,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/events:
+  /admin/events:
     get:
       tags:
-        - Events
+        - Admin > Events
       summary: get all events
       responses:
         '200':
@@ -1234,7 +1211,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Events
+        - Admin > Events
       summary: create event
       requestBody:
         content:
@@ -1286,10 +1263,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/events/{slug}:
+  /admin/events/{slug}:
     post:
       tags:
-        - Events
+        - Admin > Events
       summary: update event
       requestBody:
         content:
@@ -1344,6 +1321,7 @@ paths:
           schema:
             type: string
           required: true
+          example: event-1
       responses:
         '200':
           description: Successful response
@@ -1351,7 +1329,7 @@ paths:
             application/json: {}
     get:
       tags:
-        - Events
+        - Admin > Events
       summary: find by id
       parameters:
         - name: Accept
@@ -1372,7 +1350,7 @@ paths:
             application/json: {}
     delete:
       tags:
-        - Events
+        - Admin > Events
       summary: delete
       parameters:
         - name: Accept
@@ -1385,15 +1363,16 @@ paths:
           schema:
             type: string
           required: true
+          example: event-1
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/events/{slug}/status:
+  /admin/events/{slug}/status:
     post:
       tags:
-        - Events
+        - Admin > Events
       summary: update event status
       requestBody:
         content:
@@ -1424,10 +1403,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/site-settings:
+  /admin/site-settings:
     get:
       tags:
-        - Site Settings
+        - Admin > Site Settings
       summary: get all site settings
       parameters:
         - name: settingable_type
@@ -1447,7 +1426,7 @@ paths:
             application/json: {}
     post:
       tags:
-        - Site Settings
+        - Admin > Site Settings
       summary: store site settings
       requestBody:
         content:
@@ -1490,8 +1469,6 @@ paths:
                 settingable_id:
                   type: integer
                   example: '2'
-      security:
-        - noauthAuth: []
       parameters:
         - name: Accept
           in: header
@@ -1503,10 +1480,64 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/surveys/result-by-question:
+    get:
+      tags:
+        - Admin > Survey
+      summary: survey result by questions
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/surveys/result-user-list:
+    get:
+      tags:
+        - Admin > Survey
+      summary: survey user list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/surveys/{user_id}/result-detail:
+    get:
+      tags:
+        - Admin > Survey
+      summary: survey answer detail of user
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '21'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
-        - Auth
+        - Public > Auth
       summary: login
       requestBody:
         content:
@@ -1534,7 +1565,7 @@ paths:
   /api/forgot-password:
     post:
       tags:
-        - Auth
+        - Public > Auth
       summary: send forgot password mail
       requestBody:
         content:
@@ -1559,7 +1590,7 @@ paths:
   /api/reset-password:
     post:
       tags:
-        - Auth
+        - Public > Auth
       summary: reset password
       requestBody:
         content:
@@ -1590,7 +1621,7 @@ paths:
   /api/verify-mail:
     post:
       tags:
-        - Auth
+        - Public > Auth
       summary: verify mail
       requestBody:
         content:
@@ -1618,10 +1649,20 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/countries:
+    get:
+      tags:
+        - Public > Countries
+      summary: get all country list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/surveys/answer:
     post:
       tags:
-        - Survey
+        - Public > Surveys
       summary: save answers
       requestBody:
         content:
@@ -1650,64 +1691,10 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/surveys/result-by-question:
-    get:
-      tags:
-        - Survey
-      summary: survey result by questions
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/surveys/result-user-list:
-    get:
-      tags:
-        - Survey
-      summary: survey user list
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/surveys/{user_id}/result-detail:
-    get:
-      tags:
-        - Survey
-      summary: survey answer detail of user
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: user_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '21'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /api/surveys/has-already-taken:
     post:
       tags:
-        - Survey
+        - Public > Surveys
       summary: check if user has already taken survey
       requestBody:
         content:
@@ -1727,11 +1714,57 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/countries:
-    get:
+  /api/users:
+    post:
       tags:
-        - Countries
-      summary: get all country list
+        - Public > Member
+      summary: create new user public
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: leon.schiffer360@gmail.com
+                name: Bishal Gurung
+                password: password
+                password_confirmation: password
+                country_of_residence: Nepal
+                phone: '1234'
+                city: KTM
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/contact-us:
+    post:
+      tags:
+        - Public > Contact Us
+      summary: store
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: name
+                email: email
+                phone: phone
+                subject: subject
+                message: message
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
