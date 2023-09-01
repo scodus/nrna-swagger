@@ -538,6 +538,36 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/ncc/{slug}/status:
+    post:
+      tags:
+        - Admin > Ncc
+      summary: update status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                status: false
+                _method: PATCH
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: indias
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/advices:
     get:
       tags:
@@ -885,8 +915,8 @@ paths:
                   type: string
                   example: https://google.com edited
                 status:
-                  type: string
-                  example: inactive
+                  type: integer
+                  example: '0'
                 bannerable_type:
                   type: string
                   example: ncc
@@ -910,7 +940,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -953,6 +983,40 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/banners/{banner_id}/status:
+    post:
+      tags:
+        - Admin > Banner
+      summary: update status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  example: '0'
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: banner_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1079,6 +1143,40 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/our-teams/{our_team_id}/status:
+    post:
+      tags:
+        - Admin > Our team
+      summary: update status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  example: '1'
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: our_team_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/ncc-candidates:
     get:
       tags:
@@ -1194,6 +1292,40 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/ncc-candidates/{ncc_candidate_id}/status:
+    post:
+      tags:
+        - Admin > Ncc Candidate
+      summary: update status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  example: '0'
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_candidate_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response

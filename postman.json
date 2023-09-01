@@ -647,12 +647,14 @@
 										{
 											"key": "admin_id",
 											"value": "20",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "logo",
 											"type": "file",
-											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg",
+											"disabled": true
 										},
 										{
 											"key": "_method",
@@ -737,6 +739,47 @@
 										{
 											"key": "slug",
 											"value": "nepal"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": false,\n    \"_method\": \"PATCH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/ncc/:slug/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc",
+										":slug",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "indias"
 										}
 									]
 								}
@@ -1248,7 +1291,7 @@
 										},
 										{
 											"key": "status",
-											"value": "inactive",
+											"value": "0",
 											"type": "text"
 										},
 										{
@@ -1286,7 +1329,7 @@
 									"variable": [
 										{
 											"key": "banner_id",
-											"value": "2"
+											"value": "1"
 										}
 									]
 								}
@@ -1349,6 +1392,53 @@
 										{
 											"key": "banner_id",
 											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/banners/:banner_id/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"banners",
+										":banner_id",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "banner_id",
+											"value": "1"
 										}
 									]
 								}
@@ -1524,6 +1614,53 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/our-teams/:our_team_id/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"our-teams",
+										":our_team_id",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "our_team_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1689,6 +1826,53 @@
 										{
 											"key": "ncc_candidate_id",
 											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/ncc-candidates/:ncc_candidate_id/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"ncc-candidates",
+										":ncc_candidate_id",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "ncc_candidate_id",
+											"value": "1"
 										}
 									]
 								}
