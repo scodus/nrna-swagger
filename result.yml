@@ -42,6 +42,10 @@ tags:
   - name: Public > Surveys
   - name: Public > Member
   - name: Public > Contact Us
+  - name: Public > Site Settings
+  - name: Public > Banners
+  - name: Public > News
+  - name: Public > Events
 paths:
   /admin/contact-us:
     get:
@@ -1682,7 +1686,7 @@ paths:
                   example: superadmin@gmail.com
                 password:
                   type: string
-                  example: pass
+                  example: password
       parameters:
         - name: Accept
           in: header
@@ -1897,6 +1901,129 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/site-settings:
+    get:
+      tags:
+        - Public > Site Settings
+      summary: get all site settings
+      parameters:
+        - name: settingable_type
+          in: query
+          schema:
+            type: string
+          example: user
+        - name: settingable_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/banners:
+    get:
+      tags:
+        - Public > Banners
+      summary: get all banners
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: bannerable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: bannerable_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/news:
+    get:
+      tags:
+        - Public > News
+      summary: get all news
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/news/{slug}:
+    get:
+      tags:
+        - Public > News
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: news-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/events:
+    get:
+      tags:
+        - Public > Events
+      summary: get all news
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/events/{slug}:
+    get:
+      tags:
+        - Public > Events
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: event-1-3
       responses:
         '200':
           description: Successful response

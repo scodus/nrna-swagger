@@ -2862,6 +2862,126 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "News",
+					"item": [
+						{
+							"name": "get all news",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/news",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"news"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/news/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"news",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "news-1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Events",
+					"item": [
+						{
+							"name": "get all news",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/events",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/events/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"events",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "event-1-3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}
