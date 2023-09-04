@@ -2477,7 +2477,7 @@
 										},
 										{
 											"key": "password",
-											"value": "pass",
+											"value": "password",
 											"type": "text"
 										}
 									]
@@ -2784,6 +2784,78 @@
 									"path": [
 										"api",
 										"contact-us"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Site Settings",
+					"item": [
+						{
+							"name": "get all site settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/site-settings?settingable_type=user&settingable_id=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"site-settings"
+									],
+									"query": [
+										{
+											"key": "settingable_type",
+											"value": "user"
+										},
+										{
+											"key": "settingable_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Banners",
+					"item": [
+						{
+							"name": "get all banners",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/banners?bannerable_type=ncc&bannerable_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"banners"
+									],
+									"query": [
+										{
+											"key": "bannerable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "bannerable_id",
+											"value": "1"
+										}
 									]
 								}
 							},
