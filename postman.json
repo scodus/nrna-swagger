@@ -1970,6 +1970,11 @@
 											"key": "feature_image",
 											"type": "file",
 											"src": "/home/bishal/Downloads/memes/363835474_806643757954712_6396013285618138151_n.jpg"
+										},
+										{
+											"key": "youtube_url",
+											"value": "awldjwakl",
+											"type": "text"
 										}
 									]
 								},
@@ -2059,6 +2064,11 @@
 											"key": "feature_image",
 											"type": "file",
 											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+										},
+										{
+											"key": "youtube_url",
+											"value": "aaaaa",
+											"type": "text"
 										}
 									]
 								},
@@ -2075,7 +2085,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "event-1"
+											"value": "event-1-5"
 										}
 									]
 								}
