@@ -46,6 +46,9 @@ tags:
   - name: Public > Banners
   - name: Public > News
   - name: Public > Events
+  - name: Public > Our team
+  - name: Public > Ncc Candidate
+  - name: Public > Ncc
 paths:
   /admin/contact-us:
     get:
@@ -60,6 +63,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -83,7 +91,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -120,8 +128,8 @@ paths:
             schema:
               type: object
               example:
-                email: asd4@gmail.com
-                name: ASD dfg
+                email: yogen@gmail.com
+                name: Yogen Chettri
                 country_of_residence: Nepal
                 phone: '1234'
                 city: KTM
@@ -148,11 +156,11 @@ paths:
             schema:
               type: object
               example:
-                email: asd4@gmail.com
-                name: ASD dfg
+                email: yogen@gmail.com
+                name: yogen chettri
                 country_of_residence: Nepal
-                phone: '123'
-                city: KTM
+                phone: '1234'
+                city: KTMss
                 approval_status: approved
                 password: abcdef
                 password_confirmation: abcdef
@@ -168,7 +176,7 @@ paths:
           schema:
             type: string
           required: true
-          example: asd-dfg-3
+          example: yogen-chettri
       responses:
         '200':
           description: Successful response
@@ -255,6 +263,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -426,6 +438,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -583,6 +600,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -686,6 +708,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -845,6 +872,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -1042,6 +1074,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1197,6 +1234,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1340,6 +1382,11 @@ paths:
       tags:
         - Admin > Events
       summary: get all events
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1388,6 +1435,9 @@ paths:
                 feature_image:
                   type: string
                   format: binary
+                youtube_url:
+                  type: string
+                  example: awldjwakl
       parameters:
         - name: Accept
           in: header
@@ -1446,6 +1496,9 @@ paths:
                 feature_image:
                   type: string
                   format: binary
+                youtube_url:
+                  type: string
+                  example: aaaaa
       parameters:
         - name: Accept
           in: header
@@ -1457,7 +1510,7 @@ paths:
           schema:
             type: string
           required: true
-          example: event-1
+          example: event-1-5
       responses:
         '200':
           description: Successful response
@@ -1627,6 +1680,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -2024,6 +2082,130 @@ paths:
             type: string
           required: true
           example: event-1-3
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/our-teams:
+    get:
+      tags:
+        - Public > Our team
+      summary: get all team members
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/our-teams/{our_team_id}:
+    get:
+      tags:
+        - Public > Our team
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: our_team_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ncc-candidates:
+    get:
+      tags:
+        - Public > Ncc Candidate
+      summary: get all ncc candidates
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ncc-candidates/{ncc_candidate_id}:
+    get:
+      tags:
+        - Public > Ncc Candidate
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_candidate_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ncc:
+    get:
+      tags:
+        - Public > Ncc
+      summary: get all ncc
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/ncc/{slug}:
+    get:
+      tags:
+        - Public > Ncc
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: indias
       responses:
         '200':
           description: Successful response

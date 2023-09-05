@@ -35,13 +35,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/contact-us",
+									"raw": "{{url}}/admin/contact-us?pagination_limit=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"contact-us"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -81,7 +87,7 @@
 									"variable": [
 										{
 											"key": "contact_us_id",
-											"value": "1"
+											"value": "2"
 										}
 									]
 								}
@@ -136,7 +142,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"asd4@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
+									"raw": "{\n    \"email\": \"yogen@gmail.com\",\n    \"name\": \"Yogen Chettri\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -170,7 +176,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"asd4@gmail.com\",\n    \"name\": \"ASD dfg\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"123\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\",   // nullable\n    \"password\": \"abcdef\",  //nullable\n    \"password_confirmation\": \"abcdef\",\n    \"_method\": \"PUT\"\n}",
+									"raw": "{\n    \"email\": \"yogen@gmail.com\",\n    \"name\": \"yogen chettri\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTMss\",      // nullable\n    \"approval_status\": \"approved\",   // nullable\n    \"password\": \"abcdef\",  //nullable\n    \"password_confirmation\": \"abcdef\",\n    \"_method\": \"PUT\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -191,7 +197,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "asd-dfg-3"
+											"value": "yogen-chettri"
 										}
 									]
 								}
@@ -311,13 +317,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/news",
+									"raw": "{{url}}/admin/news?pagination_limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"news"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -569,13 +581,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/ncc",
+									"raw": "{{url}}/admin/ncc?pagination_limit=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"ncc"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -803,13 +821,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/advices",
+									"raw": "{{url}}/admin/advices?pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"advices"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
 									]
 								}
 							},
@@ -953,7 +977,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/questions?status=1",
+									"raw": "{{url}}/admin/questions?status=1&pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
@@ -965,6 +989,10 @@
 										{
 											"key": "status",
 											"value": "1"
+										},
+										{
+											"key": "pagination_limit",
+											"value": "2"
 										}
 									]
 								}
@@ -1164,7 +1192,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/banners?bannerable_type=ncc&bannerable_id=1",
+									"raw": "{{url}}/admin/banners?bannerable_type=ncc&bannerable_id=1&pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
@@ -1180,6 +1208,10 @@
 										{
 											"key": "bannerable_id",
 											"value": "1"
+										},
+										{
+											"key": "pagination_limit",
+											"value": "2"
 										}
 									]
 								}
@@ -1462,7 +1494,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/our-teams?ncc_id=1",
+									"raw": "{{url}}/admin/our-teams?ncc_id=1&pagination_limit=1",
 									"host": [
 										"{{url}}"
 									],
@@ -1473,6 +1505,10 @@
 									"query": [
 										{
 											"key": "ncc_id",
+											"value": "1"
+										},
+										{
+											"key": "pagination_limit",
 											"value": "1"
 										}
 									]
@@ -1679,7 +1715,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/ncc-candidates?ncc_id=1",
+									"raw": "{{url}}/admin/ncc-candidates?ncc_id=1&pagination_limit=1",
 									"host": [
 										"{{url}}"
 									],
@@ -1690,6 +1726,10 @@
 									"query": [
 										{
 											"key": "ncc_id",
+											"value": "1"
+										},
+										{
+											"key": "pagination_limit",
 											"value": "1"
 										}
 									]
@@ -1890,13 +1930,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/events",
+									"raw": "{{url}}/admin/events?pagination_limit=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"events"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -2356,7 +2402,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/surveys/result-by-question",
+									"raw": "{{url}}/admin/surveys/result-by-question?pagination_limit=1",
 									"host": [
 										"{{url}}"
 									],
@@ -2364,6 +2410,12 @@
 										"admin",
 										"surveys",
 										"result-by-question"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -2985,6 +3037,198 @@
 										{
 											"key": "slug",
 											"value": "event-1-3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Our team",
+					"item": [
+						{
+							"name": "get all team members",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/our-teams?ncc_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"our-teams"
+									],
+									"query": [
+										{
+											"key": "ncc_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/our-teams/:our_team_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"our-teams",
+										":our_team_id"
+									],
+									"variable": [
+										{
+											"key": "our_team_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ncc Candidate",
+					"item": [
+						{
+							"name": "get all ncc candidates",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/ncc-candidates?ncc_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ncc-candidates"
+									],
+									"query": [
+										{
+											"key": "ncc_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/ncc-candidates/:ncc_candidate_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ncc-candidates",
+										":ncc_candidate_id"
+									],
+									"variable": [
+										{
+											"key": "ncc_candidate_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ncc",
+					"item": [
+						{
+							"name": "get all ncc",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/ncc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ncc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/ncc/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ncc",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "indias"
 										}
 									]
 								}
