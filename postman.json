@@ -111,7 +111,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/users?deleted_users=",
+									"raw": "{{url}}/admin/users?deleted_users=&pagination_limit=10&page=",
 									"host": [
 										"{{url}}"
 									],
@@ -122,6 +122,14 @@
 									"query": [
 										{
 											"key": "deleted_users",
+											"value": ""
+										},
+										{
+											"key": "pagination_limit",
+											"value": "10"
+										},
+										{
+											"key": "page",
 											"value": ""
 										}
 									]
@@ -246,6 +254,54 @@
 										{
 											"key": "slug",
 											"value": "asd-dfg-2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change approval status Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "role_name",
+											"value": "member",
+											"description": "value: [null, admin, ncc, member]",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/users/:slug/role",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										":slug",
+										"role"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "asd-dfg"
 										}
 									]
 								}
@@ -471,7 +527,7 @@
 									"formdata": [
 										{
 											"key": "status",
-											"value": "active",
+											"value": "0",
 											"type": "text"
 										},
 										{
@@ -776,7 +832,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"status\": false,\n    \"_method\": \"PATCH\"\n}",
+									"raw": "{\n    \"status\": 1,\n    \"_method\": \"PATCH\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2539,7 +2595,7 @@
 										},
 										{
 											"key": "password",
-											"value": "password",
+											"value": "pass",
 											"type": "text"
 										}
 									]

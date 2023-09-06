@@ -112,6 +112,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: page
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -212,6 +221,41 @@ paths:
             type: string
           required: true
           example: asd-dfg-2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users/{slug}/role:
+    post:
+      tags:
+        - Admin > Users
+      summary: change approval status Copy
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                role_name:
+                  type: string
+                  description: 'value: [null, admin, ncc, member]'
+                  example: member
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: asd-dfg
       responses:
         '200':
           description: Successful response
@@ -405,8 +449,8 @@ paths:
               type: object
               properties:
                 status:
-                  type: string
-                  example: active
+                  type: integer
+                  example: '0'
                 _method:
                   type: string
                   example: patch
@@ -570,7 +614,7 @@ paths:
             schema:
               type: object
               example:
-                status: false
+                status: 1
                 _method: PATCH
       parameters:
         - name: Accept
@@ -1744,7 +1788,7 @@ paths:
                   example: superadmin@gmail.com
                 password:
                   type: string
-                  example: password
+                  example: pass
       parameters:
         - name: Accept
           in: header
