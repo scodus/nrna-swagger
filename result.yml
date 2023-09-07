@@ -16,7 +16,8 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: http://{{url}}
+  - url: https://api.nrnaglobal.com/
+    description: server
 components:
   securitySchemes:
     bearerAuth:

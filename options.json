@@ -17,16 +17,13 @@
             "url": "https://github.com/joolfe/logoBanner.png",
             "backgroundColor": "#FFFFFF",
             "altText": "logo"
-        },
-        "servers": [
-            {
-                "url": "https://nrnaglobal.com/",
-                "description": "server"
-            },
-            {
-                "url": "https://nrnaglobal.com/",
-                "description": "server"
-            }
-        ]
-    }
+        }
+        
+    },
+    "servers": [
+        {
+            "url": "https://api.nrnaglobal.com/",
+            "description": "server"
+        }
+    ]
 }
