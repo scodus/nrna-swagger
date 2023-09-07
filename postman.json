@@ -465,7 +465,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/news?pagination_limit=",
+									"raw": "{{url}}/admin/news?pagination_limit=&newsable_type=ncc&newsable_id=2",
 									"host": [
 										"{{url}}"
 									],
@@ -477,6 +477,14 @@
 										{
 											"key": "pagination_limit",
 											"value": ""
+										},
+										{
+											"key": "newsable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "newsable_id",
+											"value": "2"
 										}
 									]
 								}
@@ -509,7 +517,7 @@
 										},
 										{
 											"key": "status",
-											"value": "inactive",
+											"value": "1",
 											"type": "text"
 										},
 										{
@@ -519,6 +527,16 @@
 										},
 										{
 											"key": "created_by",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "newsable_type",
+											"value": "ncc",
+											"type": "text"
+										},
+										{
+											"key": "newsable_id",
 											"value": "1",
 											"type": "text"
 										}
@@ -2078,7 +2096,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/events?pagination_limit=",
+									"raw": "{{url}}/admin/events?pagination_limit=&ncc_id=3",
 									"host": [
 										"{{url}}"
 									],
@@ -2090,6 +2108,10 @@
 										{
 											"key": "pagination_limit",
 											"value": ""
+										},
+										{
+											"key": "ncc_id",
+											"value": "3"
 										}
 									]
 								}
@@ -2122,7 +2144,7 @@
 										},
 										{
 											"key": "status",
-											"value": "inactive",
+											"value": "1",
 											"type": "text"
 										},
 										{
@@ -2168,6 +2190,11 @@
 										{
 											"key": "youtube_url",
 											"value": "awldjwakl",
+											"type": "text"
+										},
+										{
+											"key": "ncc_id",
+											"value": "3",
 											"type": "text"
 										}
 									]
@@ -3223,13 +3250,23 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news",
+									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"news"
+									],
+									"query": [
+										{
+											"key": "newsable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "newsable_id",
+											"value": "1"
+										}
 									]
 								}
 							},

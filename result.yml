@@ -375,6 +375,16 @@ paths:
           in: query
           schema:
             type: string
+        - name: newsable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: newsable_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -397,12 +407,18 @@ paths:
                   type: string
                   example: aldjawlkdj
                 status:
-                  type: string
-                  example: inactive
+                  type: integer
+                  example: '1'
                 feature_image:
                   type: string
                   format: binary
                 created_by:
+                  type: integer
+                  example: '1'
+                newsable_type:
+                  type: string
+                  example: ncc
+                newsable_id:
                   type: integer
                   example: '1'
       parameters:
@@ -1495,6 +1511,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '3'
       responses:
         '200':
           description: Successful response
@@ -1517,8 +1538,8 @@ paths:
                   type: string
                   example: aldjawlkdj
                 status:
-                  type: string
-                  example: inactive
+                  type: integer
+                  example: '1'
                 event_date:
                   type: string
                   example: '2023-05-06'
@@ -1546,6 +1567,9 @@ paths:
                 youtube_url:
                   type: string
                   example: awldjwakl
+                ncc_id:
+                  type: integer
+                  example: '3'
       parameters:
         - name: Accept
           in: header
@@ -2211,6 +2235,16 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: newsable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: newsable_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
