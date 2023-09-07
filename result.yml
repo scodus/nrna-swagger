@@ -36,6 +36,7 @@ tags:
   - name: Admin > Events
   - name: Admin > Site Settings
   - name: Admin > Survey
+  - name: Admin > Business Category
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -291,6 +292,68 @@ paths:
             type: string
           required: true
           example: yogen-bahadur-chettri
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/users/{slug}/profile:
+    post:
+      tags:
+        - Admin > Users
+      summary: update profile
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Yogen
+                address:
+                  type: string
+                  example: bhw
+                phone:
+                  type: integer
+                  example: '1234'
+                facebook_url:
+                  type: string
+                  example: facebooks
+                instagram_url:
+                  type: string
+                  example: insta
+                youtube_url:
+                  type: string
+                  example: youtubes
+                twitter_url:
+                  type: string
+                  example: |
+                    twitters
+                description:
+                  type: string
+                  example: description
+                profile_image:
+                  type: string
+                  format: binary
+                profile_banner:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: yogen
       responses:
         '200':
           description: Successful response
@@ -1767,6 +1830,87 @@ paths:
             type: integer
           required: true
           example: '21'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-category:
+    get:
+      tags:
+        - Admin > Business Category
+      summary: get all category
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Business Category
+      summary: store business category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Hancie Phago
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-category/2:
+    get:
+      tags:
+        - Admin > Business Category
+      summary: get single business category
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Business Category
+      summary: delete business category
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-category/4:
+    post:
+      tags:
+        - Admin > Business Category
+      summary: update business category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Hancie wanem Phago
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response

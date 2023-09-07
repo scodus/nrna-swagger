@@ -355,6 +355,98 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "update profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Yogen",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "bhw",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "facebook_url",
+											"value": "facebooks",
+											"type": "text"
+										},
+										{
+											"key": "instagram_url",
+											"value": "insta",
+											"type": "text"
+										},
+										{
+											"key": "youtube_url",
+											"value": "youtubes",
+											"type": "text"
+										},
+										{
+											"key": "twitter_url",
+											"value": "twitters\n",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description",
+											"type": "text"
+										},
+										{
+											"key": "profile_image",
+											"type": "file",
+											"src": "/home/bishal/Downloads/design images/passport-size-photo.jpg"
+										},
+										{
+											"key": "profile_banner",
+											"type": "file",
+											"src": "/home/bishal/Downloads/design images/365192027_1672335013278381_3254745182289178276_n.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/users/:slug/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										":slug",
+										"profile"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "yogen"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -2529,6 +2621,141 @@
 											"key": "user_id",
 											"value": "21"
 										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Business Category",
+					"item": [
+						{
+							"name": "get all category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/business-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single business category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/business-category/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store business category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Hancie Phago",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/business-category",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete business category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/business-category/2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update business category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Hancie wanem Phago",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/business-category/4",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-category",
+										"4"
 									]
 								}
 							},
