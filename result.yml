@@ -39,6 +39,7 @@ tags:
   - name: Admin > Site Settings
   - name: Admin > Survey
   - name: Admin > Business Category
+  - name: Admin > Business
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -52,7 +53,7 @@ tags:
   - name: Public > Our team
   - name: Public > Ncc Candidate
   - name: Public > Ncc
-  - name: Business
+  - name: Public > Business
 paths:
   /admin/contact-us:
     get:
@@ -322,7 +323,7 @@ paths:
               properties:
                 name:
                   type: string
-                  example: Yogen
+                  example: yogen
                 address:
                   type: string
                   example: bhw
@@ -331,13 +332,13 @@ paths:
                   example: '1234'
                 facebook_url:
                   type: string
-                  example: facebooks
+                  example: facebookss
                 instagram_url:
                   type: string
                   example: insta
                 youtube_url:
                   type: string
-                  example: youtubes
+                  example: youtubessss
                 twitter_url:
                   type: string
                   example: |
@@ -1347,7 +1348,7 @@ paths:
               type: object
               example:
                 ncc_id: null
-                member_id: 21
+                member_id: 22
                 designation: Supervisor
                 order: 1
       parameters:
@@ -1988,44 +1989,23 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business-category:
+  /admin/business-categories/:
     get:
       tags:
         - Admin > Business Category
       summary: get all category
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    post:
-      tags:
-        - Admin > Business Category
-      summary: store business category
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                  example: Hancie Phago
-                image:
-                  type: string
-                  format: binary
       parameters:
-        - name: Accept
-          in: header
+        - name: status
+          in: query
           schema:
-            type: string
-          example: application/json
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/business-category/{slug}:
+  /admin/business-categories/{slug}:
     get:
       tags:
         - Admin > Business Category
@@ -2056,7 +2036,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business-category/4:
     post:
       tags:
         - Admin > Business Category
@@ -2070,6 +2049,9 @@ paths:
                 title:
                   type: string
                   example: Hancie wanem Phago
+                category_image:
+                  type: string
+                  format: binary
                 _method:
                   type: string
                   example: put
@@ -2079,6 +2061,235 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business-categories:
+    post:
+      tags:
+        - Admin > Business Category
+      summary: store business category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Hancie Phago
+                category_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/businesses:
+    post:
+      tags:
+        - Admin > Business
+      summary: store business data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fullname:
+                  type: string
+                  example: vcv
+                email:
+                  type: string
+                  example: bvbv557@gmail.com
+                phone:
+                  type: integer
+                  example: '98345445'
+                address:
+                  type: string
+                  example: vbv
+                google_map_link:
+                  type: string
+                  example: vbbvb
+                instagram_url:
+                  type: string
+                  example: vbvb
+                facebook_url:
+                  type: string
+                  example: vbbv
+                twitter_url:
+                  type: string
+                  example: bvbv
+                description:
+                  type: string
+                  example: vbvb
+                business_category_id:
+                  type: integer
+                  example: '1'
+                profile_image:
+                  type: string
+                  format: binary
+                banner_image:
+                  type: string
+                  format: binary
+                user_id:
+                  type: integer
+                  example: '1'
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/businesses/:
+    get:
+      tags:
+        - Admin > Business
+      summary: show all business data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/businesses/{slug}:
+    get:
+      tags:
+        - Admin > Business
+      summary: get single business data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business/{slug}:
+    delete:
+      tags:
+        - Admin > Business
+      summary: delete business record
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Business
+      summary: update business data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fullname:
+                  type: string
+                  example: Hancie Phago
+                email:
+                  type: string
+                  example: hancie@gmail.com
+                phone:
+                  type: integer
+                  example: '9825915122'
+                address:
+                  type: string
+                  example: Shankamul
+                google_map_link:
+                  type: string
+                  example: vbbvb
+                instagram_url:
+                  type: string
+                  example: vbvb
+                facebook_url:
+                  type: string
+                  example: vbbv
+                twitter_url:
+                  type: string
+                  example: bvbv
+                description:
+                  type: string
+                  example: vbvb
+                business_category_id:
+                  type: integer
+                  example: '1'
+                profile_image:
+                  type: string
+                  format: binary
+                banner_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -2100,7 +2311,7 @@ paths:
                   example: superadmin@gmail.com
                 password:
                   type: string
-                  example: pass
+                  example: password
       parameters:
         - name: Accept
           in: header
@@ -2579,155 +2790,38 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business:
-    post:
+  /api/businesses/:
+    get:
       tags:
-        - Business
-      summary: store business data
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                fullname:
-                  type: string
-                  example: vcv
-                email:
-                  type: string
-                  example: bvbv@gmail.com
-                phone:
-                  type: integer
-                  example: '98345445'
-                address:
-                  type: string
-                  example: vbv
-                google_map_link:
-                  type: string
-                  example: vbbvb
-                instagram_url:
-                  type: string
-                  example: vbvb
-                facebook_url:
-                  type: string
-                  example: vbbv
-                twitter_url:
-                  type: string
-                  example: bvbv
-                description:
-                  type: string
-                  example: vbvb
-                business_category_id:
-                  type: integer
-                  example: '1'
-                profile_image:
-                  type: string
-                  format: binary
-                banner_image:
-                  type: string
-                  format: binary
+        - Public > Business
+      summary: get all business data
       parameters:
-        - name: Accept
-          in: header
+        - name: status
+          in: query
           schema:
-            type: string
-          example: application/json
+            type: integer
+          example: '1'
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+  /api/businesses/{slug}:
     get:
       tags:
-        - Business
-      summary: show all business data
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/business/2:
-    get:
-      tags:
-        - Business
+        - Public > Business
       summary: get single business data
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/business/3:
-    delete:
-      tags:
-        - Business
-      summary: delete business record
       parameters:
-        - name: Accept
-          in: header
+        - name: slug
+          in: path
           schema:
             type: string
-          example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/business/vcv:
-    post:
-      tags:
-        - Business
-      summary: update business data
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                fullname:
-                  type: string
-                  example: Hancie Phago
-                email:
-                  type: string
-                  example: hancie@gmail.com
-                phone:
-                  type: integer
-                  example: '9825915122'
-                address:
-                  type: string
-                  example: Shankamul
-                google_map_link:
-                  type: string
-                  example: vbbvb
-                instagram_url:
-                  type: string
-                  example: vbvb
-                facebook_url:
-                  type: string
-                  example: vbbv
-                twitter_url:
-                  type: string
-                  example: bvbv
-                description:
-                  type: string
-                  example: vbvb
-                business_category_id:
-                  type: integer
-                  example: '1'
-                profile_image:
-                  type: string
-                  format: binary
-                banner_image:
-                  type: string
-                  format: binary
-                _method:
-                  type: string
-                  example: put
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
+          required: true
       responses:
         '200':
           description: Successful response
