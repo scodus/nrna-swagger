@@ -33,6 +33,7 @@ tags:
   - name: Admin > Question
   - name: Admin > Banner
   - name: Admin > Our team
+  - name: Admin > Our team > Category
   - name: Admin > Ncc Candidate
   - name: Admin > Events
   - name: Admin > Site Settings
@@ -51,6 +52,7 @@ tags:
   - name: Public > Our team
   - name: Public > Ncc Candidate
   - name: Public > Ncc
+  - name: Business
 paths:
   /admin/contact-us:
     get:
@@ -66,6 +68,15 @@ paths:
             type: string
           example: application/json
         - name: pagination_limit
+          in: query
+          schema:
+            type: string
+        - name: contactable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: contactable_id
           in: query
           schema:
             type: integer
@@ -1182,6 +1193,123 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/our-team-categories:
+    post:
+      tags:
+        - Admin > Our team > Category
+      summary: create our team category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: category 1
+                ncc_id: 1
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Our team > Category
+      summary: get all our team categories
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/our-team-categories/{slug}:
+    post:
+      tags:
+        - Admin > Our team > Category
+      summary: update our team category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: category 1 edited
+                ncc_id: 1
+                _method: PUT
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: category-1-edited
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Our team > Category
+      summary: get single our team categories
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: category-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Our team > Category
+      summary: delete our team category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: category-1-edited
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/our-teams:
     get:
       tags:
@@ -1883,6 +2011,9 @@ paths:
                 title:
                   type: string
                   example: Hancie Phago
+                image:
+                  type: string
+                  format: binary
       parameters:
         - name: Accept
           in: header
@@ -1894,11 +2025,17 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business-category/2:
+  /api/business-category/{slug}:
     get:
       tags:
         - Admin > Business Category
       summary: get single business category
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -1908,6 +2045,12 @@ paths:
       tags:
         - Admin > Business Category
       summary: delete business category
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -2161,6 +2304,8 @@ paths:
             schema:
               type: object
               example:
+                contactable_type: ncc
+                contactable_id: '1'
                 name: name
                 email: email
                 phone: phone
@@ -2429,6 +2574,160 @@ paths:
             type: string
           required: true
           example: indias
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business:
+    post:
+      tags:
+        - Business
+      summary: store business data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fullname:
+                  type: string
+                  example: vcv
+                email:
+                  type: string
+                  example: bvbv@gmail.com
+                phone:
+                  type: integer
+                  example: '98345445'
+                address:
+                  type: string
+                  example: vbv
+                google_map_link:
+                  type: string
+                  example: vbbvb
+                instagram_url:
+                  type: string
+                  example: vbvb
+                facebook_url:
+                  type: string
+                  example: vbbv
+                twitter_url:
+                  type: string
+                  example: bvbv
+                description:
+                  type: string
+                  example: vbvb
+                business_category_id:
+                  type: integer
+                  example: '1'
+                profile_image:
+                  type: string
+                  format: binary
+                banner_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Business
+      summary: show all business data
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business/2:
+    get:
+      tags:
+        - Business
+      summary: get single business data
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business/3:
+    delete:
+      tags:
+        - Business
+      summary: delete business record
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business/vcv:
+    post:
+      tags:
+        - Business
+      summary: update business data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fullname:
+                  type: string
+                  example: Hancie Phago
+                email:
+                  type: string
+                  example: hancie@gmail.com
+                phone:
+                  type: integer
+                  example: '9825915122'
+                address:
+                  type: string
+                  example: Shankamul
+                google_map_link:
+                  type: string
+                  example: vbbvb
+                instagram_url:
+                  type: string
+                  example: vbvb
+                facebook_url:
+                  type: string
+                  example: vbbv
+                twitter_url:
+                  type: string
+                  example: bvbv
+                description:
+                  type: string
+                  example: vbvb
+                business_category_id:
+                  type: integer
+                  example: '1'
+                profile_image:
+                  type: string
+                  format: binary
+                banner_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response

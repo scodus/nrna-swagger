@@ -4,7 +4,7 @@
 		"name": "NRNA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19791325",
-		"_collection_link": "https://nepal-commerce.postman.co/workspace/Team-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=19791325"
+		"_collection_link": "https://nepal-commerce.postman.co/workspace/Scodus-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=19791325"
 	},
 	"item": [
 		{
@@ -35,7 +35,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/contact-us?pagination_limit=1",
+									"raw": "{{url}}/admin/contact-us?pagination_limit=&contactable_type=ncc&contactable_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -46,6 +46,14 @@
 									"query": [
 										{
 											"key": "pagination_limit",
+											"value": ""
+										},
+										{
+											"key": "contactable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "contactable_id",
 											"value": "1"
 										}
 									]
@@ -1649,6 +1657,176 @@
 					"name": "Our team",
 					"item": [
 						{
+							"name": "Category",
+							"item": [
+								{
+									"name": "create our team category",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"category 1\",\n    \"ncc_id\": 1\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/admin/our-team-categories",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"our-team-categories"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update our team category",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"title\": \"category 1 edited\",\n    \"ncc_id\": 1,\n    \"_method\": \"PUT\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/admin/our-team-categories/:slug",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"our-team-categories",
+												":slug"
+											],
+											"variable": [
+												{
+													"key": "slug",
+													"value": "category-1-edited"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get all our team categories",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/admin/our-team-categories?ncc_id=1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"our-team-categories"
+											],
+											"query": [
+												{
+													"key": "ncc_id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get single our team categories",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/admin/our-team-categories/:slug",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"our-team-categories",
+												":slug"
+											],
+											"variable": [
+												{
+													"key": "slug",
+													"value": "category-1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete our team category",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/admin/our-team-categories/:slug",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"our-team-categories",
+												":slug"
+											],
+											"variable": [
+												{
+													"key": "slug",
+													"value": "category-1-edited"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
 							"name": "get all team members",
 							"request": {
 								"method": "GET",
@@ -2682,14 +2860,20 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/business-category/2",
+									"raw": "{{url}}/api/business-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"business-category",
-										"2"
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -2713,6 +2897,11 @@
 											"key": "title",
 											"value": "Hancie Phago",
 											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/logo.png"
 										}
 									]
 								},
@@ -2735,14 +2924,20 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/business-category/2",
+									"raw": "{{url}}/api/business-category/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"business-category",
-										"2"
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -3141,7 +3336,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"name\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"subject\": \"subject\",\n    \"message\": \"message\"\n}",
+									"raw": "{\n    \"contactable_type\": \"ncc\",\n    \"contactable_id\": \"1\",\n    \"name\": \"name\",\n    \"email\": \"email\",\n    \"phone\": \"phone\",\n    \"subject\": \"subject\",\n    \"message\": \"message\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3556,6 +3751,257 @@
 							"response": []
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Business",
+			"item": [
+				{
+					"name": "store business data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fullname",
+									"value": "vcv",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "bvbv@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "98345445",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "vbv",
+									"type": "text"
+								},
+								{
+									"key": "google_map_link",
+									"value": "vbbvb",
+									"type": "text"
+								},
+								{
+									"key": "instagram_url",
+									"value": "vbvb",
+									"type": "text"
+								},
+								{
+									"key": "facebook_url",
+									"value": "vbbv",
+									"type": "text"
+								},
+								{
+									"key": "twitter_url",
+									"value": "bvbv",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "vbvb",
+									"type": "text"
+								},
+								{
+									"key": "business_category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "profile_image",
+									"type": "file",
+									"src": "/Users/hanciephago/Downloads/logo.png"
+								},
+								{
+									"key": "banner_image",
+									"type": "file",
+									"src": "/Users/hanciephago/Downloads/logo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/business",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show all business data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/business",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single business data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/business/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete business record",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/business/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update business data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fullname",
+									"value": "Hancie Phago",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "hancie@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "9825915122",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Shankamul",
+									"type": "text"
+								},
+								{
+									"key": "google_map_link",
+									"value": "vbbvb",
+									"type": "text"
+								},
+								{
+									"key": "instagram_url",
+									"value": "vbvb",
+									"type": "text"
+								},
+								{
+									"key": "facebook_url",
+									"value": "vbbv",
+									"type": "text"
+								},
+								{
+									"key": "twitter_url",
+									"value": "bvbv",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "vbvb",
+									"type": "text"
+								},
+								{
+									"key": "business_category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "profile_image",
+									"type": "file",
+									"src": "/Users/hanciephago/Downloads/Om Chaudary.jpeg"
+								},
+								{
+									"key": "banner_image",
+									"type": "file",
+									"src": "/Users/hanciephago/Downloads/Om Chaudary.jpeg"
+								},
+								{
+									"key": "_method",
+									"value": "put",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/business/vcv",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"business",
+								"vcv"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
