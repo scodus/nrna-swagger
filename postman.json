@@ -755,7 +755,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/ncc?pagination_limit=1",
+									"raw": "{{url}}/admin/ncc?pagination_limit=",
 									"host": [
 										"{{url}}"
 									],
@@ -766,7 +766,7 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "1"
+											"value": ""
 										}
 									]
 								}
@@ -3531,6 +3531,24 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get all continent list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/continents",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"continents"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -4197,6 +4215,19 @@
 										}
 									]
 								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Business Contact",
+					"item": [
+						{
+							"name": "store all contact",
+							"request": {
+								"method": "GET",
+								"header": []
 							},
 							"response": []
 						}
