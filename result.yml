@@ -375,6 +375,22 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/users/{slug}:
+    get:
+      tags:
+        - Admin > Users
+      summary: get single user
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/news:
     get:
       tags:
