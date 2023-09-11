@@ -380,17 +380,17 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": "yogen",
+											"value": "Bishwo Raj Raut",
 											"type": "text"
 										},
 										{
 											"key": "address",
-											"value": "bhw",
+											"value": "bhwss",
 											"type": "text"
 										},
 										{
 											"key": "phone",
-											"value": "1234",
+											"value": "12",
 											"type": "text"
 										},
 										{
@@ -400,7 +400,7 @@
 										},
 										{
 											"key": "instagram_url",
-											"value": "insta",
+											"value": "in",
 											"type": "text"
 										},
 										{
@@ -449,7 +449,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "yogen"
+											"value": "bishwo-raj-raut"
 										}
 									]
 								}
