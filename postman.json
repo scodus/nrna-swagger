@@ -380,7 +380,7 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": "Yogen",
+											"value": "yogen",
 											"type": "text"
 										},
 										{
@@ -395,7 +395,7 @@
 										},
 										{
 											"key": "facebook_url",
-											"value": "facebooks",
+											"value": "facebookss",
 											"type": "text"
 										},
 										{
@@ -405,7 +405,7 @@
 										},
 										{
 											"key": "youtube_url",
-											"value": "youtubes",
+											"value": "youtubessss",
 											"type": "text"
 										},
 										{
@@ -2842,13 +2842,20 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/business-category",
+									"raw": "{{url}}/admin/business-categories/?status=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
-										"business-category"
+										"admin",
+										"business-categories",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -2860,13 +2867,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/business-category/:slug",
+									"raw": "{{url}}/admin/business-categories/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
-										"business-category",
+										"admin",
+										"business-categories",
 										":slug"
 									],
 									"variable": [
@@ -2899,20 +2906,20 @@
 											"type": "text"
 										},
 										{
-											"key": "image",
+											"key": "category_image",
 											"type": "file",
 											"src": "/Users/hanciephago/Downloads/logo.png"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/business-category",
+									"raw": "{{url}}/admin/business-categories",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
-										"business-category"
+										"admin",
+										"business-categories"
 									]
 								}
 							},
@@ -2924,13 +2931,13 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/business-category/:slug",
+									"raw": "{{url}}/admin/business-categories/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
-										"business-category",
+										"admin",
+										"business-categories",
 										":slug"
 									],
 									"variable": [
@@ -2975,13 +2982,13 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/business-category/:slug",
+									"raw": "{{url}}/admin/business-categories/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
-										"business-category",
+										"admin",
+										"business-categories",
 										":slug"
 									],
 									"variable": [
@@ -3081,13 +3088,13 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/business",
+									"raw": "{{url}}/admin/businesses",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
-										"business"
+										"admin",
+										"businesses"
 									]
 								}
 							},
@@ -3105,14 +3112,24 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/business/",
+									"raw": "{{url}}/admin/businesses/?status=1&user_id=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
-										"business",
+										"admin",
+										"businesses",
 										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										},
+										{
+											"key": "user_id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -3130,13 +3147,13 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/business/:slug",
+									"raw": "{{url}}/admin/businesses/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
-										"business",
+										"admin",
+										"businesses",
 										":slug"
 									],
 									"variable": [
@@ -3161,12 +3178,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/business/:slug",
+									"raw": "{{url}}/admin/business/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
+										"admin",
 										"business",
 										":slug"
 									],
@@ -3262,12 +3279,12 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/business/:slug",
+									"raw": "{{url}}/admin/business/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"api",
+										"admin",
 										"business",
 										":slug"
 									],
@@ -3342,7 +3359,7 @@
 										},
 										{
 											"key": "password",
-											"value": "pass",
+											"value": "password",
 											"type": "text"
 										}
 									]
@@ -4042,6 +4059,65 @@
 										{
 											"key": "slug",
 											"value": "indias"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Business",
+					"item": [
+						{
+							"name": "get all business data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/businesses/?status=1&user_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"businesses",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										},
+										{
+											"key": "user_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single business data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/businesses/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"businesses",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
 										}
 									]
 								}
