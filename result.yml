@@ -51,9 +51,11 @@ tags:
   - name: Public > News
   - name: Public > Events
   - name: Public > Our team
+  - name: Public > Our team > Categories
   - name: Public > Ncc Candidate
   - name: Public > Ncc
   - name: Public > Business
+  - name: Public > Business Contact
 paths:
   /admin/contact-us:
     get:
@@ -323,11 +325,7 @@ paths:
               properties:
                 name:
                   type: string
-<<<<<<< HEAD
-                  example: yogen
-=======
                   example: Bishwo Raj Raut
->>>>>>> main
                 address:
                   type: string
                   example: bhwss
@@ -581,8 +579,7 @@ paths:
         - name: pagination_limit
           in: query
           schema:
-            type: integer
-          example: '1'
+            type: string
       responses:
         '200':
           description: Successful response
@@ -2153,11 +2150,8 @@ paths:
                 user_id:
                   type: integer
                   example: '1'
-<<<<<<< HEAD
-=======
       security:
         - bearerAuth: []
->>>>>>> main
       parameters:
         - name: Accept
           in: header
@@ -2427,6 +2421,16 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/continents:
+    get:
+      tags:
+        - Public > Countries
+      summary: get all continent list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/surveys/answer:
     post:
       tags:
@@ -2668,6 +2672,48 @@ paths:
             type: string
           required: true
           example: event-1-3
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/our-team-categories:
+    get:
+      tags:
+        - Public > Our team > Categories
+      summary: get all our team categories
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: ncc_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/our-team-categories/{slug}:
+    get:
+      tags:
+        - Public > Our team > Categories
+      summary: get single our team categories
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: category-1-2
       responses:
         '200':
           description: Successful response
