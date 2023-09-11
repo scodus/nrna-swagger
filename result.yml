@@ -53,6 +53,7 @@ tags:
   - name: Public > Our team
   - name: Public > Ncc Candidate
   - name: Public > Ncc
+  - name: Public > Business
 paths:
   /admin/contact-us:
     get:
@@ -322,22 +323,26 @@ paths:
               properties:
                 name:
                   type: string
-                  example: Yogen
+<<<<<<< HEAD
+                  example: yogen
+=======
+                  example: Bishwo Raj Raut
+>>>>>>> main
                 address:
                   type: string
-                  example: bhw
+                  example: bhwss
                 phone:
                   type: integer
-                  example: '1234'
+                  example: '12'
                 facebook_url:
                   type: string
-                  example: facebooks
+                  example: facebookss
                 instagram_url:
                   type: string
-                  example: insta
+                  example: in
                 youtube_url:
                   type: string
-                  example: youtubes
+                  example: youtubessss
                 twitter_url:
                   type: string
                   example: |
@@ -365,7 +370,7 @@ paths:
           schema:
             type: string
           required: true
-          example: yogen
+          example: bishwo-raj-raut
       responses:
         '200':
           description: Successful response
@@ -1988,44 +1993,23 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business-category:
+  /admin/business-categories/:
     get:
       tags:
         - Admin > Business Category
       summary: get all category
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    post:
-      tags:
-        - Admin > Business Category
-      summary: store business category
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                  example: Hancie Phago
-                image:
-                  type: string
-                  format: binary
       parameters:
-        - name: Accept
-          in: header
+        - name: status
+          in: query
           schema:
-            type: string
-          example: application/json
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/business-category/{slug}:
+  /admin/business-categories/{slug}:
     get:
       tags:
         - Admin > Business Category
@@ -2091,7 +2075,35 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business:
+  /admin/business-categories:
+    post:
+      tags:
+        - Admin > Business Category
+      summary: store business category
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Hancie Phago
+                category_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/businesses:
     post:
       tags:
         - Admin > Business
@@ -2141,6 +2153,11 @@ paths:
                 user_id:
                   type: integer
                   example: '1'
+<<<<<<< HEAD
+=======
+      security:
+        - bearerAuth: []
+>>>>>>> main
       parameters:
         - name: Accept
           in: header
@@ -2152,7 +2169,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business/:
+  /admin/businesses/:
     get:
       tags:
         - Admin > Business
@@ -2163,12 +2180,22 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/business/{slug}:
+  /admin/businesses/{slug}:
     get:
       tags:
         - Admin > Business
@@ -2189,6 +2216,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/business/{slug}:
     delete:
       tags:
         - Admin > Business
@@ -2290,7 +2318,7 @@ paths:
                   example: superadmin@gmail.com
                 password:
                   type: string
-                  example: pass
+                  example: password
       parameters:
         - name: Accept
           in: header
@@ -2764,6 +2792,43 @@ paths:
             type: string
           required: true
           example: indias
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/businesses/:
+    get:
+      tags:
+        - Public > Business
+      summary: get all business data
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/businesses/{slug}:
+    get:
+      tags:
+        - Public > Business
+      summary: get single business data
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
