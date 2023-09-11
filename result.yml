@@ -40,6 +40,7 @@ tags:
   - name: Admin > Survey
   - name: Admin > Business Category
   - name: Admin > Business
+  - name: Admin > Business Contact
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -2296,6 +2297,57 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/business-contact/{id}:
+    delete:
+      tags:
+        - Admin > Business Contact
+      summary: delete business contact data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Business Contact
+      summary: show single contact data
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business-contact:
+    get:
+      tags:
+        - Admin > Business Contact
+      summary: get all business contact
+      parameters:
+        - name: business_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
@@ -2875,6 +2927,43 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-contact:
+    post:
+      tags:
+        - Public > Business Contact
+      summary: store all contact
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Hancie Phago
+                email:
+                  type: string
+                  example: hancie@gmail.com
+                subject:
+                  type: string
+                  example: Problem
+                description:
+                  type: string
+                  example: Hy
+                business_id:
+                  type: integer
+                  example: '1'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response

@@ -3309,6 +3309,95 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Business Contact",
+					"item": [
+						{
+							"name": "delete business contact data",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-contact/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-contact",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show single contact data",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/business-contact/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-contact",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all business contact",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/business-contact?business_id=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-contact"
+									],
+									"query": [
+										{
+											"key": "business_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
@@ -4226,8 +4315,54 @@
 						{
 							"name": "store all contact",
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Hancie Phago",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hancie@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "subject",
+											"value": "Problem",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Hy",
+											"type": "text"
+										},
+										{
+											"key": "business_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/business-contact",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-contact"
+									]
+								}
 							},
 							"response": []
 						}
