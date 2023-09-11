@@ -323,19 +323,23 @@ paths:
               properties:
                 name:
                   type: string
+<<<<<<< HEAD
                   example: yogen
+=======
+                  example: Bishwo Raj Raut
+>>>>>>> main
                 address:
                   type: string
-                  example: bhw
+                  example: bhwss
                 phone:
                   type: integer
-                  example: '1234'
+                  example: '12'
                 facebook_url:
                   type: string
                   example: facebookss
                 instagram_url:
                   type: string
-                  example: insta
+                  example: in
                 youtube_url:
                   type: string
                   example: youtubessss
@@ -366,7 +370,7 @@ paths:
           schema:
             type: string
           required: true
-          example: yogen
+          example: bishwo-raj-raut
       responses:
         '200':
           description: Successful response
@@ -2149,6 +2153,11 @@ paths:
                 user_id:
                   type: integer
                   example: '1'
+<<<<<<< HEAD
+=======
+      security:
+        - bearerAuth: []
+>>>>>>> main
       parameters:
         - name: Accept
           in: header
