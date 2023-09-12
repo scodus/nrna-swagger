@@ -3147,7 +3147,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/businesses/?status=1&user_id=1",
+									"raw": "{{url}}/admin/businesses/?user_id=1&status=1",
 									"host": [
 										"{{url}}"
 									],
@@ -3158,11 +3158,11 @@
 									],
 									"query": [
 										{
-											"key": "status",
+											"key": "user_id",
 											"value": "1"
 										},
 										{
-											"key": "user_id",
+											"key": "status",
 											"value": "1"
 										}
 									]
@@ -3423,6 +3423,35 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Logout",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
@@ -3464,6 +3493,18 @@
 					"item": [
 						{
 							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json()",
+											"pm.environment.set(\"token\", response.data.token)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [
@@ -3483,7 +3524,7 @@
 										},
 										{
 											"key": "password",
-											"value": "password",
+											"value": "pass",
 											"type": "text"
 										}
 									]
