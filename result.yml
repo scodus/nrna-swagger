@@ -456,6 +456,9 @@ paths:
                 newsable_id:
                   type: integer
                   example: '1'
+                news_category_id:
+                  type: integer
+                  example: '1'
       parameters:
         - name: Accept
           in: header
@@ -480,7 +483,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: News 1 edited
+                  example: News 2 edited
                 description:
                   type: string
                   example: aldjawlkdj edited
@@ -490,12 +493,15 @@ paths:
                 feature_image:
                   type: string
                   format: binary
-                _method:
-                  type: string
-                  example: PUT
                 created_by:
                   type: integer
                   example: '1'
+                news_category_id:
+                  type: integer
+                  example: '1'
+                _method:
+                  type: string
+                  example: PUT
       parameters:
         - name: Accept
           in: header
@@ -1720,6 +1726,9 @@ paths:
                   example: awldjwakl
                 ncc_id:
                   type: integer
+                  example: '1'
+                event_category_id:
+                  type: integer
                   example: '3'
       parameters:
         - name: Accept
@@ -1745,7 +1754,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: Event 1
+                  example: Event 2
                 description:
                   type: string
                   example: aldjawlkdj
@@ -1782,6 +1791,9 @@ paths:
                 youtube_url:
                   type: string
                   example: aaaaa
+                event_category_id:
+                  type: integer
+                  example: '1'
       parameters:
         - name: Accept
           in: header
@@ -1793,7 +1805,6 @@ paths:
           schema:
             type: string
           required: true
-          example: event-1-5
       responses:
         '200':
           description: Successful response
