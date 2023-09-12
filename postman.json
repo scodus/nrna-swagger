@@ -3452,6 +3452,350 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "News Category",
+					"item": [
+						{
+							"name": "store news category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Nitesh Hamal",
+											"type": "text"
+										},
+										{
+											"key": "category_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/logo.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/news-categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news-categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete news category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/news-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update news category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Hancie",
+											"type": "text"
+										},
+										{
+											"key": "category_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/news-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show single news category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/news-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show all news category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/news-categories?status=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news-categories"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Event Category",
+					"item": [
+						{
+							"name": "store event category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Hancie",
+											"type": "text"
+										},
+										{
+											"key": "category_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/event-categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"event-categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete event category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/event-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"event-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update event category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Hancie",
+											"type": "text"
+										},
+										{
+											"key": "image_category",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/event-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"event-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show single event category",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/event-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"event-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show all event category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/event-categories?status=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"event-categories"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
