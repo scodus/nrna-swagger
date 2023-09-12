@@ -4433,6 +4433,29 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Homepage",
+					"item": [
+						{
+							"name": "get homepage data for app",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/homepage",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"homepage"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}

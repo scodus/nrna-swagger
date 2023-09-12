@@ -58,6 +58,7 @@ tags:
   - name: Public > Ncc
   - name: Public > Business
   - name: Public > Business Contact
+  - name: Public > Homepage
 paths:
   /admin/contact-us:
     get:
@@ -2997,6 +2998,16 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/homepage:
+    get:
+      tags:
+        - Public > Homepage
+      summary: get homepage data for app
       responses:
         '200':
           description: Successful response
