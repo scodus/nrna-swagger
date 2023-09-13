@@ -61,6 +61,7 @@ tags:
   - name: Public > Business
   - name: Public > Business Contact
   - name: Public > Homepage
+  - name: Public > Business Category
 paths:
   /admin/contact-us:
     get:
@@ -2025,9 +2026,14 @@ paths:
   /admin/business-categories/:
     get:
       tags:
-        - Admin > Business Category
-      summary: get all category
+        - Public > Business Category
+      summary: get all business category
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: status
           in: query
           schema:
@@ -2041,7 +2047,7 @@ paths:
   /admin/business-categories/{slug}:
     get:
       tags:
-        - Admin > Business Category
+        - Public > Business Category
       summary: get single business category
       parameters:
         - name: slug
@@ -2349,16 +2355,22 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/business-contact/:
     get:
       tags:
         - Admin > Business Contact
       summary: show single contact data
       parameters:
-        - name: id
-          in: path
+        - name: Accept
+          in: header
           schema:
             type: string
-          required: true
+          example: application/json
+        - name: slug
+          in: query
+          schema:
+            type: string
+          example: vcv-1
       responses:
         '200':
           description: Successful response
@@ -2370,7 +2382,7 @@ paths:
         - Admin > Business Contact
       summary: get all business contact
       parameters:
-        - name: business_id
+        - name: slug
           in: query
           schema:
             type: string

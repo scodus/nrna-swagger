@@ -3157,6 +3157,9 @@
 						},
 						{
 							"name": "show all business data",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [
@@ -3166,6 +3169,10 @@
 										"type": "text"
 									}
 								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
 								"url": {
 									"raw": "{{url}}/admin/businesses/?user_id=1&status=1",
 									"host": [
@@ -3397,21 +3404,27 @@
 							"name": "show single contact data",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/admin/business-contact/:id",
+									"raw": "{{url}}/admin/business-contact/?slug=vcv-1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"business-contact",
-										":id"
+										""
 									],
-									"variable": [
+									"query": [
 										{
-											"key": "id",
-											"value": ""
+											"key": "slug",
+											"value": "vcv-1"
 										}
 									]
 								}
@@ -3424,7 +3437,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/business-contact?business_id=",
+									"raw": "{{url}}/admin/business-contact?slug=",
 									"host": [
 										"{{url}}"
 									],
@@ -3434,7 +3447,7 @@
 									],
 									"query": [
 										{
-											"key": "business_id",
+											"key": "slug",
 											"value": ""
 										}
 									]
@@ -4814,6 +4827,67 @@
 									"path": [
 										"api",
 										"homepage"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Business Category",
+					"item": [
+						{
+							"name": "get all business category",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/business-categories/?status=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-categories",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single business category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/business-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
 									]
 								}
 							},
