@@ -4849,12 +4849,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/business-categories/?status=1",
+									"raw": "{{url}}/api/business-categories/?status=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"admin",
+										"api",
 										"business-categories",
 										""
 									],
@@ -4872,15 +4872,143 @@
 							"name": "get single business category",
 							"request": {
 								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/business-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Event Category",
+					"item": [
+						{
+							"name": "show single news category",
+							"request": {
+								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/business-categories/:slug",
+									"raw": "{{url}}/admin/event-categories/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"business-categories",
+										"event-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show all news category",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/event-categories/?status=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"event-categories",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "News Category",
+					"item": [
+						{
+							"name": "show all news category",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/news-categories/?status=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"news-categories",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single news category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/news-categories/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"news-categories",
 										":slug"
 									],
 									"variable": [
