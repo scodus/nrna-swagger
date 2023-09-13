@@ -62,6 +62,8 @@ tags:
   - name: Public > Business Contact
   - name: Public > Homepage
   - name: Public > Business Category
+  - name: Public > Event Category
+  - name: Public > News Category
 paths:
   /admin/contact-us:
     get:
@@ -2026,14 +2028,9 @@ paths:
   /admin/business-categories/:
     get:
       tags:
-        - Public > Business Category
-      summary: get all business category
+        - Admin > Business Category
+      summary: get all category
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
         - name: status
           in: query
           schema:
@@ -2047,7 +2044,7 @@ paths:
   /admin/business-categories/{slug}:
     get:
       tags:
-        - Public > Business Category
+        - Admin > Business Category
       summary: get single business category
       parameters:
         - name: slug
@@ -2612,14 +2609,9 @@ paths:
             application/json: {}
     get:
       tags:
-        - Admin > Event Category
-      summary: show single event category
+        - Public > Event Category
+      summary: show single news category
       parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
         - name: slug
           in: path
           schema:
@@ -3256,6 +3248,106 @@ paths:
       tags:
         - Public > Homepage
       summary: get homepage data for app
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-categories/:
+    get:
+      tags:
+        - Public > Business Category
+      summary: get all business category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-categories/{slug}:
+    get:
+      tags:
+        - Public > Business Category
+      summary: get single business category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/event-categories/:
+    get:
+      tags:
+        - Public > Event Category
+      summary: show all news category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/news-categories/:
+    get:
+      tags:
+        - Public > News Category
+      summary: show all news category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/news-categories/{slug}:
+    get:
+      tags:
+        - Public > News Category
+      summary: get single news category
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
