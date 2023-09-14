@@ -3026,7 +3026,8 @@ paths:
         - name: ncc_id
           in: query
           schema:
-            type: string
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -3048,7 +3049,6 @@ paths:
           schema:
             type: string
           required: true
-          example: category-1-2
       responses:
         '200':
           description: Successful response
