@@ -3836,8 +3836,25 @@
 						{
 							"name": "delete team contact",
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/team-contact/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"team-contact",
+										"1"
+									]
+								}
 							},
 							"response": []
 						}
@@ -5080,7 +5097,7 @@
 											"type": "text"
 										},
 										{
-											"key": "team_id",
+											"key": "user_id",
 											"value": "1",
 											"type": "text"
 										}

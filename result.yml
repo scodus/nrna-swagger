@@ -2631,6 +2631,22 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/team-contact/1:
+    delete:
+      tags:
+        - Admin > Team Contact
+      summary: delete team contact
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
@@ -3406,7 +3422,7 @@ paths:
                 message:
                   type: string
                   example: Hy
-                team_id:
+                user_id:
                   type: integer
                   example: '1'
       parameters:
