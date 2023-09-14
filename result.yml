@@ -44,6 +44,7 @@ tags:
   - name: Admin > Auth
   - name: Admin > News Category
   - name: Admin > Event Category
+  - name: Admin > Team Contact
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -64,6 +65,8 @@ tags:
   - name: Public > Business Category
   - name: Public > Event Category
   - name: Public > News Category
+  - name: Public > Team Contact
+  - name: Public > Users
 paths:
   /admin/contact-us:
     get:
@@ -333,7 +336,7 @@ paths:
               properties:
                 name:
                   type: string
-                  example: Bishwo Raj Raut
+                  example: Yogen Bahadur Chettri
                 address:
                   type: string
                   example: bhwss
@@ -376,23 +379,7 @@ paths:
           schema:
             type: string
           required: true
-          example: bishwo-raj-raut
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/users/{slug}:
-    get:
-      tags:
-        - Admin > Users
-      summary: get single user
-      parameters:
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
+          example: yogen-bahadur-chettri
       responses:
         '200':
           description: Successful response
@@ -899,7 +886,8 @@ paths:
                 options:
                   - Bishal
                   - Ashok Chapagain
-                  - Anzila Gurung
+                  - Ashok Chapagain
+                  - Hancie Phago
       parameters:
         - name: Accept
           in: header
@@ -2609,14 +2597,35 @@ paths:
             application/json: {}
     get:
       tags:
-        - Public > Event Category
-      summary: show single news category
+        - Admin > Event Category
+      summary: show single event category
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: slug
           in: path
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/team-contact/:
+    get:
+      tags:
+        - Admin > Team Contact
+      summary: show all team contact
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
       responses:
         '200':
           description: Successful response
@@ -3295,11 +3304,27 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/event-categories/:
+    get:
+      tags:
+        - Public > Event Category
+      summary: show single event category
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/event-categories/:
     get:
       tags:
         - Public > Event Category
-      summary: show all news category
+      summary: show all event category
       parameters:
         - name: Accept
           in: header
@@ -3342,6 +3367,64 @@ paths:
       tags:
         - Public > News Category
       summary: get single news category
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/team-contact:
+    post:
+      tags:
+        - Public > Team Contact
+      summary: store team contact
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Hancie Phago
+                email:
+                  type: string
+                  example: hancie@gmail.com
+                phone:
+                  type: integer
+                  example: '9825915122'
+                message:
+                  type: string
+                  example: Hy
+                team_id:
+                  type: integer
+                  example: '1'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/users/{slug}:
+    get:
+      tags:
+        - Public > Users
+      summary: get single user
       parameters:
         - name: slug
           in: path

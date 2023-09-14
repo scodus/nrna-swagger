@@ -380,7 +380,7 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": "Bishwo Raj Raut",
+											"value": "Yogen Bahadur Chettri",
 											"type": "text"
 										},
 										{
@@ -421,7 +421,7 @@
 										{
 											"key": "profile_image",
 											"type": "file",
-											"src": "/home/bishal/Downloads/design images/passport-size-photo.jpg"
+											"src": "/home/bishal/Downloads/design images/no-photo.jpg"
 										},
 										{
 											"key": "profile_banner",
@@ -449,32 +449,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "bishwo-raj-raut"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get single user",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/admin/users/:slug",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"users",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": ""
+											"value": "yogen-bahadur-chettri"
 										}
 									]
 								}
@@ -1221,7 +1196,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"question\": \"What is your name?\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Anzila Gurung\"\n    ]\n}",
+									"raw": "{\n    \"question\": \"What is your name?\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Ashok Chapagain\",\n        \"Hancie Phago\"\n        \n        \n        \n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3829,6 +3804,44 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Team Contact",
+					"item": [
+						{
+							"name": "show all team contact",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/team-contact/?pagination_limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"team-contact",
+										""
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete team contact",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
@@ -4905,24 +4918,24 @@
 					"name": "Event Category",
 					"item": [
 						{
-							"name": "show single news category",
+							"name": "show single event category",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/event-categories/:slug",
+									"raw": "{{url}}/admin/event-categories/?status=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"event-categories",
-										":slug"
+										""
 									],
-									"variable": [
+									"query": [
 										{
-											"key": "slug",
-											"value": ""
+											"key": "status",
+											"value": "1"
 										}
 									]
 								}
@@ -4930,7 +4943,7 @@
 							"response": []
 						},
 						{
-							"name": "show all news category",
+							"name": "show all event category",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -5000,7 +5013,13 @@
 							"name": "get single news category",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "{{url}}/api/news-categories/:slug",
 									"host": [
@@ -5009,6 +5028,95 @@
 									"path": [
 										"api",
 										"news-categories",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Team Contact",
+					"item": [
+						{
+							"name": "store team contact",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Hancie Phago",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hancie@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9825915122",
+											"type": "text"
+										},
+										{
+											"key": "message",
+											"value": "Hy",
+											"type": "text"
+										},
+										{
+											"key": "team_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/team-contact",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"team-contact"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "get single user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/users/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users",
 										":slug"
 									],
 									"variable": [
