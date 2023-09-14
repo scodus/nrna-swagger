@@ -45,6 +45,7 @@ tags:
   - name: Admin > News Category
   - name: Admin > Event Category
   - name: Admin > Team Contact
+  - name: Admin > Business Services
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -2642,6 +2643,132 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business-services:
+    post:
+      tags:
+        - Admin > Business Services
+      summary: store business services
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Cleaning Service
+                description:
+                  type: string
+                  example: Hello
+                business_id:
+                  type: integer
+                  example: '1'
+                service_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Business Services
+      summary: get all business service
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business-services/{slug}:
+    delete:
+      tags:
+        - Admin > Business Services
+      summary: delete business service
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Business Services
+      summary: update business servie
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Cleaning
+                description:
+                  type: string
+                  example: Hello
+                business_id:
+                  type: integer
+                  example: '1'
+                service_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Business Services
+      summary: get single business service
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response

@@ -3859,6 +3859,201 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Business Services",
+					"item": [
+						{
+							"name": "store business services",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Cleaning Service",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Hello",
+											"type": "text"
+										},
+										{
+											"key": "business_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "service_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-services",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete business service",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/business-services/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-services",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all business service",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/business-services",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update business servie",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Cleaning",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Hello",
+											"type": "text"
+										},
+										{
+											"key": "business_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "service_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-services/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-services",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single business service",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/business-services/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-services",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
