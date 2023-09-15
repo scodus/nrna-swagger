@@ -3,8 +3,8 @@
 		"_postman_id": "b0c4abb7-1cdb-4b52-b799-7c4a130f55b7",
 		"name": "NRNA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29583899",
-		"_collection_link": "https://nepal-commerce.postman.co/workspace/Scodus-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=29583899"
+		"_exporter_id": "19791325",
+		"_collection_link": "https://nepal-commerce.postman.co/workspace/Scodus-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=19791325"
 	},
 	"item": [
 		{
@@ -3480,7 +3480,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "Nitesh Hamal",
+											"value": "Nitesh Hamal 2",
 											"type": "text"
 										},
 										{
@@ -3649,7 +3649,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "Hancie",
+											"value": "Hancie 2",
 											"type": "text"
 										},
 										{
@@ -4927,7 +4927,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/businesses/?status=1&user_id=1",
+									"raw": "{{url}}/api/businesses/?status=&user_id=",
 									"host": [
 										"{{url}}"
 									],
@@ -4939,11 +4939,11 @@
 									"query": [
 										{
 											"key": "status",
-											"value": "1"
+											"value": ""
 										},
 										{
 											"key": "user_id",
-											"value": "1"
+											"value": ""
 										}
 									]
 								}
@@ -5172,7 +5172,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/event-categories/?status=1",
+									"raw": "{{url}}/api/event-categories/?status=1&ncc_id=2",
 									"host": [
 										"{{url}}"
 									],
@@ -5185,6 +5185,10 @@
 										{
 											"key": "status",
 											"value": "1"
+										},
+										{
+											"key": "ncc_id",
+											"value": "2"
 										}
 									]
 								}
@@ -5208,7 +5212,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news-categories/?status=1",
+									"raw": "{{url}}/api/news-categories/?status=1&newsable_type=ncc&newsable_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -5220,6 +5224,14 @@
 									"query": [
 										{
 											"key": "status",
+											"value": "1"
+										},
+										{
+											"key": "newsable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "newsable_id",
 											"value": "1"
 										}
 									]
@@ -5239,7 +5251,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news-categories/:slug",
+									"raw": "{{url}}/api/news-categories/:slug?newsable_type=ncc&newsable_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -5248,10 +5260,20 @@
 										"news-categories",
 										":slug"
 									],
+									"query": [
+										{
+											"key": "newsable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "newsable_id",
+											"value": "1"
+										}
+									],
 									"variable": [
 										{
 											"key": "slug",
-											"value": ""
+											"value": "nitesh-hamal"
 										}
 									]
 								}

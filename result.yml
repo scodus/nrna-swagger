@@ -2405,7 +2405,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: Nitesh Hamal
+                  example: Nitesh Hamal 2
                 category_image:
                   type: string
                   format: binary
@@ -2514,7 +2514,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: Hancie
+                  example: Hancie 2
                 category_image:
                   type: string
                   format: binary
@@ -3329,13 +3329,11 @@ paths:
         - name: status
           in: query
           schema:
-            type: integer
-          example: '1'
+            type: string
         - name: user_id
           in: query
           schema:
-            type: integer
-          example: '1'
+            type: string
       responses:
         '200':
           description: Successful response
@@ -3484,6 +3482,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -3505,6 +3508,16 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: newsable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: newsable_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -3521,11 +3534,22 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: newsable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: newsable_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
         - name: slug
           in: path
           schema:
             type: string
           required: true
+          example: nitesh-hamal
       responses:
         '200':
           description: Successful response
