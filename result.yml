@@ -1367,7 +1367,7 @@ paths:
             schema:
               type: object
               example:
-                ncc_id: null
+                ncc_id: 1
                 member_id: 22
                 designation: Supervisor
                 order: 1
@@ -1717,8 +1717,7 @@ paths:
                   type: string
                   example: awldjwakl
                 ncc_id:
-                  type: integer
-                  example: '1'
+                  type: string
                 event_category_id:
                   type: integer
                   example: '3'
@@ -3400,6 +3399,12 @@ paths:
       tags:
         - Public > Homepage
       summary: get homepage data for app
+      parameters:
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response

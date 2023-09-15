@@ -1883,7 +1883,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n    \"ncc_id\": null,\n    \"member_id\": 22,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+									"raw": "{\n    \n    \"ncc_id\": 1,\n    \"member_id\": 22,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2382,7 +2382,7 @@
 										},
 										{
 											"key": "ncc_id",
-											"value": "1",
+											"value": "",
 											"type": "text"
 										},
 										{
@@ -5045,13 +5045,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/homepage",
+									"raw": "{{url}}/api/homepage?ncc_id=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"homepage"
+									],
+									"query": [
+										{
+											"key": "ncc_id",
+											"value": "1"
+										}
 									]
 								}
 							},
