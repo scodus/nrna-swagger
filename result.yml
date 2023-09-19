@@ -618,12 +618,16 @@ paths:
               properties:
                 country_name:
                   type: string
-                  example: China
+                  example: Nepal
                 admin_id:
-                  type: string
+                  type: integer
+                  example: '1'
                 logo:
                   type: string
                   format: binary
+                color:
+                  type: integer
+                  example: '1234'
       parameters:
         - name: Accept
           in: header
@@ -655,6 +659,9 @@ paths:
                 logo:
                   type: string
                   format: binary
+                color:
+                  type: integer
+                  example: '123'
                 _method:
                   type: string
                   example: PUT
