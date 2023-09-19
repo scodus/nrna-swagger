@@ -4067,7 +4067,7 @@
 										},
 										{
 											"key": "password",
-											"value": "pass",
+											"value": "password",
 											"type": "text"
 										}
 									]
@@ -5319,6 +5319,9 @@
 						{
 							"name": "create advice",
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "POST",
 								"header": [
 									{
