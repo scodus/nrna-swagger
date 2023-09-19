@@ -3,8 +3,8 @@
 		"_postman_id": "b0c4abb7-1cdb-4b52-b799-7c4a130f55b7",
 		"name": "NRNA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "29583899",
-		"_collection_link": "https://nepal-commerce.postman.co/workspace/Scodus-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=29583899"
+		"_exporter_id": "19791325",
+		"_collection_link": "https://nepal-commerce.postman.co/workspace/Scodus-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=19791325"
 	},
 	"item": [
 		{
@@ -4954,7 +4954,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/homepage?ncc_id=",
+									"raw": "{{url}}/api/homepage?ncc_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -4965,7 +4965,7 @@
 									"query": [
 										{
 											"key": "ncc_id",
-											"value": ""
+											"value": "1"
 										}
 									]
 								}

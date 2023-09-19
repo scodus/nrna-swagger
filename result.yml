@@ -3338,7 +3338,8 @@ paths:
         - name: ncc_id
           in: query
           schema:
-            type: string
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
