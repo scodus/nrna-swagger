@@ -146,7 +146,7 @@
 							"response": []
 						},
 						{
-							"name": "create new user admin",
+							"name": "create new user by admin",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -158,7 +158,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"yogen@gmail.com\",\n    \"name\": \"Yogen Chettri\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
+									"raw": "{\n    \"email\": \"hanciephago@gmail.com\",\n    \"name\": \"Hancie Phago\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"9825915122\", // nullable\n    \"city\": \"KTM\", // nullable\n    \"approval_status\": \"approved\" // nullable\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1018,65 +1018,6 @@
 											"key": "pagination_limit",
 											"value": "2"
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "create advice",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "name",
-											"value": "Bishal Gurung",
-											"type": "text"
-										},
-										{
-											"key": "country_of_residence",
-											"value": "Nepal",
-											"type": "text"
-										},
-										{
-											"key": "email",
-											"value": "grgbishal360@gmail.com",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "98989",
-											"type": "text"
-										},
-										{
-											"key": "advice",
-											"value": "This is a advice",
-											"type": "text"
-										},
-										{
-											"key": "logo",
-											"type": "file",
-											"src": []
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/advices",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"advices"
 									]
 								}
 							},
@@ -4383,44 +4324,6 @@
 					]
 				},
 				{
-					"name": "Member",
-					"item": [
-						{
-							"name": "create new user public",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"leon.schiffer360@gmail.com\",\n    \"name\": \"Bishal Gurung\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/users",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"users"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
 					"name": "Contact Us",
 					"item": [
 						{
@@ -4604,7 +4507,7 @@
 					"name": "Events",
 					"item": [
 						{
-							"name": "get all news",
+							"name": "get all events",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -4615,13 +4518,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/events",
+									"raw": "{{url}}/api/events?ncc_id=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"events"
+									],
+									"query": [
+										{
+											"key": "ncc_id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -5364,6 +5273,103 @@
 											"key": "slug",
 											"value": ""
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new user public",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"leon.schiffer360@gmail.com\",\n    \"name\": \"Bishal Gurung\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Advice",
+					"item": [
+						{
+							"name": "create advice",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Hancie Phago",
+											"type": "text"
+										},
+										{
+											"key": "country_of_residence",
+											"value": "Nepal",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hancie@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9825915122",
+											"type": "text"
+										},
+										{
+											"key": "advice",
+											"value": "This is a advice",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/logo.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/advices",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"advices"
 									]
 								}
 							},
