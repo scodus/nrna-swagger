@@ -23,6 +23,9 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
 tags:
   - name: Admin
   - name: Admin > Contact Us
@@ -2750,7 +2753,7 @@ paths:
                   example: superadmin@gmail.com
                 password:
                   type: string
-                  example: pass
+                  example: password
       parameters:
         - name: Accept
           in: header
@@ -3603,6 +3606,8 @@ paths:
                 logo:
                   type: string
                   format: binary
+      security:
+        - noauthAuth: []
       parameters:
         - name: Accept
           in: header
