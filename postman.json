@@ -146,7 +146,7 @@
 							"response": []
 						},
 						{
-							"name": "create new user admin",
+							"name": "create new user by admin",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -158,7 +158,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"yogen@gmail.com\",\n    \"name\": \"Yogen Chettri\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\",      // nullable\n    \"approval_status\": \"approved\"   // nullable\n}",
+									"raw": "{\n    \"email\": \"hanciephago@gmail.com\",\n    \"name\": \"Hancie Phago\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"9825915122\", // nullable\n    \"city\": \"KTM\", // nullable\n    \"approval_status\": \"approved\" // nullable\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1024,65 +1024,6 @@
 							"response": []
 						},
 						{
-							"name": "create advice",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "name",
-											"value": "Bishal Gurung",
-											"type": "text"
-										},
-										{
-											"key": "country_of_residence",
-											"value": "Nepal",
-											"type": "text"
-										},
-										{
-											"key": "email",
-											"value": "grgbishal360@gmail.com",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "98989",
-											"type": "text"
-										},
-										{
-											"key": "advice",
-											"value": "This is a advice",
-											"type": "text"
-										},
-										{
-											"key": "logo",
-											"type": "file",
-											"src": []
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/advices",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"advices"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "find by id",
 							"request": {
 								"method": "GET",
@@ -1883,7 +1824,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n    \"ncc_id\": null,\n    \"member_id\": 22,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+									"raw": "{\n    \n    \"ncc_id\": 1,\n    \"member_id\": 22,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2382,7 +2323,7 @@
 										},
 										{
 											"key": "ncc_id",
-											"value": "1",
+											"value": "",
 											"type": "text"
 										},
 										{
@@ -3480,7 +3421,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "Nitesh Hamal",
+											"value": "Nitesh Hamal 2",
 											"type": "text"
 										},
 										{
@@ -3649,7 +3590,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "Hancie",
+											"value": "Hancie 2",
 											"type": "text"
 										},
 										{
@@ -4383,44 +4324,6 @@
 					]
 				},
 				{
-					"name": "Member",
-					"item": [
-						{
-							"name": "create new user public",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"leon.schiffer360@gmail.com\",\n    \"name\": \"Bishal Gurung\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/api/users",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"users"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
 					"name": "Contact Us",
 					"item": [
 						{
@@ -4604,7 +4507,7 @@
 					"name": "Events",
 					"item": [
 						{
-							"name": "get all news",
+							"name": "get all events",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -4615,13 +4518,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/events",
+									"raw": "{{url}}/api/events?ncc_id=1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"events"
+									],
+									"query": [
+										{
+											"key": "ncc_id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -4927,7 +4836,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/businesses/?status=1&user_id=1",
+									"raw": "{{url}}/api/businesses/?status=&user_id=",
 									"host": [
 										"{{url}}"
 									],
@@ -4939,11 +4848,11 @@
 									"query": [
 										{
 											"key": "status",
-											"value": "1"
+											"value": ""
 										},
 										{
 											"key": "user_id",
-											"value": "1"
+											"value": ""
 										}
 									]
 								}
@@ -5045,13 +4954,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/homepage",
+									"raw": "{{url}}/api/homepage?ncc_id=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"homepage"
+									],
+									"query": [
+										{
+											"key": "ncc_id",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -5166,7 +5081,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/event-categories/?status=1",
+									"raw": "{{url}}/api/event-categories/?status=1&ncc_id=2",
 									"host": [
 										"{{url}}"
 									],
@@ -5179,6 +5094,10 @@
 										{
 											"key": "status",
 											"value": "1"
+										},
+										{
+											"key": "ncc_id",
+											"value": "2"
 										}
 									]
 								}
@@ -5202,7 +5121,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news-categories/?status=1",
+									"raw": "{{url}}/api/news-categories/?status=1&newsable_type=ncc&newsable_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -5214,6 +5133,14 @@
 									"query": [
 										{
 											"key": "status",
+											"value": "1"
+										},
+										{
+											"key": "newsable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "newsable_id",
 											"value": "1"
 										}
 									]
@@ -5233,7 +5160,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news-categories/:slug",
+									"raw": "{{url}}/api/news-categories/:slug?newsable_type=ncc&newsable_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -5242,10 +5169,20 @@
 										"news-categories",
 										":slug"
 									],
+									"query": [
+										{
+											"key": "newsable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "newsable_id",
+											"value": "1"
+										}
+									],
 									"variable": [
 										{
 											"key": "slug",
-											"value": ""
+											"value": "nitesh-hamal"
 										}
 									]
 								}
@@ -5336,6 +5273,103 @@
 											"key": "slug",
 											"value": ""
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create new user public",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"leon.schiffer360@gmail.com\",\n    \"name\": \"Bishal Gurung\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Advice",
+					"item": [
+						{
+							"name": "create advice",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Hancie Phago",
+											"type": "text"
+										},
+										{
+											"key": "country_of_residence",
+											"value": "Nepal",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hancie@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9825915122",
+											"type": "text"
+										},
+										{
+											"key": "advice",
+											"value": "This is a advice",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/logo.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/advices",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"advices"
 									]
 								}
 							},

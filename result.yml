@@ -50,7 +50,6 @@ tags:
   - name: Public > Auth
   - name: Public > Countries
   - name: Public > Surveys
-  - name: Public > Member
   - name: Public > Contact Us
   - name: Public > Site Settings
   - name: Public > Banners
@@ -68,6 +67,7 @@ tags:
   - name: Public > News Category
   - name: Public > Team Contact
   - name: Public > Users
+  - name: Public > Advice
 paths:
   /admin/contact-us:
     get:
@@ -158,17 +158,17 @@ paths:
     post:
       tags:
         - Admin > Users
-      summary: create new user admin
+      summary: create new user by admin
       requestBody:
         content:
           application/json:
             schema:
               type: object
               example:
-                email: yogen@gmail.com
-                name: Yogen Chettri
+                email: hanciephago@gmail.com
+                name: Hancie Phago
                 country_of_residence: Nepal
-                phone: '1234'
+                phone: '9825915122'
                 city: KTM
                 approval_status: approved
       parameters:
@@ -765,45 +765,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    post:
-      tags:
-        - Admin > Advice
-      summary: create advice
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Bishal Gurung
-                country_of_residence:
-                  type: string
-                  example: Nepal
-                email:
-                  type: string
-                  example: grgbishal360@gmail.com
-                phone:
-                  type: integer
-                  example: '98989'
-                advice:
-                  type: string
-                  example: This is a advice
-                logo:
-                  type: string
-                  format: binary
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /admin/advices/{advice_id}:
     get:
       tags:
@@ -1367,7 +1328,7 @@ paths:
             schema:
               type: object
               example:
-                ncc_id: null
+                ncc_id: 1
                 member_id: 22
                 designation: Supervisor
                 order: 1
@@ -1717,8 +1678,7 @@ paths:
                   type: string
                   example: awldjwakl
                 ncc_id:
-                  type: integer
-                  example: '1'
+                  type: string
                 event_category_id:
                   type: integer
                   example: '3'
@@ -2406,7 +2366,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: Nitesh Hamal
+                  example: Nitesh Hamal 2
                 category_image:
                   type: string
                   format: binary
@@ -2515,7 +2475,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: Hancie
+                  example: Hancie 2
                 category_image:
                   type: string
                   format: binary
@@ -2964,35 +2924,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/users:
-    post:
-      tags:
-        - Public > Member
-      summary: create new user public
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                email: leon.schiffer360@gmail.com
-                name: Bishal Gurung
-                password: password
-                password_confirmation: password
-                country_of_residence: Nepal
-                phone: '1234'
-                city: KTM
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /api/contact-us:
     post:
       tags:
@@ -3121,13 +3052,18 @@ paths:
     get:
       tags:
         - Public > Events
-      summary: get all news
+      summary: get all events
       parameters:
         - name: Accept
           in: header
           schema:
             type: string
           example: application/json
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -3330,13 +3266,11 @@ paths:
         - name: status
           in: query
           schema:
-            type: integer
-          example: '1'
+            type: string
         - name: user_id
           in: query
           schema:
-            type: integer
-          example: '1'
+            type: string
       responses:
         '200':
           description: Successful response
@@ -3400,6 +3334,11 @@ paths:
       tags:
         - Public > Homepage
       summary: get homepage data for app
+      parameters:
+        - name: ncc_id
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -3479,6 +3418,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -3500,6 +3444,16 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: newsable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: newsable_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -3516,11 +3470,22 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: newsable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: newsable_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
         - name: slug
           in: path
           schema:
             type: string
           required: true
+          example: nitesh-hamal
       responses:
         '200':
           description: Successful response
@@ -3574,6 +3539,75 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/users:
+    post:
+      tags:
+        - Public > Users
+      summary: create new user public
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: leon.schiffer360@gmail.com
+                name: Bishal Gurung
+                password: password
+                password_confirmation: password
+                country_of_residence: Nepal
+                phone: '1234'
+                city: KTM
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/advices:
+    post:
+      tags:
+        - Public > Advice
+      summary: create advice
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Hancie Phago
+                country_of_residence:
+                  type: string
+                  example: Nepal
+                email:
+                  type: string
+                  example: hancie@gmail.com
+                phone:
+                  type: integer
+                  example: '9825915122'
+                advice:
+                  type: string
+                  example: This is a advice
+                logo:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
