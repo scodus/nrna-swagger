@@ -1910,6 +1910,15 @@ paths:
                 survey_banner:
                   type: string
                   format: binary
+                about_subtitle:
+                  type: string
+                  example: Hy
+                vision_subtitle:
+                  type: string
+                  example: hy
+                mission_subtitle:
+                  type: string
+                  example: hy
       parameters:
         - name: Accept
           in: header
