@@ -5361,7 +5361,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"leon.schiffer360@gmail.com\",\n    \"name\": \"Bishal Gurung\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
+									"raw": "{\n    \"email\": \"hanciewanemphago@gmail.com\",\n    \"first_name\": \"Hancie\",\n    \"middle_name\": \"Wanem\",\n    \"last_name\": \"Limbu\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
 									"options": {
 										"raw": {
 											"language": "json"
