@@ -327,7 +327,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/users/{slug}/profile:
+  /admin/users/yogen-bahadur-chettri/profile:
     post:
       tags:
         - Admin > Users
@@ -378,12 +378,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
-          example: yogen-bahadur-chettri
       responses:
         '200':
           description: Successful response
@@ -1858,12 +1852,10 @@ paths:
           in: query
           schema:
             type: string
-          example: user
         - name: settingable_id
           in: query
           schema:
-            type: integer
-          example: '2'
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1910,10 +1902,14 @@ paths:
                 settingable_type:
                   type: string
                   description: 'values: [ncc, nbns]'
-                  example: nbns
                 settingable_id:
-                  type: integer
-                  example: '2'
+                  type: string
+                survey_title:
+                  type: string
+                  example: Hello
+                survey_banner:
+                  type: string
+                  format: binary
       parameters:
         - name: Accept
           in: header
