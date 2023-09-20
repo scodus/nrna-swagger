@@ -168,8 +168,10 @@ paths:
             schema:
               type: object
               example:
-                email: hanciephago@gmail.com
-                name: Hancie Phago
+                email: hanciephago5@gmail.com
+                first_name: Hancie
+                middle_name: Wanem
+                last_name: Phago
                 country_of_residence: Nepal
                 phone: '9825915122'
                 city: KTM
@@ -196,8 +198,10 @@ paths:
             schema:
               type: object
               example:
-                email: yogen@gmail.com
-                name: yogen chettri
+                email: hanciephago@gmail.com
+                first_name: Hancie
+                middle_name: Wanem
+                last_name: Phago
                 country_of_residence: Nepal
                 phone: '1234'
                 city: KTMss
@@ -216,7 +220,6 @@ paths:
           schema:
             type: string
           required: true
-          example: yogen-chettri
       responses:
         '200':
           description: Successful response
@@ -327,7 +330,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/users/yogen-bahadur-chettri/profile:
+  /admin/users/{slug}/profile:
     post:
       tags:
         - Admin > Users
@@ -338,9 +341,15 @@ paths:
             schema:
               type: object
               properties:
-                name:
+                first_name:
                   type: string
-                  example: Yogen Bahadur Chettri
+                  example: Nitesh
+                middle_name:
+                  type: string
+                  example: Bahadur
+                last_name:
+                  type: string
+                  example: Hamal
                 address:
                   type: string
                   example: bhwss
@@ -363,21 +372,26 @@ paths:
                 description:
                   type: string
                   example: description
+                _method:
+                  type: string
+                  example: patch
                 profile_image:
                   type: string
                   format: binary
                 profile_banner:
                   type: string
                   format: binary
-                _method:
-                  type: string
-                  example: patch
       parameters:
         - name: Accept
           in: header
           schema:
             type: string
           example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
