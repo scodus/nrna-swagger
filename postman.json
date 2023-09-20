@@ -436,21 +436,15 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/users/:slug/profile",
+									"raw": "{{url}}/admin/users/yogen-bahadur-chettri/profile",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"users",
-										":slug",
+										"yogen-bahadur-chettri",
 										"profile"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": "yogen-bahadur-chettri"
-										}
 									]
 								}
 							},
@@ -2582,7 +2576,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/site-settings?settingable_type=user&settingable_id=2",
+									"raw": "{{url}}/admin/site-settings?settingable_type=&settingable_id=",
 									"host": [
 										"{{url}}"
 									],
@@ -2593,11 +2587,11 @@
 									"query": [
 										{
 											"key": "settingable_type",
-											"value": "user"
+											"value": ""
 										},
 										{
 											"key": "settingable_id",
-											"value": "2"
+											"value": ""
 										}
 									]
 								}
@@ -2685,14 +2679,24 @@
 										},
 										{
 											"key": "settingable_type",
-											"value": "nbns",
+											"value": "",
 											"description": "values: [ncc, nbns]",
 											"type": "text"
 										},
 										{
 											"key": "settingable_id",
-											"value": "2",
+											"value": "",
 											"type": "text"
+										},
+										{
+											"key": "survey_title",
+											"value": "Hello",
+											"type": "text"
+										},
+										{
+											"key": "survey_banner",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
 										}
 									]
 								},
