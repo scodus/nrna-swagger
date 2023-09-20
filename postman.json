@@ -2697,6 +2697,21 @@
 											"key": "survey_banner",
 											"type": "file",
 											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
+											"key": "about_subtitle",
+											"value": "Hy",
+											"type": "text"
+										},
+										{
+											"key": "vision_subtitle",
+											"value": "hy",
+											"type": "text"
+										},
+										{
+											"key": "mission_subtitle",
+											"value": "hy",
+											"type": "text"
 										}
 									]
 								},
