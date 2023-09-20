@@ -3599,8 +3599,10 @@ paths:
             schema:
               type: object
               example:
-                email: leon.schiffer360@gmail.com
-                name: Bishal Gurung
+                email: hanciewanemphago@gmail.com
+                first_name: Hancie
+                middle_name: Wanem
+                last_name: Limbu
                 password: password
                 password_confirmation: password
                 country_of_residence: Nepal
