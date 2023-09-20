@@ -158,7 +158,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"hanciephago@gmail.com\",\n    \"name\": \"Hancie Phago\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"9825915122\", // nullable\n    \"city\": \"KTM\", // nullable\n    \"approval_status\": \"approved\" // nullable\n}",
+									"raw": "{\n    \"email\": \"hanciephago5@gmail.com\",\n    \"first_name\": \"Hancie\",\n    \"middle_name\": \"Wanem\",\n    \"last_name\": \"Phago\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"9825915122\", // nullable\n    \"city\": \"KTM\", // nullable\n    \"approval_status\": \"approved\" // nullable\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -192,7 +192,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"yogen@gmail.com\",\n    \"name\": \"yogen chettri\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTMss\",      // nullable\n    \"approval_status\": \"approved\",   // nullable\n    \"password\": \"abcdef\",  //nullable\n    \"password_confirmation\": \"abcdef\",\n    \"_method\": \"PUT\"\n}",
+									"raw": "{\n    \"email\": \"hanciephago@gmail.com\",\n    \"first_name\": \"Hancie\",\n    \"middle_name\": \"Wanem\",\n    \"last_name\": \"Phago\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTMss\",      // nullable\n    \"approval_status\": \"approved\",   // nullable\n    \"password\": \"abcdef\",  //nullable\n    \"password_confirmation\": \"abcdef\",\n    \"_method\": \"PUT\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -213,7 +213,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "yogen-chettri"
+											"value": ""
 										}
 									]
 								}
@@ -379,8 +379,18 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "name",
-											"value": "Yogen Bahadur Chettri",
+											"key": "first_name",
+											"value": "Nitesh",
+											"type": "text"
+										},
+										{
+											"key": "middle_name",
+											"value": "Bahadur",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "Hamal",
 											"type": "text"
 										},
 										{
@@ -419,6 +429,11 @@
 											"type": "text"
 										},
 										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
 											"key": "profile_image",
 											"type": "file",
 											"src": "/home/bishal/Downloads/design images/no-photo.jpg"
@@ -427,24 +442,25 @@
 											"key": "profile_banner",
 											"type": "file",
 											"src": "/home/bishal/Downloads/design images/365192027_1672335013278381_3254745182289178276_n.jpg"
-										},
-										{
-											"key": "_method",
-											"value": "patch",
-											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/users/yogen-bahadur-chettri/profile",
+									"raw": "{{url}}/admin/users/:slug/profile",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"users",
-										"yogen-bahadur-chettri",
+										":slug",
 										"profile"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
 									]
 								}
 							},
