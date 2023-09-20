@@ -1919,6 +1919,15 @@ paths:
                 mission_subtitle:
                   type: string
                   example: hy
+                about_title:
+                  type: string
+                  example: About Title
+                vision_title:
+                  type: string
+                  example: Vision Title
+                mission_title:
+                  type: string
+                  example: Mission Title
       parameters:
         - name: Accept
           in: header
@@ -2049,6 +2058,9 @@ paths:
                 title:
                   type: string
                   example: Hancie wanem Phago
+                subtitle:
+                  type: string
+                  example: My Subtitle
                 category_image:
                   type: string
                   format: binary
@@ -2085,6 +2097,9 @@ paths:
                 title:
                   type: string
                   example: Hancie Phago
+                subtitle:
+                  type: string
+                  example: Phago
                 category_image:
                   type: string
                   format: binary
