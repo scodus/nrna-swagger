@@ -809,7 +809,7 @@
 									"formdata": [
 										{
 											"key": "country_name",
-											"value": "Nepal",
+											"value": "Thailand",
 											"type": "text"
 										},
 										{
@@ -898,7 +898,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "indias"
+											"value": ""
 										}
 									]
 								}
@@ -1809,7 +1809,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/our-teams?ncc_id=1&pagination_limit=1",
+									"raw": "{{url}}/admin/our-teams?country=Nepal&pagination_limit=10",
 									"host": [
 										"{{url}}"
 									],
@@ -1819,12 +1819,12 @@
 									],
 									"query": [
 										{
-											"key": "ncc_id",
-											"value": "1"
+											"key": "country",
+											"value": "Nepal"
 										},
 										{
 											"key": "pagination_limit",
-											"value": "1"
+											"value": "10"
 										}
 									]
 								}
@@ -1844,7 +1844,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n    \"ncc_id\": 1,\n    \"member_id\": 22,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+									"raw": "{\n    \n    \"ncc_id\": 2,\n    \"member_id\": 1,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
