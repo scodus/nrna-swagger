@@ -626,7 +626,7 @@ paths:
               properties:
                 country_name:
                   type: string
-                  example: Nepal
+                  example: Thailand
                 admin_id:
                   type: integer
                   example: '1'
@@ -684,7 +684,6 @@ paths:
           schema:
             type: string
           required: true
-          example: indias
       responses:
         '200':
           description: Successful response
@@ -1321,16 +1320,16 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: ncc_id
+        - name: country
           in: query
           schema:
-            type: integer
-          example: '1'
+            type: string
+          example: Nepal
         - name: pagination_limit
           in: query
           schema:
             type: integer
-          example: '1'
+          example: '10'
       responses:
         '200':
           description: Successful response
@@ -1346,8 +1345,8 @@ paths:
             schema:
               type: object
               example:
-                ncc_id: 1
-                member_id: 22
+                ncc_id: 2
+                member_id: 1
                 designation: Supervisor
                 order: 1
       parameters:
