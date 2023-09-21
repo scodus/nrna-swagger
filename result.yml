@@ -421,7 +421,12 @@ paths:
           in: query
           schema:
             type: integer
-          example: '2'
+          example: '1'
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1642,7 +1647,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '3'
+          example: '1'
       responses:
         '200':
           description: Successful response

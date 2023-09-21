@@ -483,7 +483,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/news?pagination_limit=&newsable_type=ncc&newsable_id=2",
+									"raw": "{{url}}/admin/news?pagination_limit=&newsable_type=ncc&newsable_id=1&status=1",
 									"host": [
 										"{{url}}"
 									],
@@ -502,7 +502,11 @@
 										},
 										{
 											"key": "newsable_id",
-											"value": "2"
+											"value": "1"
+										},
+										{
+											"key": "status",
+											"value": "1"
 										}
 									]
 								}
@@ -2245,7 +2249,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/events?pagination_limit=&ncc_id=3",
+									"raw": "{{url}}/admin/events?pagination_limit=&ncc_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -2260,7 +2264,7 @@
 										},
 										{
 											"key": "ncc_id",
-											"value": "3"
+											"value": "1"
 										}
 									]
 								}
