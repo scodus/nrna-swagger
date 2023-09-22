@@ -225,7 +225,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/users/nitesh-bahadur-hamal/approval-status:
+  /admin/users/{slug}/approval-status:
     post:
       tags:
         - Admin > Users
@@ -249,6 +249,11 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -258,7 +263,7 @@ paths:
     post:
       tags:
         - Admin > Users
-      summary: change approval status Copy
+      summary: change role
       requestBody:
         content:
           multipart/form-data:
@@ -283,7 +288,6 @@ paths:
           schema:
             type: string
           required: true
-          example: asd-dfg
       responses:
         '200':
           description: Successful response
@@ -3031,12 +3035,12 @@ paths:
           in: query
           schema:
             type: string
-          example: user
+          example: ncc
         - name: settingable_id
           in: query
           schema:
             type: integer
-          example: '2'
+          example: '1'
       responses:
         '200':
           description: Successful response
