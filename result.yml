@@ -225,7 +225,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/users/{slug}/approval-status:
+  /admin/users/nitesh-bahadur-hamal/approval-status:
     post:
       tags:
         - Admin > Users
@@ -239,7 +239,7 @@ paths:
                 approval_status:
                   type: string
                   description: 'value: [approved, pending, rejected]'
-                  example: pending
+                  example: rejected
                 _method:
                   type: string
                   example: patch
@@ -249,12 +249,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
-          example: asd-dfg-2
       responses:
         '200':
           description: Successful response
@@ -418,11 +412,6 @@ paths:
             type: string
           example: ncc
         - name: newsable_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
-        - name: status
           in: query
           schema:
             type: integer
@@ -665,10 +654,10 @@ paths:
               properties:
                 country_name:
                   type: string
-                  example: Indias
+                  example: India
                 admin_id:
                   type: integer
-                  example: '20'
+                  example: '42'
                 logo:
                   type: string
                   format: binary
@@ -1351,7 +1340,7 @@ paths:
               type: object
               example:
                 ncc_id: 2
-                member_id: 1
+                member_id: 42
                 designation: Supervisor
                 order: 1
       parameters:
@@ -2385,6 +2374,37 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/change-password:
+    post:
+      tags:
+        - Admin > Auth
+      summary: change password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: string
+                  example: ggg
+                new_password:
+                  type: string
+                  example: password
+                new_password_confirmation:
+                  type: string
+                  example: password
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/logout:
     get:
       tags:
@@ -3069,6 +3089,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -3108,6 +3133,11 @@ paths:
             type: string
           example: application/json
         - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: status
           in: query
           schema:
             type: integer
@@ -3196,7 +3226,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '1'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -3383,10 +3413,16 @@ paths:
         - Public > Homepage
       summary: get homepage data for app
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: ncc_id
           in: query
           schema:
-            type: string
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
