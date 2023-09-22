@@ -236,7 +236,7 @@
 									"formdata": [
 										{
 											"key": "approval_status",
-											"value": "pending",
+											"value": "rejected",
 											"description": "value: [approved, pending, rejected]",
 											"type": "text"
 										},
@@ -248,21 +248,15 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/users/:slug/approval-status",
+									"raw": "{{url}}/admin/users/nitesh-bahadur-hamal/approval-status",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"users",
-										":slug",
+										"nitesh-bahadur-hamal",
 										"approval-status"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": "asd-dfg-2"
-										}
 									]
 								}
 							},
@@ -483,7 +477,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/news?pagination_limit=&newsable_type=ncc&newsable_id=1&status=1",
+									"raw": "{{url}}/admin/news?pagination_limit=&newsable_type=ncc&newsable_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -502,10 +496,6 @@
 										},
 										{
 											"key": "newsable_id",
-											"value": "1"
-										},
-										{
-											"key": "status",
 											"value": "1"
 										}
 									]
@@ -862,20 +852,18 @@
 									"formdata": [
 										{
 											"key": "country_name",
-											"value": "Indias",
+											"value": "India",
 											"type": "text"
 										},
 										{
 											"key": "admin_id",
-											"value": "20",
-											"type": "text",
-											"disabled": true
+											"value": "42",
+											"type": "text"
 										},
 										{
 											"key": "logo",
 											"type": "file",
-											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg",
-											"disabled": true
+											"src": "/Users/hanciephago/Downloads/logo.png"
 										},
 										{
 											"key": "color",
@@ -1848,7 +1836,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n    \"ncc_id\": 2,\n    \"member_id\": 1,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+									"raw": "{\n    \n    \"ncc_id\": 2,\n    \"member_id\": 42,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3451,6 +3439,50 @@
 					"name": "Auth",
 					"item": [
 						{
+							"name": "change password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "old_password",
+											"value": "ggg",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "new_password_confirmation",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Logout",
 							"request": {
 								"method": "GET",
@@ -4522,7 +4554,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1",
+									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1&status=1",
 									"host": [
 										"{{url}}"
 									],
@@ -4537,6 +4569,10 @@
 										},
 										{
 											"key": "newsable_id",
+											"value": "1"
+										},
+										{
+											"key": "status",
 											"value": "1"
 										}
 									]
@@ -4592,7 +4628,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/events?ncc_id=1",
+									"raw": "{{url}}/api/events?ncc_id=1&status=1",
 									"host": [
 										"{{url}}"
 									],
@@ -4603,6 +4639,10 @@
 									"query": [
 										{
 											"key": "ncc_id",
+											"value": "1"
+										},
+										{
+											"key": "status",
 											"value": "1"
 										}
 									]
@@ -4724,7 +4764,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/our-teams?ncc_id=1",
+									"raw": "{{url}}/api/our-teams?ncc_id=2",
 									"host": [
 										"{{url}}"
 									],
@@ -4735,7 +4775,7 @@
 									"query": [
 										{
 											"key": "ncc_id",
-											"value": "1"
+											"value": "2"
 										}
 									]
 								}
@@ -5026,7 +5066,13 @@
 							"name": "get homepage data for app",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "{{url}}/api/homepage?ncc_id=1",
 									"host": [
