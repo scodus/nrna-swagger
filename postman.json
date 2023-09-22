@@ -248,22 +248,28 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/users/nitesh-bahadur-hamal/approval-status",
+									"raw": "{{url}}/admin/users/:slug/approval-status",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"users",
-										"nitesh-bahadur-hamal",
+										":slug",
 										"approval-status"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "change approval status Copy",
+							"name": "change role",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -303,7 +309,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "asd-dfg"
+											"value": ""
 										}
 									]
 								}
@@ -4476,7 +4482,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/site-settings?settingable_type=user&settingable_id=2",
+									"raw": "{{url}}/api/site-settings?settingable_type=ncc&settingable_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -4487,11 +4493,11 @@
 									"query": [
 										{
 											"key": "settingable_type",
-											"value": "user"
+											"value": "ncc"
 										},
 										{
 											"key": "settingable_id",
-											"value": "2"
+											"value": "1"
 										}
 									]
 								}
