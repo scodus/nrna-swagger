@@ -119,7 +119,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/users?deleted_users=&pagination_limit=10&page=",
+									"raw": "{{url}}/admin/users?deleted_users=&pagination_limit=10&page=&search=Nitesh Hamal",
 									"host": [
 										"{{url}}"
 									],
@@ -139,6 +139,10 @@
 										{
 											"key": "page",
 											"value": ""
+										},
+										{
+											"key": "search",
+											"value": "Nitesh Hamal"
 										}
 									]
 								}
@@ -158,7 +162,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"hanciephago5@gmail.com\",\n    \"first_name\": \"Hancie\",\n    \"middle_name\": \"Wanem\",\n    \"last_name\": \"Phago\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"9825915122\", // nullable\n    \"city\": \"KTM\", // nullable\n    \"approval_status\": \"approved\" // nullable\n}",
+									"raw": "{\n    \"email\": \"nitesh0hamal@gmail.com\",\n    \"first_name\": \"Nitesh\",\n    \"middle_name\": \"\",\n    \"last_name\": \"Hamal\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"9825915122\", // nullable\n    \"city\": \"KTM\", // nullable\n    \"approval_status\": \"approved\" // nullable\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -284,7 +288,7 @@
 									"formdata": [
 										{
 											"key": "role_name",
-											"value": "member",
+											"value": "ncc",
 											"description": "value: [null, admin, ncc, member]",
 											"type": "text"
 										},
@@ -309,7 +313,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": ""
+											"value": "ajaya-timsina"
 										}
 									]
 								}
@@ -379,6 +383,11 @@
 									"mode": "formdata",
 									"formdata": [
 										{
+											"key": "profile_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
 											"key": "first_name",
 											"value": "Nitesh",
 											"type": "text"
@@ -429,19 +438,14 @@
 											"type": "text"
 										},
 										{
-											"key": "_method",
-											"value": "patch",
-											"type": "text"
-										},
-										{
-											"key": "profile_image",
-											"type": "file",
-											"src": "/home/bishal/Downloads/design images/no-photo.jpg"
-										},
-										{
 											"key": "profile_banner",
 											"type": "file",
 											"src": "/home/bishal/Downloads/design images/365192027_1672335013278381_3254745182289178276_n.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
 										}
 									]
 								},
@@ -459,7 +463,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": ""
+											"value": "nitesh-bahadur-hamal-1"
 										}
 									]
 								}
@@ -1397,23 +1401,23 @@
 										},
 										{
 											"key": "status",
-											"value": "active",
+											"value": "1",
 											"type": "text"
 										},
 										{
 											"key": "bannerable_type",
-											"value": "ncc",
+											"value": "",
 											"type": "text"
 										},
 										{
 											"key": "bannerable_id",
-											"value": "1",
+											"value": "",
 											"type": "text"
 										},
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/home/bishal/Downloads/365192027_1672335013278381_3254745182289178276_n.jpg"
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
 										}
 									]
 								},
@@ -2741,6 +2745,11 @@
 											"key": "mission_title",
 											"value": "Mission Title",
 											"type": "text"
+										},
+										{
+											"key": "about_banner",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
 										}
 									]
 								},
@@ -3460,7 +3469,7 @@
 									"formdata": [
 										{
 											"key": "old_password",
-											"value": "ggg",
+											"value": "1234",
 											"type": "text"
 										},
 										{
@@ -4174,7 +4183,7 @@
 									"formdata": [
 										{
 											"key": "email",
-											"value": "superadmin@gmail.com",
+											"value": "ajaya@gmail.com",
 											"type": "text"
 										},
 										{
@@ -4560,7 +4569,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1&status=1",
+									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1&status=1&user_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -4579,6 +4588,10 @@
 										},
 										{
 											"key": "status",
+											"value": "1"
+										},
+										{
+											"key": "user_id",
 											"value": "1"
 										}
 									]
@@ -5080,7 +5093,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/homepage?ncc_id=1",
+									"raw": "{{url}}/api/homepage?ncc_id=",
 									"host": [
 										"{{url}}"
 									],
@@ -5091,7 +5104,7 @@
 									"query": [
 										{
 											"key": "ncc_id",
-											"value": "1"
+											"value": ""
 										}
 									]
 								}
