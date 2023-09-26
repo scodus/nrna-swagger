@@ -5960,6 +5960,45 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Questions",
+					"item": [
+						{
+							"name": "get all questions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/questions?status=1&pagination_limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"questions"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "1"
+										},
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}
