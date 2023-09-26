@@ -4463,6 +4463,36 @@
 						}
 					]
 				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -4823,6 +4853,76 @@
 										{
 											"key": "settingable_id",
 											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "homedata",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/homedata?homedataable_type=&homedataable_id=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"homedata"
+									],
+									"query": [
+										{
+											"key": "homedataable_type",
+											"value": ""
+										},
+										{
+											"key": "homedataable_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/homedata/:homedata_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"homedata",
+										":homedata_id"
+									],
+									"variable": [
+										{
+											"key": "homedata_id",
+											"value": "21"
 										}
 									]
 								}
