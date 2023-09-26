@@ -1959,6 +1959,12 @@ paths:
                 contact_banner_image:
                   type: string
                   format: binary
+                about_tagline:
+                  type: string
+                  example: hy
+                about_tagline_author:
+                  type: string
+                  example: hy
       parameters:
         - name: Accept
           in: header

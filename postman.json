@@ -2772,6 +2772,16 @@
 											"key": "contact_banner_image",
 											"type": "file",
 											"src": "/C:/Users/August/Downloads/1.jpeg"
+										},
+										{
+											"key": "about_tagline",
+											"value": "hy",
+											"type": "text"
+										},
+										{
+											"key": "about_tagline_author",
+											"value": "hy",
+											"type": "text"
 										}
 									]
 								},
