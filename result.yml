@@ -1949,6 +1949,15 @@ paths:
                 about_banner:
                   type: string
                   format: binary
+                contact_title:
+                  type: string
+                  example: contact
+                contact_subtitle:
+                  type: string
+                  example: contact-sub
+                contact_banner_image:
+                  type: string
+                  format: binary
       parameters:
         - name: Accept
           in: header
@@ -2132,7 +2141,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '21'
       responses:
         '200':
           description: Successful response
@@ -3062,7 +3071,7 @@ paths:
               properties:
                 email:
                   type: string
-                  example: ajaya@gmail.com
+                  example: superadmin@gmail.com
                 password:
                   type: string
                   example: password
@@ -3327,9 +3336,9 @@ paths:
         - name: homedata_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '21'
+          example: m1edi
       responses:
         '200':
           description: Successful response

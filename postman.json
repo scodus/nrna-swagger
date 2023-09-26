@@ -2653,12 +2653,14 @@
 										{
 											"key": "mission",
 											"value": "ccc",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "vision",
 											"value": "bbb",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "tagline_author",
@@ -2688,7 +2690,8 @@
 										{
 											"key": "vision_image",
 											"value": "",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "region_logo",
@@ -2724,12 +2727,14 @@
 										{
 											"key": "vision_subtitle",
 											"value": "hy",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "mission_subtitle",
 											"value": "hy",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "about_title",
@@ -2739,17 +2744,34 @@
 										{
 											"key": "vision_title",
 											"value": "Vision Title",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "mission_title",
 											"value": "Mission Title",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "about_banner",
 											"type": "file",
 											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
+											"key": "contact_title",
+											"value": "contact",
+											"type": "text"
+										},
+										{
+											"key": "contact_subtitle",
+											"value": "contact-sub",
+											"type": "text"
+										},
+										{
+											"key": "contact_banner_image",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/1.jpeg"
 										}
 									]
 								},
@@ -3027,7 +3049,7 @@
 									"variable": [
 										{
 											"key": "homedata_id",
-											"value": "2"
+											"value": "21"
 										}
 									]
 								}
@@ -4529,7 +4551,7 @@
 									"formdata": [
 										{
 											"key": "email",
-											"value": "ajaya@gmail.com",
+											"value": "superadmin@gmail.com",
 											"type": "text"
 										},
 										{
@@ -4922,7 +4944,7 @@
 									"variable": [
 										{
 											"key": "homedata_id",
-											"value": "21"
+											"value": "m1edi"
 										}
 									]
 								}
