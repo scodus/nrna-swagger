@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "b0c4abb7-1cdb-4b52-b799-7c4a130f55b7",
+		"_postman_id": "42dd0953-f684-406f-86b2-c768df1325f4",
 		"name": "NRNA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19791325",
-		"_collection_link": "https://nepal-commerce.postman.co/workspace/Scodus-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/19791325-b0c4abb7-1cdb-4b52-b799-7c4a130f55b7?action=share&source=collection_link&creator=19791325"
+		"_exporter_id": "30036842",
+		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30036666-42dd0953-f684-406f-86b2-c768df1325f4?action=share&source=collection_link&creator=30036842"
 	},
 	"item": [
 		{
@@ -2769,6 +2769,352 @@
 					]
 				},
 				{
+					"name": "homedata",
+					"item": [
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/homedata?homedataable_type=&homedata_id=&pagination_limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"homedata"
+									],
+									"query": [
+										{
+											"key": "homedataable_type",
+											"value": ""
+										},
+										{
+											"key": "homedata_id",
+											"value": ""
+										},
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "m1",
+											"type": "text"
+										},
+										{
+											"key": "subtitle",
+											"value": "m1sb",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "aldjwalkdj",
+											"type": "text"
+										},
+										{
+											"key": "tabtitle",
+											"value": "Mis",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "homedataable_type",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "homedataable_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/1.jpeg"
+										},
+										{
+											"key": "banner_image",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/2.jpeg"
+										},
+										{
+											"key": "tagline",
+											"value": "hey",
+											"type": "text"
+										},
+										{
+											"key": "tagline_author",
+											"value": "hi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/homedata?homedataable_type=&homedata_id=&pagination_limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"homedata"
+									],
+									"query": [
+										{
+											"key": "homedataable_type",
+											"value": ""
+										},
+										{
+											"key": "homedata_id",
+											"value": ""
+										},
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "m1edi",
+											"type": "text"
+										},
+										{
+											"key": "subtitle",
+											"value": "m1sb",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "aldjwalkdj",
+											"type": "text"
+										},
+										{
+											"key": "tabtitle",
+											"value": "Mis",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "homedataable_type",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "homedataable_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/Compressed/test-images/any.png"
+										},
+										{
+											"key": "banner_image",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/Compressed/test-images/benares_oslo_logo.jpg"
+										},
+										{
+											"key": "tagline",
+											"value": "hehe",
+											"type": "text"
+										},
+										{
+											"key": "tagline_author",
+											"value": "gojo",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/homedata/:homedata",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"homedata",
+										":homedata"
+									],
+									"variable": [
+										{
+											"key": "homedata",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/homedata/:homedata_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"homedata",
+										":homedata_id"
+									],
+									"variable": [
+										{
+											"key": "homedata_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/homedata/:homedata_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"homedata",
+										":homedata_id"
+									],
+									"variable": [
+										{
+											"key": "homedata_id",
+											"value": "16"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/homedata/:homedata_id/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"homedata",
+										":homedata_id",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "homedata_id",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Survey",
 					"item": [
 						{
@@ -4117,36 +4463,6 @@
 						}
 					]
 				}
-			],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "{{token}}",
-						"type": "string"
-					}
-				]
-			},
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
 			]
 		},
 		{
@@ -4969,7 +5285,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/businesses/?status=&user_id=",
+									"raw": "{{url}}/api/businesses/?status=1&user_id=1&pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
@@ -4981,11 +5297,15 @@
 									"query": [
 										{
 											"key": "status",
-											"value": ""
+											"value": "1"
 										},
 										{
 											"key": "user_id",
-											"value": ""
+											"value": "1"
+										},
+										{
+											"key": "pagination_limit",
+											"value": "2"
 										}
 									]
 								}
