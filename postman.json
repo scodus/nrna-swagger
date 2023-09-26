@@ -3,8 +3,8 @@
 		"_postman_id": "42dd0953-f684-406f-86b2-c768df1325f4",
 		"name": "NRNA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30036842",
-		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30036666-42dd0953-f684-406f-86b2-c768df1325f4?action=share&source=collection_link&creator=30036842"
+		"_exporter_id": "30047466",
+		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30036666-42dd0953-f684-406f-86b2-c768df1325f4?action=share&source=collection_link&creator=30047466"
 	},
 	"item": [
 		{
@@ -2653,12 +2653,14 @@
 										{
 											"key": "mission",
 											"value": "ccc",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "vision",
 											"value": "bbb",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "tagline_author",
@@ -2688,7 +2690,8 @@
 										{
 											"key": "vision_image",
 											"value": "",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "region_logo",
@@ -2724,12 +2727,14 @@
 										{
 											"key": "vision_subtitle",
 											"value": "hy",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "mission_subtitle",
 											"value": "hy",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "about_title",
@@ -2739,17 +2744,34 @@
 										{
 											"key": "vision_title",
 											"value": "Vision Title",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "mission_title",
 											"value": "Mission Title",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "about_banner",
 											"type": "file",
 											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
+											"key": "contact_title",
+											"value": "contact",
+											"type": "text"
+										},
+										{
+											"key": "contact_subtitle",
+											"value": "contact-sub",
+											"type": "text"
+										},
+										{
+											"key": "contact_banner_image",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/1.jpeg"
 										}
 									]
 								},
@@ -3027,7 +3049,7 @@
 									"variable": [
 										{
 											"key": "homedata_id",
-											"value": "2"
+											"value": "21"
 										}
 									]
 								}
@@ -4529,7 +4551,7 @@
 									"formdata": [
 										{
 											"key": "email",
-											"value": "ajaya@gmail.com",
+											"value": "superadmin@gmail.com",
 											"type": "text"
 										},
 										{
@@ -4733,7 +4755,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"Hancie\",\n    \"last_name\":\"Phago\",\n    \"email\":\"hanciephago@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 1\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 6,\n            \"option_id\": 2\n        }\n    ]\n}",
+									"raw": "{\n    \n   \n    \"first_name\": \"Hancie\",\n    \"last_name\":\"Phago\",\n    \"email\":\"hanciephago@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4922,7 +4944,7 @@
 									"variable": [
 										{
 											"key": "homedata_id",
-											"value": "21"
+											"value": "m1edi"
 										}
 									]
 								}
@@ -5385,11 +5407,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-<<<<<<< HEAD
-									"raw": "{{url}}/api/businesses/?status=1&user_id=1",
-=======
 									"raw": "{{url}}/api/businesses/?status=1&user_id=1&pagination_limit=2",
->>>>>>> main
 									"host": [
 										"{{url}}"
 									],
@@ -5409,12 +5427,7 @@
 										},
 										{
 											"key": "pagination_limit",
-<<<<<<< HEAD
-											"value": "2",
-											"disabled": true
-=======
 											"value": "2"
->>>>>>> main
 										}
 									]
 								}

@@ -1949,6 +1949,15 @@ paths:
                 about_banner:
                   type: string
                   format: binary
+                contact_title:
+                  type: string
+                  example: contact
+                contact_subtitle:
+                  type: string
+                  example: contact-sub
+                contact_banner_image:
+                  type: string
+                  format: binary
       parameters:
         - name: Accept
           in: header
@@ -2132,7 +2141,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '21'
       responses:
         '200':
           description: Successful response
@@ -3062,7 +3071,7 @@ paths:
               properties:
                 email:
                   type: string
-                  example: ajaya@gmail.com
+                  example: superadmin@gmail.com
                 password:
                   type: string
                   example: password
@@ -3204,11 +3213,11 @@ paths:
                   - question_id: 1
                     option_id: 2
                   - question_id: 2
-                    option_id: 1
+                    option_id: 6
                   - question_id: 3
-                    option_id: 2
-                  - question_id: 6
-                    option_id: 2
+                    option_id: 7
+                  - question_id: 4
+                    option_id: 5
       parameters:
         - name: Accept
           in: header
@@ -3331,9 +3340,9 @@ paths:
         - name: homedata_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '21'
+          example: m1edi
       responses:
         '200':
           description: Successful response
@@ -3653,14 +3662,11 @@ paths:
           schema:
             type: integer
           example: '1'
-<<<<<<< HEAD
-=======
         - name: pagination_limit
           in: query
           schema:
             type: integer
           example: '2'
->>>>>>> main
       responses:
         '200':
           description: Successful response
