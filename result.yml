@@ -2960,16 +2960,20 @@ paths:
             schema:
               type: object
               example:
-                user_id: 20
+                first_name: Hancie
+                last_name: Phago
+                email: hanciephago@gmail.com
+                phone: '9825915122'
+                country_of_residence: Nepal
                 question_answers:
                   - question_id: 1
                     option_id: 2
                   - question_id: 2
-                    option_id: 6
+                    option_id: 1
                   - question_id: 3
-                    option_id: 7
-                  - question_id: 4
-                    option_id: 5
+                    option_id: 2
+                  - question_id: 6
+                    option_id: 2
       parameters:
         - name: Accept
           in: header
@@ -3361,11 +3365,13 @@ paths:
         - name: status
           in: query
           schema:
-            type: string
+            type: integer
+          example: '1'
         - name: user_id
           in: query
           schema:
-            type: string
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response

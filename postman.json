@@ -4387,7 +4387,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"user_id\": 20,\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
+									"raw": "{\n    \"first_name\": \"Hancie\",\n    \"last_name\":\"Phago\",\n    \"email\":\"hanciephago@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 1\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 6,\n            \"option_id\": 2\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4969,7 +4969,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/businesses/?status=&user_id=",
+									"raw": "{{url}}/api/businesses/?status=1&user_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -4981,11 +4981,16 @@
 									"query": [
 										{
 											"key": "status",
-											"value": ""
+											"value": "1"
 										},
 										{
 											"key": "user_id",
-											"value": ""
+											"value": "1"
+										},
+										{
+											"key": "pagination_limit",
+											"value": "2",
+											"disabled": true
 										}
 									]
 								}
