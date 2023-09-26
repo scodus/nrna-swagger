@@ -40,6 +40,7 @@ tags:
   - name: Admin > Ncc Candidate
   - name: Admin > Events
   - name: Admin > Site Settings
+  - name: Admin > homedata
   - name: Admin > Survey
   - name: Admin > Business Category
   - name: Admin > Business
@@ -55,6 +56,7 @@ tags:
   - name: Public > Surveys
   - name: Public > Contact Us
   - name: Public > Site Settings
+  - name: Public > homedata
   - name: Public > Banners
   - name: Public > News
   - name: Public > Events
@@ -1958,6 +1960,239 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/homedata:
+    get:
+      tags:
+        - Admin > homedata
+      summary: get all
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: homedataable_type
+          in: query
+          schema:
+            type: string
+        - name: homedata_id
+          in: query
+          schema:
+            type: string
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > homedata
+      summary: create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: m1
+                subtitle:
+                  type: string
+                  example: m1sb
+                description:
+                  type: string
+                  example: aldjwalkdj
+                tabtitle:
+                  type: string
+                  example: Mis
+                status:
+                  type: integer
+                  example: '1'
+                homedataable_type:
+                  type: string
+                homedataable_id:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+                banner_image:
+                  type: string
+                  format: binary
+                tagline:
+                  type: string
+                  example: hey
+                tagline_author:
+                  type: string
+                  example: hi
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: homedataable_type
+          in: query
+          schema:
+            type: string
+        - name: homedata_id
+          in: query
+          schema:
+            type: string
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/homedata/{homedata}:
+    post:
+      tags:
+        - Admin > homedata
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: m1edi
+                subtitle:
+                  type: string
+                  example: m1sb
+                description:
+                  type: string
+                  example: aldjwalkdj
+                tabtitle:
+                  type: string
+                  example: Mis
+                status:
+                  type: integer
+                  example: '1'
+                homedataable_type:
+                  type: string
+                homedataable_id:
+                  type: string
+                _method:
+                  type: string
+                  example: PUT
+                image:
+                  type: string
+                  format: binary
+                banner_image:
+                  type: string
+                  format: binary
+                tagline:
+                  type: string
+                  example: hehe
+                tagline_author:
+                  type: string
+                  example: gojo
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: homedata
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '21'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/homedata/{homedata_id}:
+    get:
+      tags:
+        - Admin > homedata
+      summary: find by id
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: homedata_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > homedata
+      summary: delete
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: homedata_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '16'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/homedata/{homedata_id}/status:
+    post:
+      tags:
+        - Admin > homedata
+      summary: update status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  example: '0'
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: homedata_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '11'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/surveys/result-by-question:
     get:
       tags:
@@ -3058,6 +3293,52 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/homedata:
+    get:
+      tags:
+        - Public > homedata
+      summary: list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: homedataable_type
+          in: query
+          schema:
+            type: string
+        - name: homedataable_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/homedata/{homedata_id}:
+    get:
+      tags:
+        - Public > homedata
+      summary: single
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: homedata_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '21'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/banners:
     get:
       tags:
@@ -3372,6 +3653,14 @@ paths:
           schema:
             type: integer
           example: '1'
+<<<<<<< HEAD
+=======
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+>>>>>>> main
       responses:
         '200':
           description: Successful response
