@@ -873,7 +873,7 @@ paths:
                 options:
                   - Bishal
                   - Ashok Chapagain
-                  - Ashok Chapagain
+                  - Nitesh Hamal
                   - Hancie Phago
       parameters:
         - name: Accept
@@ -2268,6 +2268,16 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/surveys/survey-participants:
+    get:
+      tags:
+        - Admin > Survey
+      summary: survey participants list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/business-categories/:
     get:
       tags:
@@ -3213,7 +3223,7 @@ paths:
               example:
                 first_name: Hancie
                 last_name: Phago
-                email: hanciephago5555@gmail.com
+                email: hanciephago555@gmail.com
                 phone: '9825915122'
                 country_of_residence: Nepal
                 question_answers:
@@ -3272,7 +3282,7 @@ paths:
               properties:
                 email:
                   type: string
-                  example: hanciephago@gmail.com
+                  example: hanciephago555@gmail.com
       parameters:
         - name: Accept
           in: header

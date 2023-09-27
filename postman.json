@@ -1159,7 +1159,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"question\": \"What is your name?\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Ashok Chapagain\",\n        \"Hancie Phago\"\n        \n        \n        \n    ]\n}",
+									"raw": "{\n    \"question\": \"What is your name?\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Nitesh Hamal\",\n        \"Hancie Phago\"\n        \n        \n        \n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3236,6 +3236,25 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "survey participants list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/surveys/survey-participants",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										"survey-participants"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -4765,7 +4784,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n   \n    \"first_name\": \"Hancie\",\n    \"last_name\":\"Phago\",\n    \"email\":\"hanciephago5555@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
+									"raw": "{\n    \n   \n    \"first_name\": \"Hancie\",\n    \"last_name\":\"Phago\",\n    \"email\":\"hanciephago555@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4836,7 +4855,7 @@
 									"formdata": [
 										{
 											"key": "email",
-											"value": "hanciephago@gmail.com",
+											"value": "hanciephago555@gmail.com",
 											"type": "text"
 										}
 									]
