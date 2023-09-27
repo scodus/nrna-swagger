@@ -2955,7 +2955,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "m1edi",
+											"value": "m11s",
 											"type": "text"
 										},
 										{
@@ -4765,7 +4765,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n   \n    \"first_name\": \"Hancie\",\n    \"last_name\":\"Phago\",\n    \"email\":\"hanciephago@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
+									"raw": "{\n    \n   \n    \"first_name\": \"Hancie\",\n    \"last_name\":\"Phago\",\n    \"email\":\"hanciephago5555@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4815,6 +4815,41 @@
 										"api",
 										"surveys",
 										"has-already-taken"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check survey email",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "hanciephago@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/surveys/checkemail",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"surveys",
+										"checkemail"
 									]
 								}
 							},
