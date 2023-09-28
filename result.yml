@@ -2317,11 +2317,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: pagination_limit
-          in: query
-          schema:
-            type: integer
-          example: '2'
       responses:
         '200':
           description: Successful response
@@ -3466,6 +3461,12 @@ paths:
       tags:
         - Public > Surveys
       summary: get all surveys list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response

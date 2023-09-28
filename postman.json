@@ -3384,7 +3384,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/surveys/?pagination_limit=2",
+									"raw": "{{url}}/admin/surveys/",
 									"host": [
 										"{{url}}"
 									],
@@ -3396,7 +3396,8 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "2"
+											"value": "2",
+											"disabled": true
 										}
 									]
 								}
@@ -5119,7 +5120,13 @@
 							"name": "get all surveys list",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "{{url}}/api/surveys/",
 									"host": [
