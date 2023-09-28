@@ -870,6 +870,7 @@ paths:
               type: object
               example:
                 question: What is your name?
+                survey_id: '1'
                 options:
                   - Bishal
                   - Ashok Chapagain
@@ -2306,7 +2307,27 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/surveys/{slug}:
+    get:
+      tags:
+        - Admin > Survey
+      summary: get all survey
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/surveys/hancie-1:
     post:
       tags:
         - Admin > Survey
@@ -2332,6 +2353,22 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/surveys/{slug}:
+    delete:
+      tags:
+        - Admin > Survey
+      summary: delete survey
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: slug
           in: path
           schema:
@@ -2342,10 +2379,23 @@ paths:
           description: Successful response
           content:
             application/json: {}
-    delete:
+  /admin/surveys/{slug}/status:
+    post:
       tags:
         - Admin > Survey
-      summary: delete survey
+      summary: update survey status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  example: '0'
+                _method:
+                  type: string
+                  example: patch
       parameters:
         - name: Accept
           in: header

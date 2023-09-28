@@ -1159,7 +1159,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"question\": \"What is your name?\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Nitesh Hamal\",\n        \"Hancie Phago\"\n        \n        \n        \n    ]\n}",
+									"raw": "{\n    \"question\": \"What is your name?\",\n    \"survey_id\":\"1\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Nitesh Hamal\",\n        \"Hancie Phago\"\n        \n        \n        \n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3328,20 +3328,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/surveys/:slug",
+									"raw": "{{url}}/admin/surveys/hancie-1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"surveys",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": ""
-										}
+										"hancie-1"
 									]
 								}
 							},
@@ -3367,6 +3361,84 @@
 										"admin",
 										"surveys",
 										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all survey",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/surveys/?pagination_limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										""
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update survey status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/surveys/:slug/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										":slug",
+										"status"
 									],
 									"variable": [
 										{
