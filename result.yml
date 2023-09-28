@@ -2278,6 +2278,90 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/surveys/:
+    post:
+      tags:
+        - Admin > Survey
+      summary: store survey
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Hancie
+                description:
+                  type: string
+                  example: hello
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/surveys/{slug}:
+    post:
+      tags:
+        - Admin > Survey
+      summary: update survey
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: nitesh
+                description:
+                  type: string
+                  example: My name is hancie phago
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Survey
+      summary: delete survey
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/business-categories/:
     get:
       tags:
@@ -2574,6 +2658,39 @@ paths:
                 _method:
                   type: string
                   example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/businesses/{slug}/status:
+    post:
+      tags:
+        - Admin > Business
+      summary: update business status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  example: '1'
+                _method:
+                  type: string
+                  example: patch
       parameters:
         - name: Accept
           in: header
@@ -3141,7 +3258,7 @@ paths:
               properties:
                 token:
                   type: string
-                  example: DhTvi4nS
+                  example: tzxlYY3L
                 new_password:
                   type: string
                   example: pass

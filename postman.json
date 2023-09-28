@@ -3,8 +3,8 @@
 		"_postman_id": "42dd0953-f684-406f-86b2-c768df1325f4",
 		"name": "NRNA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30047466",
-		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30036666-42dd0953-f684-406f-86b2-c768df1325f4?action=share&source=collection_link&creator=30047466"
+		"_exporter_id": "30036666",
+		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30036666-42dd0953-f684-406f-86b2-c768df1325f4?action=share&source=collection_link&creator=30036666"
 	},
 	"item": [
 		{
@@ -3255,6 +3255,128 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "store survey",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Hancie",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "hello",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/surveys/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update survey",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "nitesh",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "My name is hancie phago",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/surveys/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete survey",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/surveys/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -3739,6 +3861,53 @@
 										"admin",
 										"business",
 										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update business status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/businesses/:slug/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"businesses",
+										":slug",
+										"status"
 									],
 									"variable": [
 										{
@@ -4653,7 +4822,7 @@
 									"formdata": [
 										{
 											"key": "token",
-											"value": "DhTvi4nS",
+											"value": "tzxlYY3L",
 											"type": "text"
 										},
 										{
