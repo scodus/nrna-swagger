@@ -5114,6 +5114,50 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get all surveys list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/surveys/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"surveys",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single survey",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/surveys/nitesh",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"surveys",
+										"nitesh"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},

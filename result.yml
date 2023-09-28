@@ -3461,6 +3461,32 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/surveys/:
+    get:
+      tags:
+        - Public > Surveys
+      summary: get all surveys list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/surveys/nitesh:
+    get:
+      tags:
+        - Public > Surveys
+      summary: get single survey
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/contact-us:
     post:
       tags:
