@@ -3221,7 +3221,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/surveys/:slug/:slug/result-detail",
+									"raw": "{{url}}/admin/surveys/:slug/:user_id/result-detail",
 									"host": [
 										"{{url}}"
 									],
@@ -3229,7 +3229,7 @@
 										"admin",
 										"surveys",
 										":slug",
-										":slug",
+										":user_id",
 										"result-detail"
 									],
 									"query": [
@@ -3242,6 +3242,10 @@
 									"variable": [
 										{
 											"key": "slug",
+											"value": ""
+										},
+										{
+											"key": "user_id",
 											"value": ""
 										}
 									]

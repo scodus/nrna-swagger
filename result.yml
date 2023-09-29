@@ -2255,7 +2255,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/surveys/{slug}/{slug}/result-detail:
+  /admin/surveys/{slug}/{user_id}/result-detail:
     get:
       tags:
         - Admin > Survey
@@ -2271,7 +2271,7 @@ paths:
           schema:
             type: string
           required: true
-        - name: slug
+        - name: user_id
           in: path
           schema:
             type: string
