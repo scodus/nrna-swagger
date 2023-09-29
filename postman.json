@@ -3,8 +3,8 @@
 		"_postman_id": "42dd0953-f684-406f-86b2-c768df1325f4",
 		"name": "NRNA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30036666",
-		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30036666-42dd0953-f684-406f-86b2-c768df1325f4?action=share&source=collection_link&creator=30036666"
+		"_exporter_id": "30047466",
+		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30036666-42dd0953-f684-406f-86b2-c768df1325f4?action=share&source=collection_link&creator=30047466"
 	},
 	"item": [
 		{
@@ -566,6 +566,11 @@
 											"key": "news_category_id",
 											"value": "1",
 											"type": "text"
+										},
+										{
+											"key": "excerpt",
+											"value": "Canadian Prime Minister Justin Trudeau has said his country is serious about building closer ties with India despite an ongoing diplomatic row.",
+											"type": "text"
 										}
 									]
 								},
@@ -607,8 +612,13 @@
 											"type": "text"
 										},
 										{
+											"key": "excerpt",
+											"value": "Canadian Prime Minister Justin Trudeau has said his country is serious about building closer ties with India despite an ongoing diplomatic row.",
+											"type": "text"
+										},
+										{
 											"key": "status",
-											"value": "active",
+											"value": "1",
 											"type": "text"
 										},
 										{
@@ -634,20 +644,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/news/:slug",
+									"raw": "{{url}}/admin/news/news-1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"news",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": ""
-										}
+										"news-1"
 									]
 								}
 							},
@@ -3217,20 +3221,28 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/surveys/:user_id/result-detail",
+									"raw": "{{url}}/admin/surveys/:slug/:slug/result-detail",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"surveys",
-										":user_id",
+										":slug",
+										":slug",
 										"result-detail"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "5",
+											"disabled": true
+										}
 									],
 									"variable": [
 										{
-											"key": "user_id",
-											"value": "21"
+											"key": "slug",
+											"value": ""
 										}
 									]
 								}
@@ -3241,16 +3253,36 @@
 							"name": "survey participants list",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/admin/surveys/survey-participants",
+									"raw": "{{url}}/admin/surveys/survey-participants/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"surveys",
-										"survey-participants"
+										"survey-participants",
+										":slug"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "survey1",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -3446,6 +3478,31 @@
 											"key": "slug",
 											"value": ""
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "survey with question and result",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/surveys/survey-results",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"surveys",
+										"survey-results"
 									]
 								}
 							},
@@ -5026,7 +5083,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n   \n    \"first_name\": \"Hancie\",\n    \"last_name\":\"Phago\",\n    \"email\":\"hanciephago555@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 2\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
+									"raw": "{\n    \n   \"survey_id\":\"2\",\n    \"first_name\": \"Nitesh\",\n    \"last_name\":\"Hamal\",\n    \"email\":\"niteshhamal@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 3\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"

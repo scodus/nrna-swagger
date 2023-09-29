@@ -469,6 +469,12 @@ paths:
                 news_category_id:
                   type: integer
                   example: '1'
+                excerpt:
+                  type: string
+                  example: >-
+                    Canadian Prime Minister Justin Trudeau has said his country
+                    is serious about building closer ties with India despite an
+                    ongoing diplomatic row.
       parameters:
         - name: Accept
           in: header
@@ -480,7 +486,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/news/{slug}:
+  /admin/news/news-1:
     post:
       tags:
         - Admin > News
@@ -497,9 +503,15 @@ paths:
                 description:
                   type: string
                   example: aldjawlkdj edited
-                status:
+                excerpt:
                   type: string
-                  example: active
+                  example: >-
+                    Canadian Prime Minister Justin Trudeau has said his country
+                    is serious about building closer ties with India despite an
+                    ongoing diplomatic row.
+                status:
+                  type: integer
+                  example: '1'
                 feature_image:
                   type: string
                   format: binary
@@ -518,16 +530,46 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+  /admin/news/{slug}/status:
+    post:
+      tags:
+        - Admin > News
+      summary: update news status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  example: '0'
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+          example: news-1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/news/{slug}:
     get:
       tags:
         - Admin > News
@@ -563,40 +605,6 @@ paths:
           schema:
             type: string
           required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/news/{slug}/status:
-    post:
-      tags:
-        - Admin > News
-      summary: update news status
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  example: '0'
-                _method:
-                  type: string
-                  example: patch
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
-          example: news-1
       responses:
         '200':
           description: Successful response
@@ -2247,7 +2255,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/surveys/{user_id}/result-detail:
+  /admin/surveys/{slug}/{slug}/result-detail:
     get:
       tags:
         - Admin > Survey
@@ -2258,22 +2266,37 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: user_id
+        - name: slug
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '21'
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /admin/surveys/survey-participants:
+  /admin/surveys/survey-participants/{slug}:
     get:
       tags:
         - Admin > Survey
       summary: survey participants list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -2402,6 +2425,22 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/surveys/survey-results:
+    get:
+      tags:
+        - Admin > Survey
+      summary: survey with question and result
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -3383,14 +3422,15 @@ paths:
             schema:
               type: object
               example:
-                first_name: Hancie
-                last_name: Phago
-                email: hanciephago555@gmail.com
+                survey_id: '2'
+                first_name: Nitesh
+                last_name: Hamal
+                email: niteshhamal@gmail.com
                 phone: '9825915122'
                 country_of_residence: Nepal
                 question_answers:
                   - question_id: 1
-                    option_id: 2
+                    option_id: 3
                   - question_id: 2
                     option_id: 6
                   - question_id: 3
