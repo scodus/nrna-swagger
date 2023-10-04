@@ -3712,6 +3712,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: category_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response

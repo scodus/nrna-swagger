@@ -5473,7 +5473,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1&status=1&user_id=1",
+									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1&status=1&user_id=1&category_id=2",
 									"host": [
 										"{{url}}"
 									],
@@ -5497,6 +5497,10 @@
 										{
 											"key": "user_id",
 											"value": "1"
+										},
+										{
+											"key": "category_id",
+											"value": "2"
 										}
 									]
 								}
