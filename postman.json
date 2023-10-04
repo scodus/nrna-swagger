@@ -564,7 +564,7 @@
 										},
 										{
 											"key": "news_category_id",
-											"value": "1",
+											"value": "2",
 											"type": "text"
 										},
 										{
@@ -761,51 +761,6 @@
 											"key": "slug",
 											"value": ""
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "news order",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "news_id",
-											"value": "2",
-											"type": "text"
-										},
-										{
-											"key": "order_number",
-											"value": "2",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "patch",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/news/news-order",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"news",
-										"news-order"
 									]
 								}
 							},
@@ -4855,6 +4810,55 @@
 											"key": "slug",
 											"value": ""
 										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "News Order",
+					"item": [
+						{
+							"name": "create news order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "news_id",
+											"value": "7",
+											"type": "text"
+										},
+										{
+											"key": "order_number",
+											"value": "7",
+											"type": "text"
+										},
+										{
+											"key": "news_category_id",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/news-order",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"news-order"
 									]
 								}
 							},

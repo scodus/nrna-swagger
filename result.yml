@@ -50,6 +50,7 @@ tags:
   - name: Admin > Event Category
   - name: Admin > Team Contact
   - name: Admin > Business Services
+  - name: Admin > News Order
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -468,7 +469,7 @@ paths:
                   example: '1'
                 news_category_id:
                   type: integer
-                  example: '1'
+                  example: '2'
                 excerpt:
                   type: string
                   example: >-
@@ -605,37 +606,6 @@ paths:
           schema:
             type: string
           required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/news/news-order:
-    post:
-      tags:
-        - Admin > News
-      summary: news order
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                news_id:
-                  type: integer
-                  example: '2'
-                order_number:
-                  type: integer
-                  example: '2'
-                _method:
-                  type: string
-                  example: patch
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
       responses:
         '200':
           description: Successful response
@@ -3302,6 +3272,36 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/news-order:
+    post:
+      tags:
+        - Admin > News Order
+      summary: create news order
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                news_id:
+                  type: integer
+                  example: '7'
+                order_number:
+                  type: integer
+                  example: '7'
+                news_category_id:
+                  type: string
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
