@@ -51,6 +51,7 @@ tags:
   - name: Admin > Team Contact
   - name: Admin > Business Services
   - name: Admin > News Order
+  - name: Admin > BusinessOrder
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -143,10 +144,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: deleted_users
-          in: query
-          schema:
-            type: string
         - name: pagination_limit
           in: query
           schema:
@@ -161,6 +158,11 @@ paths:
           schema:
             type: string
           example: Nitesh Hamal
+        - name: country
+          in: query
+          schema:
+            type: string
+          example: China
       responses:
         '200':
           description: Successful response
@@ -406,6 +408,22 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/users/{id}:
+    delete:
+      tags:
+        - Admin > Users
+      summary: delete user
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/news:
     get:
       tags:
@@ -431,6 +449,16 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: category_id
+          in: query
+          schema:
+            type: integer
+          example: '3'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: at another
       responses:
         '200':
           description: Successful response
@@ -448,13 +476,15 @@ paths:
               properties:
                 title:
                   type: string
-                  example: News 1
+                  example: >-
+                    India-China feud keeps international planes out of Nepal
+                    airport
                 description:
                   type: string
-                  example: aldjawlkdj
-                status:
-                  type: integer
-                  example: '1'
+                  example: >-
+                    The bright orange hotel sticks out as far as the eye can see
+                    - but unfortunately for its owner Bishnu Sharma, there is
+                    hardly anyone there to see it.
                 feature_image:
                   type: string
                   format: binary
@@ -469,13 +499,13 @@ paths:
                   example: '1'
                 news_category_id:
                   type: integer
-                  example: '2'
+                  example: '3'
                 excerpt:
                   type: string
                   example: >-
-                    Canadian Prime Minister Justin Trudeau has said his country
-                    is serious about building closer ties with India despite an
-                    ongoing diplomatic row.
+                    The bright orange hotel sticks out as far as the eye can see
+                    - but unfortunately for its owner Bishnu Sharma, there is
+                    hardly anyone there to see it.
       parameters:
         - name: Accept
           in: header
@@ -1506,6 +1536,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: country
+          in: query
+          schema:
+            type: string
+          example: Nepal
       responses:
         '200':
           description: Successful response
@@ -1522,9 +1557,36 @@ paths:
               type: object
               example:
                 ncc_id: 1
-                member_id: 23
+                member_id: 64
                 designation: Supervisor
                 order: 1
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/ncc-candidates/1:
+    post:
+      tags:
+        - Admin > Ncc Candidate
+      summary: update ncc candidate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ncc_id: 1
+                member_id: 42
+                designation: Supervisor
+                order: 1
+                _method: put
       parameters:
         - name: Accept
           in: header
@@ -1537,38 +1599,6 @@ paths:
           content:
             application/json: {}
   /admin/ncc-candidates/{ncc_candidate_id}:
-    post:
-      tags:
-        - Admin > Ncc Candidate
-      summary: update ncc candidate
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                ncc_id: 1
-                member_id: 21
-                designation: Supervisor
-                order: 1
-                _method: put
-      parameters:
-        - name: Accept
-          in: header
-          schema:
-            type: string
-          example: application/json
-        - name: ncc_candidate_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
     get:
       tags:
         - Admin > Ncc Candidate
@@ -1649,16 +1679,6 @@ paths:
       tags:
         - Admin > Events
       summary: get all events
-      parameters:
-        - name: pagination_limit
-          in: query
-          schema:
-            type: string
-        - name: ncc_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1676,16 +1696,16 @@ paths:
               properties:
                 title:
                   type: string
-                  example: Event 1
+                  example: Program
                 description:
                   type: string
-                  example: aldjawlkdj
+                  example: my program 2
                 status:
                   type: integer
                   example: '1'
                 event_date:
                   type: string
-                  example: '2023-05-06'
+                  example: '2023-12-06'
                 event_time:
                   type: string
                   example: 11:06 am
@@ -1975,6 +1995,39 @@ paths:
                 about_tagline_author:
                   type: string
                   example: hy
+                ncc_banner_image:
+                  type: string
+                  format: binary
+                ncc_title:
+                  type: string
+                  example: hy
+                ncc_description:
+                  type: string
+                  example: hy
+                ncc_banner_title:
+                  type: string
+                  example: hy
+                ncc_banner_subtitle:
+                  type: string
+                  example: hy
+                advice_banner:
+                  type: string
+                  format: binary
+                advice_title:
+                  type: string
+                  example: hy
+                advice_subtitle:
+                  type: string
+                  example: hy
+                support_banner:
+                  type: string
+                  format: binary
+                support_title:
+                  type: string
+                  example: hh
+                support_subtitle:
+                  type: string
+                  example: hh
       parameters:
         - name: Accept
           in: header
@@ -2001,10 +2054,12 @@ paths:
           in: query
           schema:
             type: string
-        - name: homedata_id
+          example: business
+        - name: homedataable_id
           in: query
           schema:
-            type: string
+            type: integer
+          example: '1'
         - name: pagination_limit
           in: query
           schema:
@@ -2042,8 +2097,10 @@ paths:
                   example: '1'
                 homedataable_type:
                   type: string
+                  example: business
                 homedataable_id:
-                  type: string
+                  type: integer
+                  example: '1'
                 image:
                   type: string
                   format: binary
@@ -2069,7 +2126,8 @@ paths:
         - name: homedata_id
           in: query
           schema:
-            type: string
+            type: integer
+          example: '1'
         - name: pagination_limit
           in: query
           schema:
@@ -2136,7 +2194,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '21'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -2272,11 +2330,13 @@ paths:
           schema:
             type: string
           required: true
+          example: hancie
         - name: user_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -2576,10 +2636,10 @@ paths:
               properties:
                 fullname:
                   type: string
-                  example: vcv
+                  example: Business 2
                 email:
                   type: string
-                  example: bvbv557@gmail.com
+                  example: business22@gmail.com
                 phone:
                   type: integer
                   example: '98345445'
@@ -2613,6 +2673,9 @@ paths:
                 user_id:
                   type: integer
                   example: '1'
+                country:
+                  type: string
+                  example: Nepal
       security:
         - bearerAuth: []
       parameters:
@@ -2641,12 +2704,22 @@ paths:
           in: query
           schema:
             type: integer
-          example: '1'
+          example: '3'
         - name: status
           in: query
           schema:
             type: integer
           example: '1'
+        - name: country
+          in: query
+          schema:
+            type: string
+          example: India
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
       responses:
         '200':
           description: Successful response
@@ -2817,33 +2890,18 @@ paths:
     get:
       tags:
         - Admin > Business Contact
-      summary: show single contact data
+      summary: get all business contact
       parameters:
         - name: Accept
           in: header
           schema:
             type: string
           example: application/json
-        - name: slug
+        - name: user_id
           in: query
           schema:
-            type: string
-          example: vcv-1
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /admin/business-contact:
-    get:
-      tags:
-        - Admin > Business Contact
-      summary: get all business contact
-      parameters:
-        - name: slug
-          in: query
-          schema:
-            type: string
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -2909,7 +2967,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: Nitesh Hamal 2
+                  example: Geography
                 category_image:
                   type: string
                   format: binary
@@ -3221,6 +3279,22 @@ paths:
           description: Successful response
           content:
             application/json: {}
+    get:
+      tags:
+        - Admin > Business Services
+      summary: get single business service
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business-services/cleaning:
     post:
       tags:
         - Admin > Business Services
@@ -3236,7 +3310,7 @@ paths:
                   example: Cleaning
                 description:
                   type: string
-                  example: Hello
+                  example: Hello2
                 business_id:
                   type: integer
                   example: '1'
@@ -3252,26 +3326,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-    get:
-      tags:
-        - Admin > Business Services
-      summary: get single business service
-      parameters:
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
       responses:
         '200':
           description: Successful response
@@ -3290,11 +3344,42 @@ paths:
               properties:
                 news_id:
                   type: integer
-                  example: '7'
+                  example: '12'
                 order_number:
                   type: integer
-                  example: '7'
+                  example: '1'
                 news_category_id:
+                  type: integer
+                  example: '3'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/business-order:
+    post:
+      tags:
+        - Admin > BusinessOrder
+      summary: create business order
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                order_number:
+                  type: integer
+                  example: '2'
+                business_id:
+                  type: integer
+                  example: '4'
+                business_category_id:
                   type: string
       parameters:
         - name: Accept
@@ -3442,6 +3527,16 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/countries-code:
+    get:
+      tags:
+        - Public > Countries
+      summary: get phone list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/surveys/answer:
     post:
       tags:
@@ -3453,7 +3548,7 @@ paths:
             schema:
               type: object
               example:
-                survey_id: '2'
+                survey_id: '3'
                 first_name: Nitesh
                 last_name: Hamal
                 email: niteshhamal@gmail.com
@@ -3461,13 +3556,9 @@ paths:
                 country_of_residence: Nepal
                 question_answers:
                   - question_id: 1
-                    option_id: 3
+                    option_id: 1
                   - question_id: 2
                     option_id: 6
-                  - question_id: 3
-                    option_id: 7
-                  - question_id: 4
-                    option_id: 5
       parameters:
         - name: Accept
           in: header
@@ -3706,17 +3797,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '1'
-        - name: user_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
-        - name: category_id
-          in: query
-          schema:
-            type: integer
-          example: '2'
+          example: '0'
       responses:
         '200':
           description: Successful response
@@ -3964,12 +4045,27 @@ paths:
         - Public > Business
       summary: get all business data
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: status
           in: query
           schema:
             type: integer
           example: '1'
         - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: country
+          in: query
+          schema:
+            type: string
+          example: Nepal
+        - name: business_category_id
           in: query
           schema:
             type: integer
