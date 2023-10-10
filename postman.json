@@ -119,7 +119,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/users?deleted_users=&pagination_limit=10&page=&search=Nitesh Hamal",
+									"raw": "{{url}}/admin/users?pagination_limit=10&page=&search=Nitesh Hamal&country=China",
 									"host": [
 										"{{url}}"
 									],
@@ -130,7 +130,8 @@
 									"query": [
 										{
 											"key": "deleted_users",
-											"value": ""
+											"value": "",
+											"disabled": true
 										},
 										{
 											"key": "pagination_limit",
@@ -143,6 +144,10 @@
 										{
 											"key": "search",
 											"value": "Nitesh Hamal"
+										},
+										{
+											"key": "country",
+											"value": "China"
 										}
 									]
 								}
@@ -469,6 +474,31 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "delete user",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/users/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -487,7 +517,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/news?pagination_limit=&newsable_type=ncc&newsable_id=1",
+									"raw": "{{url}}/admin/news?pagination_limit=&newsable_type=ncc&newsable_id=1&category_id=3&search=at another",
 									"host": [
 										"{{url}}"
 									],
@@ -507,6 +537,14 @@
 										{
 											"key": "newsable_id",
 											"value": "1"
+										},
+										{
+											"key": "category_id",
+											"value": "3"
+										},
+										{
+											"key": "search",
+											"value": "at another"
 										}
 									]
 								}
@@ -529,17 +567,12 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "News 1",
+											"value": "India-China feud keeps international planes out of Nepal airport",
 											"type": "text"
 										},
 										{
 											"key": "description",
-											"value": "aldjawlkdj",
-											"type": "text"
-										},
-										{
-											"key": "status",
-											"value": "1",
+											"value": "The bright orange hotel sticks out as far as the eye can see - but unfortunately for its owner Bishnu Sharma, there is hardly anyone there to see it.",
 											"type": "text"
 										},
 										{
@@ -564,12 +597,12 @@
 										},
 										{
 											"key": "news_category_id",
-											"value": "2",
+											"value": "3",
 											"type": "text"
 										},
 										{
 											"key": "excerpt",
-											"value": "Canadian Prime Minister Justin Trudeau has said his country is serious about building closer ties with India despite an ongoing diplomatic row.",
+											"value": "The bright orange hotel sticks out as far as the eye can see - but unfortunately for its owner Bishnu Sharma, there is hardly anyone there to see it.",
 											"type": "text"
 										}
 									]
@@ -1163,7 +1196,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"question\": \"What is your name?\",\n    \"survey_id\":\"1\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Nitesh Hamal\",\n        \"Hancie Phago\"\n        \n        \n        \n    ]\n}",
+									"raw": "{\n    \"question\": \"What is your name?\",\n    \"survey_id\":\"1\",\n    \"options\": [\n        \"Bishal\",\n        \"Ashok Chapagain\",\n        \"Nitesh Hamal\",\n        \"Hancie Phago\"\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2036,7 +2069,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/ncc-candidates?ncc_id=1&pagination_limit=1",
+									"raw": "{{url}}/admin/ncc-candidates?ncc_id=1&pagination_limit=1&country=Nepal",
 									"host": [
 										"{{url}}"
 									],
@@ -2052,6 +2085,10 @@
 										{
 											"key": "pagination_limit",
 											"value": "1"
+										},
+										{
+											"key": "country",
+											"value": "Nepal"
 										}
 									]
 								}
@@ -2071,7 +2108,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 23,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 64,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2104,7 +2141,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"_method\": \"put\"\n}",
+									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 42,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"_method\": \"put\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2112,20 +2149,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/ncc-candidates/:ncc_candidate_id",
+									"raw": "{{url}}/admin/ncc-candidates/1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"ncc-candidates",
-										":ncc_candidate_id"
-									],
-									"variable": [
-										{
-											"key": "ncc_candidate_id",
-											"value": "1"
-										}
+										"1"
 									]
 								}
 							},
@@ -2251,7 +2282,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/events?pagination_limit=&ncc_id=1",
+									"raw": "{{url}}/admin/events",
 									"host": [
 										"{{url}}"
 									],
@@ -2262,11 +2293,13 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": ""
+											"value": "",
+											"disabled": true
 										},
 										{
 											"key": "ncc_id",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										}
 									]
 								}
@@ -2289,12 +2322,12 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "Event 1",
+											"value": "Program",
 											"type": "text"
 										},
 										{
 											"key": "description",
-											"value": "aldjawlkdj",
+											"value": "my program 2",
 											"type": "text"
 										},
 										{
@@ -2304,7 +2337,7 @@
 										},
 										{
 											"key": "event_date",
-											"value": "2023-05-06",
+											"value": "2023-12-06",
 											"type": "text"
 										},
 										{
@@ -2786,6 +2819,61 @@
 											"key": "about_tagline_author",
 											"value": "hy",
 											"type": "text"
+										},
+										{
+											"key": "ncc_banner_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/384547039_902872458018073_5152574861030656065_n.png"
+										},
+										{
+											"key": "ncc_title",
+											"value": "hy",
+											"type": "text"
+										},
+										{
+											"key": "ncc_description",
+											"value": "hy",
+											"type": "text"
+										},
+										{
+											"key": "ncc_banner_title",
+											"value": "hy",
+											"type": "text"
+										},
+										{
+											"key": "ncc_banner_subtitle",
+											"value": "hy",
+											"type": "text"
+										},
+										{
+											"key": "advice_banner",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
+											"key": "advice_title",
+											"value": "hy",
+											"type": "text"
+										},
+										{
+											"key": "advice_subtitle",
+											"value": "hy",
+											"type": "text"
+										},
+										{
+											"key": "support_banner",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/387622482_7037677749597585_6658774982256616764_n.jpg"
+										},
+										{
+											"key": "support_title",
+											"value": "hh",
+											"type": "text"
+										},
+										{
+											"key": "support_subtitle",
+											"value": "hh",
+											"type": "text"
 										}
 									]
 								},
@@ -2819,7 +2907,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/homedata?homedataable_type=&homedata_id=&pagination_limit=2",
+									"raw": "{{url}}/admin/homedata?homedataable_type=business&homedataable_id=1&pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
@@ -2830,11 +2918,11 @@
 									"query": [
 										{
 											"key": "homedataable_type",
-											"value": ""
+											"value": "business"
 										},
 										{
-											"key": "homedata_id",
-											"value": ""
+											"key": "homedataable_id",
+											"value": "1"
 										},
 										{
 											"key": "pagination_limit",
@@ -2886,23 +2974,23 @@
 										},
 										{
 											"key": "homedataable_type",
-											"value": "",
+											"value": "business",
 											"type": "text"
 										},
 										{
 											"key": "homedataable_id",
-											"value": "",
+											"value": "1",
 											"type": "text"
 										},
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/1.jpeg"
+											"src": "/Users/hanciephago/Downloads/384547039_902872458018073_5152574861030656065_n.png"
 										},
 										{
 											"key": "banner_image",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/2.jpeg"
+											"src": "/Users/hanciephago/Downloads/384547039_902872458018073_5152574861030656065_n.png"
 										},
 										{
 											"key": "tagline",
@@ -2917,7 +3005,7 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/homedata?homedataable_type=&homedata_id=&pagination_limit=2",
+									"raw": "{{url}}/admin/homedata?homedataable_type=&homedata_id=1&pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
@@ -2932,7 +3020,7 @@
 										},
 										{
 											"key": "homedata_id",
-											"value": ""
+											"value": "1"
 										},
 										{
 											"key": "pagination_limit",
@@ -3032,7 +3120,7 @@
 									"variable": [
 										{
 											"key": "homedata",
-											"value": "21"
+											"value": "2"
 										}
 									]
 								}
@@ -3242,11 +3330,11 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": ""
+											"value": "hancie"
 										},
 										{
 											"key": "user_id",
-											"value": ""
+											"value": "1"
 										}
 									]
 								}
@@ -3723,12 +3811,12 @@
 									"formdata": [
 										{
 											"key": "fullname",
-											"value": "vcv",
+											"value": "Business 2",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "bvbv557@gmail.com",
+											"value": "business22@gmail.com",
 											"type": "text"
 										},
 										{
@@ -3785,6 +3873,11 @@
 											"key": "user_id",
 											"value": "1",
 											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "Nepal",
+											"type": "text"
 										}
 									]
 								},
@@ -3820,7 +3913,7 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/admin/businesses/?user_id=1&status=1",
+									"raw": "{{url}}/admin/businesses/?user_id=3&status=1&country=India&pagination_limit=10",
 									"host": [
 										"{{url}}"
 									],
@@ -3832,11 +3925,19 @@
 									"query": [
 										{
 											"key": "user_id",
-											"value": "1"
+											"value": "3"
 										},
 										{
 											"key": "status",
 											"value": "1"
+										},
+										{
+											"key": "country",
+											"value": "India"
+										},
+										{
+											"key": "pagination_limit",
+											"value": "10"
 										}
 									]
 								}
@@ -4128,20 +4229,27 @@
 							"name": "get all business contact",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/admin/business-contact?slug=",
+									"raw": "{{url}}/admin/business-contact/?user_id=2",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
-										"business-contact"
+										"business-contact",
+										""
 									],
 									"query": [
 										{
-											"key": "slug",
-											"value": ""
+											"key": "user_id",
+											"value": "2"
 										}
 									]
 								}
@@ -4242,7 +4350,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "Nitesh Hamal 2",
+											"value": "Geography",
 											"type": "text"
 										},
 										{
@@ -4750,7 +4858,7 @@
 										},
 										{
 											"key": "description",
-											"value": "Hello",
+											"value": "Hello2",
 											"type": "text"
 										},
 										{
@@ -4771,20 +4879,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/business-services/:slug",
+									"raw": "{{url}}/admin/business-services/cleaning",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"business-services",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": ""
-										}
+										"cleaning"
 									]
 								}
 							},
@@ -4836,17 +4938,17 @@
 									"formdata": [
 										{
 											"key": "news_id",
-											"value": "7",
+											"value": "12",
 											"type": "text"
 										},
 										{
 											"key": "order_number",
-											"value": "7",
+											"value": "1",
 											"type": "text"
 										},
 										{
 											"key": "news_category_id",
-											"value": "",
+											"value": "3",
 											"type": "text"
 										}
 									]
@@ -4859,6 +4961,55 @@
 									"path": [
 										"admin",
 										"news-order"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "BusinessOrder",
+					"item": [
+						{
+							"name": "create business order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_number",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "business_id",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "business_category_id",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-order",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-order"
 									]
 								}
 							},
@@ -5117,6 +5268,24 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get phone list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/countries-code",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"countries-code"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -5136,7 +5305,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n   \"survey_id\":\"2\",\n    \"first_name\": \"Nitesh\",\n    \"last_name\":\"Hamal\",\n    \"email\":\"niteshhamal@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 3\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        },\n        {\n            \"question_id\": 3,\n            \"option_id\": 7\n        },\n        {\n            \"question_id\": 4,\n            \"option_id\": 5\n        }\n    ]\n}",
+									"raw": "{\n    \n   \"survey_id\":\"3\",\n    \"first_name\": \"Nitesh\",\n    \"last_name\":\"Hamal\",\n    \"email\":\"niteshhamal@gmail.com\",\n    \"phone\":\"9825915122\",\n    \"country_of_residence\":\"Nepal\",\n    \"question_answers\": [\n        {\n            \"question_id\": 1,\n            \"option_id\": 1\n        },\n        {\n            \"question_id\": 2,\n            \"option_id\": 6\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5473,7 +5642,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1&status=1&user_id=1&category_id=2",
+									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1&status=0",
 									"host": [
 										"{{url}}"
 									],
@@ -5492,15 +5661,17 @@
 										},
 										{
 											"key": "status",
-											"value": "1"
+											"value": "0"
 										},
 										{
 											"key": "user_id",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "category_id",
-											"value": "2"
+											"value": "3",
+											"disabled": true
 										}
 									]
 								}
@@ -5875,9 +6046,15 @@
 							"name": "get all business data",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/api/businesses/?status=1&user_id=1&pagination_limit=2",
+									"raw": "{{url}}/api/businesses/?status=1&user_id=1&country=Nepal&business_category_id=1&pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
@@ -5893,6 +6070,14 @@
 										},
 										{
 											"key": "user_id",
+											"value": "1"
+										},
+										{
+											"key": "country",
+											"value": "Nepal"
+										},
+										{
+											"key": "business_category_id",
 											"value": "1"
 										},
 										{
