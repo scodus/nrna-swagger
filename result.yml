@@ -76,6 +76,7 @@ tags:
   - name: Public > Users
   - name: Public > Advice
   - name: Public > Questions
+  - name: Public > Business Follower
 paths:
   /admin/contact-us:
     get:
@@ -439,26 +440,10 @@ paths:
           in: query
           schema:
             type: string
-        - name: newsable_type
+        - name: user_id
           in: query
           schema:
             type: string
-          example: ncc
-        - name: newsable_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
-        - name: category_id
-          in: query
-          schema:
-            type: integer
-          example: '3'
-        - name: search
-          in: query
-          schema:
-            type: string
-          example: at another
       responses:
         '200':
           description: Successful response
@@ -3724,7 +3709,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/homedata/{homedata_id}:
+  /api/homedata/{slug}:
     get:
       tags:
         - Public > homedata
@@ -3735,12 +3720,11 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: homedata_id
+        - name: slug
           in: path
           schema:
             type: string
           required: true
-          example: m1edi
       responses:
         '200':
           description: Successful response
@@ -3783,21 +3767,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: newsable_type
-          in: query
-          schema:
-            type: string
-          example: ncc
-        - name: newsable_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
-        - name: status
-          in: query
-          schema:
-            type: integer
-          example: '0'
       responses:
         '200':
           description: Successful response
@@ -3931,6 +3900,16 @@ paths:
           schema:
             type: integer
           example: '2'
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
+        - name: category_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -3974,6 +3953,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -4012,6 +3996,16 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: continent
+          in: query
+          schema:
+            type: string
+          example: Asia
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -4343,6 +4337,11 @@ paths:
         - Public > Users
       summary: get single user
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: slug
           in: path
           schema:
@@ -4447,6 +4446,53 @@ paths:
           schema:
             type: integer
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-follow:
+    post:
+      tags:
+        - Public > Business Follower
+      summary: store follower data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  example: '1'
+                business_id:
+                  type: integer
+                  example: '1'
+                nbns:
+                  type: integer
+                  example: '0'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-follow/{id}:
+    delete:
+      tags:
+        - Public > Business Follower
+      summary: delete follower
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
