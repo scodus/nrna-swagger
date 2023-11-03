@@ -517,7 +517,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/news?pagination_limit=&newsable_type=ncc&newsable_id=1&category_id=3&search=at another",
+									"raw": "{{url}}/admin/news?pagination_limit=&user_id",
 									"host": [
 										"{{url}}"
 									],
@@ -532,19 +532,27 @@
 										},
 										{
 											"key": "newsable_type",
-											"value": "ncc"
+											"value": "",
+											"disabled": true
 										},
 										{
 											"key": "newsable_id",
-											"value": "1"
+											"value": "",
+											"disabled": true
 										},
 										{
 											"key": "category_id",
-											"value": "3"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "search",
-											"value": "at another"
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "user_id",
+											"value": null
 										}
 									]
 								}
@@ -5567,19 +5575,19 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/homedata/:homedata_id",
+									"raw": "{{url}}/api/homedata/:slug",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"homedata",
-										":homedata_id"
+										":slug"
 									],
 									"variable": [
 										{
-											"key": "homedata_id",
-											"value": "m1edi"
+											"key": "slug",
+											"value": ""
 										}
 									]
 								}
@@ -5642,7 +5650,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1&status=0",
+									"raw": "{{url}}/api/news",
 									"host": [
 										"{{url}}"
 									],
@@ -5653,15 +5661,18 @@
 									"query": [
 										{
 											"key": "newsable_type",
-											"value": "ncc"
+											"value": "ncc",
+											"disabled": true
 										},
 										{
 											"key": "newsable_id",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "status",
-											"value": "0"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "user_id",
@@ -5862,7 +5873,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/our-teams?ncc_id=2",
+									"raw": "{{url}}/api/our-teams?ncc_id=2&pagination_limit=2&category_id=2",
 									"host": [
 										"{{url}}"
 									],
@@ -5873,6 +5884,14 @@
 									"query": [
 										{
 											"key": "ncc_id",
+											"value": "2"
+										},
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										},
+										{
+											"key": "category_id",
 											"value": "2"
 										}
 									]
@@ -5928,7 +5947,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/ncc-candidates?ncc_id=1",
+									"raw": "{{url}}/api/ncc-candidates?ncc_id=1&pagination_limit=1",
 									"host": [
 										"{{url}}"
 									],
@@ -5939,6 +5958,10 @@
 									"query": [
 										{
 											"key": "ncc_id",
+											"value": "1"
+										},
+										{
+											"key": "pagination_limit",
 											"value": "1"
 										}
 									]
@@ -5994,13 +6017,23 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/ncc",
+									"raw": "{{url}}/api/ncc?continent=Asia&pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"ncc"
+									],
+									"query": [
+										{
+											"key": "continent",
+											"value": "Asia"
+										},
+										{
+											"key": "pagination_limit",
+											"value": "2"
+										}
 									]
 								}
 							},
@@ -6493,7 +6526,13 @@
 							"name": "get single user",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "{{url}}/api/users/:slug",
 									"host": [
@@ -6647,6 +6686,80 @@
 										{
 											"key": "pagination_limit",
 											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Business Follower",
+					"item": [
+						{
+							"name": "store follower data",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "business_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "nbns",
+											"value": "0",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/business-follow",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-follow"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete follower",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/business-follow/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-follow",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
 										}
 									]
 								}
