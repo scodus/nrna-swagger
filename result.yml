@@ -52,6 +52,7 @@ tags:
   - name: Admin > Business Services
   - name: Admin > News Order
   - name: Admin > BusinessOrder
+  - name: Admin > Business Follower
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -3377,6 +3378,32 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/business-follow:
+    get:
+      tags:
+        - Admin > Business Follower
+      summary: get all follower list
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
@@ -4467,10 +4494,10 @@ paths:
                   example: '1'
                 business_id:
                   type: integer
-                  example: '1'
+                  example: '2'
                 nbns:
                   type: integer
-                  example: '0'
+                  example: '1'
       parameters:
         - name: Accept
           in: header
@@ -4482,13 +4509,43 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business-follow/{id}:
+    get:
+      tags:
+        - Public > Business Follower
+      summary: get business folloer
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: business_id
+          in: query
+          schema:
+            type: integer
+          example: '6'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-follow/{user_id}:
     delete:
       tags:
         - Public > Business Follower
       summary: delete follower
       parameters:
-        - name: id
+        - name: user_id
           in: path
           schema:
             type: string
