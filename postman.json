@@ -5042,7 +5042,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/business-follow?pagination_limit=10&user_id=1",
+									"raw": "{{url}}/admin/business-follow?pagination_limit=10&business_id=7&user_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -5057,12 +5057,73 @@
 										},
 										{
 											"key": "business_id",
-											"value": "7",
-											"disabled": true
+											"value": "7"
 										},
 										{
 											"key": "user_id",
 											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "active",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/business-follow/status/:user_id/:business_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"business-follow",
+										"status",
+										":user_id",
+										":business_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": ""
+										},
+										{
+											"key": "business_id",
+											"value": ""
 										}
 									]
 								}
@@ -5086,7 +5147,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/nbns-followers?user_id=1",
+									"raw": "{{url}}/admin/nbns-followers",
 									"host": [
 										"{{url}}"
 									],
@@ -5097,7 +5158,8 @@
 									"query": [
 										{
 											"key": "user_id",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										}
 									]
 								}
