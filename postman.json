@@ -5070,6 +5070,41 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "NBNS Follower",
+					"item": [
+						{
+							"name": "get all nbns follower",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/nbns-followers?user_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"nbns-followers"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
@@ -6819,7 +6854,7 @@
 							"response": []
 						},
 						{
-							"name": "get business folloer",
+							"name": "get business follower",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -6830,7 +6865,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/business-follow?pagination_limit=10&user_id=1&business_id=6",
+									"raw": "{{url}}/api/business-follow?pagination_limit=10",
 									"host": [
 										"{{url}}"
 									],
@@ -6845,11 +6880,13 @@
 										},
 										{
 											"key": "user_id",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "business_id",
-											"value": "6"
+											"value": "6",
+											"disabled": true
 										}
 									]
 								}
@@ -6911,6 +6948,36 @@
 										{
 											"key": "user_id",
 											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all nbns followers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/nbns-followers?user_id=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"nbns-followers"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "1"
 										}
 									]
 								}
