@@ -78,6 +78,7 @@ tags:
   - name: Public > Advice
   - name: Public > Questions
   - name: Public > Business Follower
+  - name: Public > NBNS Follower
 paths:
   /admin/contact-us:
     get:
@@ -155,16 +156,6 @@ paths:
           in: query
           schema:
             type: string
-        - name: search
-          in: query
-          schema:
-            type: string
-          example: Nitesh Hamal
-        - name: country
-          in: query
-          schema:
-            type: string
-          example: China
       responses:
         '200':
           description: Successful response
@@ -4495,9 +4486,6 @@ paths:
                 business_id:
                   type: integer
                   example: '2'
-                nbns:
-                  type: integer
-                  example: '1'
       parameters:
         - name: Accept
           in: header
@@ -4556,6 +4544,47 @@ paths:
             type: string
           required: true
         - name: business_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/follow_nbns/{user_id}:
+    post:
+      tags:
+        - Public > NBNS Follower
+      summary: follow nbns
+      requestBody:
+        content: {}
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/unfollow_nbns/{user_id}:
+    post:
+      tags:
+        - Public > NBNS Follower
+      summary: unfollow nbns
+      requestBody:
+        content: {}
+      parameters:
+        - name: user_id
           in: path
           schema:
             type: string
