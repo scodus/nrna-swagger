@@ -53,6 +53,7 @@ tags:
   - name: Admin > News Order
   - name: Admin > BusinessOrder
   - name: Admin > Business Follower
+  - name: Admin > NBNS Follower
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -3395,6 +3396,27 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/nbns-followers:
+    get:
+      tags:
+        - Admin > NBNS Follower
+      summary: get all nbns follower
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
@@ -4500,7 +4522,7 @@ paths:
     get:
       tags:
         - Public > Business Follower
-      summary: get business folloer
+      summary: get business follower
       parameters:
         - name: Accept
           in: header
@@ -4512,16 +4534,6 @@ paths:
           schema:
             type: integer
           example: '10'
-        - name: user_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
-        - name: business_id
-          in: query
-          schema:
-            type: integer
-          example: '6'
       responses:
         '200':
           description: Successful response
@@ -4589,6 +4601,27 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/nbns-followers:
+    get:
+      tags:
+        - Public > NBNS Follower
+      summary: get all nbns followers
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: Successful response
