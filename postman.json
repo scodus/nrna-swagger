@@ -119,7 +119,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/users?pagination_limit=10&page=&search=Nitesh Hamal&country=China",
+									"raw": "{{url}}/admin/users?pagination_limit=10&page=",
 									"host": [
 										"{{url}}"
 									],
@@ -143,11 +143,13 @@
 										},
 										{
 											"key": "search",
-											"value": "Nitesh Hamal"
+											"value": "Nitesh Hamal",
+											"disabled": true
 										},
 										{
 											"key": "country",
-											"value": "China"
+											"value": "China",
+											"disabled": true
 										}
 									]
 								}
@@ -6764,11 +6766,6 @@
 											"key": "business_id",
 											"value": "2",
 											"type": "text"
-										},
-										{
-											"key": "nbns",
-											"value": "1",
-											"type": "text"
 										}
 									]
 								},
@@ -6853,6 +6850,67 @@
 										{
 											"key": "business_id",
 											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "NBNS Follower",
+					"item": [
+						{
+							"name": "follow nbns",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/follow_nbns/:user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"follow_nbns",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unfollow nbns",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/unfollow_nbns/:user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"unfollow_nbns",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": ""
 										}
 									]
 								}
