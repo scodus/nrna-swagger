@@ -3386,16 +3386,6 @@ paths:
           schema:
             type: integer
           example: '10'
-        - name: business_id
-          in: query
-          schema:
-            type: integer
-          example: '7'
-        - name: user_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -4600,6 +4590,63 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/business-follow/create-account:
+    post:
+      tags:
+        - Public > Business Follower
+      summary: create user account
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  example: Hancie
+                last_name:
+                  type: string
+                  example: Phago
+                email:
+                  type: string
+                  example: hanciephago@gmail.com
+                country_of_residence:
+                  type: string
+                  example: Nepal
+                business_id:
+                  type: integer
+                  example: '1'
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/set-user-password:
+    post:
+      tags:
+        - Public > Business Follower
+      summary: set new user password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
       responses:
         '200':
           description: Successful response

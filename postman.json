@@ -5042,7 +5042,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/business-follow?pagination_limit=10&business_id=7&user_id=1",
+									"raw": "{{url}}/admin/business-follow?pagination_limit=10",
 									"host": [
 										"{{url}}"
 									],
@@ -5057,11 +5057,13 @@
 										},
 										{
 											"key": "business_id",
-											"value": "7"
+											"value": "7",
+											"disabled": true
 										},
 										{
 											"key": "user_id",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										}
 									]
 								}
@@ -6950,6 +6952,94 @@
 											"value": "6",
 											"disabled": true
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create user account",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "Hancie",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "Phago",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hanciephago@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "country_of_residence",
+											"value": "Nepal",
+											"type": "text"
+										},
+										{
+											"key": "business_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/business-follow/create-account",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"business-follow",
+										"create-account"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set new user password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/set-user-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"set-user-password"
 									]
 								}
 							},
