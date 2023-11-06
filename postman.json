@@ -6789,20 +6789,31 @@
 							"name": "delete follower",
 							"request": {
 								"method": "DELETE",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/api/business-follow/:user_id",
+									"raw": "{{url}}/api/business-follow/:user_id/:business_id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"business-follow",
-										":user_id"
+										":user_id",
+										":business_id"
 									],
 									"variable": [
 										{
 											"key": "user_id",
+											"value": ""
+										},
+										{
+											"key": "business_id",
 											"value": ""
 										}
 									]
