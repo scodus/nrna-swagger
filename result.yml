@@ -4539,13 +4539,23 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/business-follow/{user_id}:
+  /api/business-follow/{user_id}/{business_id}:
     delete:
       tags:
         - Public > Business Follower
       summary: delete follower
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: user_id
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: business_id
           in: path
           schema:
             type: string
