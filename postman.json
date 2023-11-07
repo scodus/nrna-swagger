@@ -5042,7 +5042,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/business-follow?pagination_limit=10",
+									"raw": "{{url}}/admin/business-follow?pagination_limit=10&business_id=7&user_id=1",
 									"host": [
 										"{{url}}"
 									],
@@ -5057,13 +5057,11 @@
 										},
 										{
 											"key": "business_id",
-											"value": "7",
-											"disabled": true
+											"value": "7"
 										},
 										{
 											"key": "user_id",
-											"value": "1",
-											"disabled": true
+											"value": "1"
 										}
 									]
 								}
@@ -5149,7 +5147,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/nbns-followers",
+									"raw": "{{url}}/admin/nbns-followers?pagination_limit=1",
 									"host": [
 										"{{url}}"
 									],
@@ -5162,6 +5160,57 @@
 											"key": "user_id",
 											"value": "1",
 											"disabled": true
+										},
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nbns_status",
+											"value": "approved",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/nbns-followers/status/:user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"nbns-followers",
+										"status",
+										":user_id"
+									],
+									"variable": [
+										{
+											"key": "user_id",
+											"value": ""
 										}
 									]
 								}
@@ -6995,6 +7044,11 @@
 											"key": "business_id",
 											"value": "1",
 											"type": "text"
+										},
+										{
+											"key": "nbns",
+											"value": "1",
+											"type": "text"
 										}
 									]
 								},
@@ -7042,6 +7096,14 @@
 										"set-user-password"
 									]
 								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
 							},
 							"response": []
 						}
