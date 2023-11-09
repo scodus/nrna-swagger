@@ -5147,7 +5147,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/nbns-followers?pagination_limit=1",
+									"raw": "{{url}}/admin/nbns-followers?user_id=1&pagination_limit=10",
 									"host": [
 										"{{url}}"
 									],
@@ -5158,12 +5158,11 @@
 									"query": [
 										{
 											"key": "user_id",
-											"value": "1",
-											"disabled": true
+											"value": "1"
 										},
 										{
 											"key": "pagination_limit",
-											"value": "1"
+											"value": "10"
 										}
 									]
 								}
@@ -5211,6 +5210,55 @@
 										{
 											"key": "user_id",
 											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Download Files",
+					"item": [
+						{
+							"name": "store download files",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "download",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "dfdgfg",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/HanciePhago-CIS017-1PATAN-Se-letter.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/download-files?",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"download-files"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
 										}
 									]
 								}
@@ -7096,14 +7144,6 @@
 										"set-user-password"
 									]
 								}
-							},
-							"response": []
-						},
-						{
-							"name": "New Request",
-							"request": {
-								"method": "GET",
-								"header": []
 							},
 							"response": []
 						}
