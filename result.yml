@@ -3578,6 +3578,50 @@ paths:
           description: Successful response
           content:
             application/json: {}
+    post:
+      tags:
+        - Admin > Download Files
+      summary: update download file
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: download
+                downloadable_type:
+                  type: string
+                  example: ncc
+                downloadable_id:
+                  type: integer
+                  example: '3'
+                description:
+                  type: string
+                  example: lorem
+                file:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /admin/download-files/download:
     delete:
       tags:
@@ -4574,7 +4618,7 @@ paths:
             schema:
               type: object
               example:
-                email: hanciewanemphago@gmail.com
+                email: hanciewanephago@gmail.com
                 first_name: Hancie
                 middle_name: Wanem
                 last_name: Limbu
@@ -4755,7 +4799,7 @@ paths:
                   example: Phago
                 email:
                   type: string
-                  example: hanciephago@gmail.com
+                  example: hanciephago1@gmail.com
                 country_of_residence:
                   type: string
                   example: Nepal
@@ -4765,6 +4809,9 @@ paths:
                 nbns:
                   type: integer
                   example: '1'
+                phone:
+                  type: integer
+                  example: '982'
       parameters:
         - name: Accept
           in: header
