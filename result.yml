@@ -3557,6 +3557,27 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/download-files/{slug}:
+    get:
+      tags:
+        - Admin > Download Files
+      summary: show single download data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:

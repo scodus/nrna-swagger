@@ -5302,6 +5302,37 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "show single download data",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/download-files/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"download-files",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
