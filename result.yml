@@ -81,6 +81,7 @@ tags:
   - name: Public > Questions
   - name: Public > Business Follower
   - name: Public > NBNS Follower
+  - name: Public > Download Files
 paths:
   /admin/contact-us:
     get:
@@ -3552,6 +3553,16 @@ paths:
           schema:
             type: string
           example: active
+        - name: downloadable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: downloadable_id
+          in: query
+          schema:
+            type: integer
+          example: '3'
       responses:
         '200':
           description: Successful response
@@ -4930,6 +4941,38 @@ paths:
           schema:
             type: integer
           example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/download-files:
+    get:
+      tags:
+        - Public > Download Files
+      summary: get all download files
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/download-files/{slug}:
+    get:
+      tags:
+        - Public > Download Files
+      summary: show single download file details
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
