@@ -5418,6 +5418,48 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "update download file status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "inactive",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/download-files/status/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"download-files",
+										"status",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
