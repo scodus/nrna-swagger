@@ -5235,6 +5235,16 @@
 											"type": "text"
 										},
 										{
+											"key": "downloadable_type",
+											"value": "ncc",
+											"type": "text"
+										},
+										{
+											"key": "downloadable_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
 											"key": "description",
 											"value": "dfdgfg",
 											"type": "text"
@@ -5259,6 +5269,34 @@
 										{
 											"key": "",
 											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all download files",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/download-files?pagination_limit=3&status=active",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"download-files"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "3"
+										},
+										{
+											"key": "status",
+											"value": "active"
 										}
 									]
 								}

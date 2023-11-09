@@ -3515,6 +3515,12 @@ paths:
                 title:
                   type: string
                   example: download
+                downloadable_type:
+                  type: string
+                  example: ncc
+                downloadable_id:
+                  type: integer
+                  example: '1'
                 description:
                   type: string
                   example: dfdgfg
@@ -3526,6 +3532,26 @@ paths:
           in: query
           schema:
             type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Download Files
+      summary: get all download files
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '3'
+        - name: status
+          in: query
+          schema:
+            type: string
+          example: active
       responses:
         '200':
           description: Successful response
