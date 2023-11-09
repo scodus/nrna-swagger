@@ -3632,6 +3632,36 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/download-files/status/{slug}:
+    post:
+      tags:
+        - Admin > Download Files
+      summary: update download file status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: inactive
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
