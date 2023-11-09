@@ -5281,7 +5281,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/download-files?pagination_limit=3&status=active",
+									"raw": "{{url}}/admin/download-files?pagination_limit=3&status=active&downloadable_type=ncc&downloadable_id=3",
 									"host": [
 										"{{url}}"
 									],
@@ -5297,6 +5297,14 @@
 										{
 											"key": "status",
 											"value": "active"
+										},
+										{
+											"key": "downloadable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "downloadable_id",
+											"value": "3"
 										}
 									]
 								}
@@ -7433,6 +7441,60 @@
 										{
 											"key": "user_id",
 											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Download Files",
+					"item": [
+						{
+							"name": "get all download files",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/download-files",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"download-files"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show single download file details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/download-files/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"download-files",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
 										}
 									]
 								}
