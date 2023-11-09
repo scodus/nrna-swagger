@@ -3578,6 +3578,16 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/download-files/download:
+    delete:
+      tags:
+        - Admin > Download Files
+      summary: delete download files
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:

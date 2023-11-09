@@ -5333,6 +5333,25 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "delete download files",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/download-files/download",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"download-files",
+										"download"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
