@@ -5352,6 +5352,72 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "update download file",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "download",
+											"type": "text"
+										},
+										{
+											"key": "downloadable_type",
+											"value": "ncc",
+											"type": "text"
+										},
+										{
+											"key": "downloadable_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "lorem",
+											"type": "text"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/HanciePhago-CIS017-1PATAN-Se-certificate.pdf"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/download-files/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"download-files",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -6896,7 +6962,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"hanciewanemphago@gmail.com\",\n    \"first_name\": \"Hancie\",\n    \"middle_name\": \"Wanem\",\n    \"last_name\": \"Limbu\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
+									"raw": "{\n    \"email\": \"hanciewanephago@gmail.com\",\n    \"first_name\": \"Hancie\",\n    \"middle_name\": \"Wanem\",\n    \"last_name\": \"Limbu\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7168,7 +7234,7 @@
 										},
 										{
 											"key": "email",
-											"value": "hanciephago@gmail.com",
+											"value": "hanciephago1@gmail.com",
 											"type": "text"
 										},
 										{
@@ -7184,6 +7250,11 @@
 										{
 											"key": "nbns",
 											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "982",
 											"type": "text"
 										}
 									]
