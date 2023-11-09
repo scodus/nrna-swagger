@@ -54,6 +54,7 @@ tags:
   - name: Admin > BusinessOrder
   - name: Admin > Business Follower
   - name: Admin > NBNS Follower
+  - name: Admin > Download Files
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -3452,11 +3453,16 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: pagination_limit
+        - name: user_id
           in: query
           schema:
             type: integer
           example: '1'
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '10'
       responses:
         '200':
           description: Successful response
@@ -3490,6 +3496,36 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/download-files:
+    post:
+      tags:
+        - Admin > Download Files
+      summary: store download files
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: download
+                description:
+                  type: string
+                  example: dfdgfg
+                file:
+                  type: string
+                  format: binary
+      parameters:
+        - name: ''
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
