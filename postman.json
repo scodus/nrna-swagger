@@ -5241,7 +5241,7 @@
 										},
 										{
 											"key": "downloadable_id",
-											"value": "1",
+											"value": "23",
 											"type": "text"
 										},
 										{
@@ -7464,13 +7464,27 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/download-files",
+									"raw": "{{url}}/api/download-files?downloadable_id=23&downloadable_type=ncc&status=active",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"download-files"
+									],
+									"query": [
+										{
+											"key": "downloadable_id",
+											"value": "23"
+										},
+										{
+											"key": "downloadable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "status",
+											"value": "active"
+										}
 									]
 								}
 							},
