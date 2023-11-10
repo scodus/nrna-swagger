@@ -5279,9 +5279,15 @@
 							"name": "get all download files",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/admin/download-files?pagination_limit=3&status=active&downloadable_type=ncc&downloadable_id=3",
+									"raw": "{{url}}/admin/download-files?pagination_limit=3&status=active&downloadable_type=ncc&downloadable_id=45&search=download",
 									"host": [
 										"{{url}}"
 									],
@@ -5304,7 +5310,11 @@
 										},
 										{
 											"key": "downloadable_id",
-											"value": "3"
+											"value": "45"
+										},
+										{
+											"key": "search",
+											"value": "download"
 										}
 									]
 								}
@@ -7471,7 +7481,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/download-files",
+									"raw": "{{url}}/api/download-files?pagination_limit=3&status=active&downloadable_type=ncc&downloadable_id=45&search=download",
 									"host": [
 										"{{url}}"
 									],
@@ -7481,19 +7491,24 @@
 									],
 									"query": [
 										{
-											"key": "downloadable_id",
-											"value": "23",
-											"disabled": true
-										},
-										{
-											"key": "downloadable_type",
-											"value": "ncc",
-											"disabled": true
+											"key": "pagination_limit",
+											"value": "3"
 										},
 										{
 											"key": "status",
-											"value": "active",
-											"disabled": true
+											"value": "active"
+										},
+										{
+											"key": "downloadable_type",
+											"value": "ncc"
+										},
+										{
+											"key": "downloadable_id",
+											"value": "45"
+										},
+										{
+											"key": "search",
+											"value": "download"
 										}
 									]
 								}

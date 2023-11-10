@@ -3543,6 +3543,11 @@ paths:
         - Admin > Download Files
       summary: get all download files
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: pagination_limit
           in: query
           schema:
@@ -3562,7 +3567,12 @@ paths:
           in: query
           schema:
             type: integer
-          example: '3'
+          example: '45'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: download
       responses:
         '200':
           description: Successful response
@@ -4997,6 +5007,31 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '3'
+        - name: status
+          in: query
+          schema:
+            type: string
+          example: active
+        - name: downloadable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: downloadable_id
+          in: query
+          schema:
+            type: integer
+          example: '45'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: download
       responses:
         '200':
           description: Successful response
