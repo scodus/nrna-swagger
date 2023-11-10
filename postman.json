@@ -6096,7 +6096,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/news",
+									"raw": "{{url}}/api/news?newsable_type=ncc&newsable_id=1&status=1&user_id=1&category_id=3&search=news title or description",
 									"host": [
 										"{{url}}"
 									],
@@ -6107,28 +6107,27 @@
 									"query": [
 										{
 											"key": "newsable_type",
-											"value": "ncc",
-											"disabled": true
+											"value": "ncc"
 										},
 										{
 											"key": "newsable_id",
-											"value": "1",
-											"disabled": true
+											"value": "1"
 										},
 										{
 											"key": "status",
-											"value": "1",
-											"disabled": true
+											"value": "1"
 										},
 										{
 											"key": "user_id",
-											"value": "1",
-											"disabled": true
+											"value": "1"
 										},
 										{
 											"key": "category_id",
-											"value": "3",
-											"disabled": true
+											"value": "3"
+										},
+										{
+											"key": "search",
+											"value": "news title or description"
 										}
 									]
 								}
@@ -7464,7 +7463,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/download-files?downloadable_id=23&downloadable_type=ncc&status=active",
+									"raw": "{{url}}/api/download-files",
 									"host": [
 										"{{url}}"
 									],
@@ -7475,15 +7474,18 @@
 									"query": [
 										{
 											"key": "downloadable_id",
-											"value": "23"
+											"value": "23",
+											"disabled": true
 										},
 										{
 											"key": "downloadable_type",
-											"value": "ncc"
+											"value": "ncc",
+											"disabled": true
 										},
 										{
 											"key": "status",
-											"value": "active"
+											"value": "active",
+											"disabled": true
 										}
 									]
 								}
