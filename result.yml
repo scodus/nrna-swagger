@@ -4063,6 +4063,36 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: newsable_type
+          in: query
+          schema:
+            type: string
+          example: ncc
+        - name: newsable_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: category_id
+          in: query
+          schema:
+            type: integer
+          example: '3'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: news title or description
       responses:
         '200':
           description: Successful response
@@ -4957,21 +4987,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: downloadable_id
-          in: query
-          schema:
-            type: integer
-          example: '23'
-        - name: downloadable_type
-          in: query
-          schema:
-            type: string
-          example: ncc
-        - name: status
-          in: query
-          schema:
-            type: string
-          example: active
       responses:
         '200':
           description: Successful response
