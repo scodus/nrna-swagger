@@ -4332,6 +4332,11 @@ paths:
           schema:
             type: integer
           example: '2'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: India
       responses:
         '200':
           description: Successful response
@@ -4395,6 +4400,11 @@ paths:
           schema:
             type: integer
           example: '2'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: business name
       responses:
         '200':
           description: Successful response
