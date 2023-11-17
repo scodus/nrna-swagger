@@ -6192,7 +6192,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/events?ncc_id=1&status=1",
+									"raw": "{{url}}/api/events?search=title or description",
 									"host": [
 										"{{url}}"
 									],
@@ -6203,11 +6203,17 @@
 									"query": [
 										{
 											"key": "ncc_id",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "status",
-											"value": "1"
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "title or description"
 										}
 									]
 								}
