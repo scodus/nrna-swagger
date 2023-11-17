@@ -2292,7 +2292,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/events",
+									"raw": "{{url}}/admin/events?pagination_limit=&ncc_id=1&search=Event",
 									"host": [
 										"{{url}}"
 									],
@@ -2303,13 +2303,15 @@
 									"query": [
 										{
 											"key": "pagination_limit",
-											"value": "",
-											"disabled": true
+											"value": ""
 										},
 										{
 											"key": "ncc_id",
-											"value": "1",
-											"disabled": true
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "Event"
 										}
 									]
 								}
@@ -6192,7 +6194,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/events?search=title or description",
+									"raw": "{{url}}/api/events?ncc_id=1&status=1&search=title or description",
 									"host": [
 										"{{url}}"
 									],
@@ -6203,13 +6205,11 @@
 									"query": [
 										{
 											"key": "ncc_id",
-											"value": "1",
-											"disabled": true
+											"value": "1"
 										},
 										{
 											"key": "status",
-											"value": "1",
-											"disabled": true
+											"value": "1"
 										},
 										{
 											"key": "search",
