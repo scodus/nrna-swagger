@@ -1659,6 +1659,21 @@ paths:
       tags:
         - Admin > Events
       summary: get all events
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: string
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: Event
       responses:
         '200':
           description: Successful response
@@ -4141,6 +4156,16 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: ncc_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: status
+          in: query
+          schema:
+            type: integer
+          example: '1'
         - name: search
           in: query
           schema:
