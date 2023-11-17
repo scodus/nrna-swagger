@@ -4141,16 +4141,11 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: ncc_id
+        - name: search
           in: query
           schema:
-            type: integer
-          example: '1'
-        - name: status
-          in: query
-          schema:
-            type: integer
-          example: '1'
+            type: string
+          example: title or description
       responses:
         '200':
           description: Successful response
