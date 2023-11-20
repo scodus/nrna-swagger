@@ -3716,8 +3716,12 @@ paths:
                 description:
                   type: string
                   example: ghghghgh
-                '':
+                business_id:
+                  type: integer
+                  example: '5'
+                nbns:
                   type: string
+                  example: nbns
       security:
         - bearerAuth: []
       parameters:
@@ -3735,6 +3739,22 @@ paths:
       tags:
         - Admin > Email Template
       summary: get email list
+      parameters:
+        - name: email_type
+          in: query
+          schema:
+            type: string
+          example: business
+        - name: user_id
+          in: query
+          schema:
+            type: integer
+          example: '42'
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '3'
       responses:
         '200':
           description: Successful response
@@ -3757,6 +3777,9 @@ paths:
                 description:
                   type: string
                   example: mero business 123
+                business_id:
+                  type: integer
+                  example: '4'
                 _method:
                   type: string
                   example: put
@@ -5007,13 +5030,13 @@ paths:
                   example: Phago
                 email:
                   type: string
-                  example: hanciephago1@gmail.com
+                  example: hanciephago3@gmail.com
                 country_of_residence:
                   type: string
                   example: Nepal
                 business_id:
                   type: integer
-                  example: '1'
+                  example: '5'
                 nbns:
                   type: integer
                   example: '1'
