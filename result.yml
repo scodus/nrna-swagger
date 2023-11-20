@@ -55,6 +55,7 @@ tags:
   - name: Admin > Business Follower
   - name: Admin > NBNS Follower
   - name: Admin > Download Files
+  - name: Admin > Email Template
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -3248,6 +3249,16 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: business_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -3403,16 +3414,6 @@ paths:
           schema:
             type: integer
           example: '10'
-        - name: business_id
-          in: query
-          schema:
-            type: integer
-          example: '7'
-        - name: user_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -3689,6 +3690,102 @@ paths:
             type: string
           example: application/json
         - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/email-template:
+    post:
+      tags:
+        - Admin > Email Template
+      summary: create email template
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: hgh
+                description:
+                  type: string
+                  example: ghghghgh
+                '':
+                  type: string
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Email Template
+      summary: get email list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/email-template/{template_id}:
+    post:
+      tags:
+        - Admin > Email Template
+      summary: update email template
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: mero business
+                description:
+                  type: string
+                  example: mero business 123
+                _method:
+                  type: string
+                  example: put
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: template_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Email Template
+      summary: delete email templates
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: template_id
           in: path
           schema:
             type: string
