@@ -5538,10 +5538,14 @@
 											"type": "text"
 										},
 										{
-											"key": "",
-											"value": "",
-											"type": "text",
-											"disabled": true
+											"key": "business_id",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "nbns",
+											"value": "nbns",
+											"type": "text"
 										}
 									]
 								},
@@ -5564,13 +5568,27 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/email-template",
+									"raw": "{{url}}/admin/email-template?email_type=business&user_id=42&pagination_limit=3",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"email-template"
+									],
+									"query": [
+										{
+											"key": "email_type",
+											"value": "business"
+										},
+										{
+											"key": "user_id",
+											"value": "42"
+										},
+										{
+											"key": "pagination_limit",
+											"value": "3"
+										}
 									]
 								}
 							},
@@ -5608,6 +5626,11 @@
 										{
 											"key": "description",
 											"value": "mero business 123",
+											"type": "text"
+										},
+										{
+											"key": "business_id",
+											"value": "4",
 											"type": "text"
 										},
 										{
@@ -7498,7 +7521,7 @@
 										},
 										{
 											"key": "email",
-											"value": "hanciephago1@gmail.com",
+											"value": "hanciephago3@gmail.com",
 											"type": "text"
 										},
 										{
@@ -7508,13 +7531,14 @@
 										},
 										{
 											"key": "business_id",
-											"value": "1",
+											"value": "5",
 											"type": "text"
 										},
 										{
 											"key": "nbns",
 											"value": "1",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "phone",
