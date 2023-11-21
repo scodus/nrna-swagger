@@ -5694,6 +5694,63 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "update default template status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "true6",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/email-template/status/:template_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"email-template",
+										"status",
+										":template_id"
+									],
+									"variable": [
+										{
+											"key": "template_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
@@ -7537,8 +7594,7 @@
 										{
 											"key": "nbns",
 											"value": "1",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "phone",
