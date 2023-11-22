@@ -56,6 +56,7 @@ tags:
   - name: Admin > NBNS Follower
   - name: Admin > Download Files
   - name: Admin > Email Template
+  - name: Admin > Regions
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -151,6 +152,10 @@ paths:
           schema:
             type: string
           example: application/json
+        - name: deleted_users
+          in: query
+          schema:
+            type: string
         - name: pagination_limit
           in: query
           schema:
@@ -160,6 +165,16 @@ paths:
           in: query
           schema:
             type: string
+        - name: search
+          in: query
+          schema:
+            type: string
+          example: Nitesh Hamal
+        - name: country
+          in: query
+          schema:
+            type: string
+          example: Nepal
       responses:
         '200':
           description: Successful response
@@ -3718,7 +3733,7 @@ paths:
                   example: ghghghgh
                 business_id:
                   type: integer
-                  example: '5'
+                  example: '6'
                 nbns:
                   type: string
                   example: nbns
@@ -3745,11 +3760,6 @@ paths:
           schema:
             type: string
           example: business
-        - name: user_id
-          in: query
-          schema:
-            type: integer
-          example: '42'
         - name: pagination_limit
           in: query
           schema:
@@ -3818,11 +3828,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/email-template/status/{template_id}:
+  /admin/email-template/set-default-template/{template_id}:
     post:
       tags:
         - Admin > Email Template
-      summary: update default template status
+      summary: set default template
       requestBody:
         content:
           multipart/form-data:
@@ -3830,8 +3840,8 @@ paths:
               type: object
               properties:
                 status:
-                  type: string
-                  example: true6
+                  type: boolean
+                  example: 'true'
                 _method:
                   type: string
                   example: patch
@@ -3848,6 +3858,64 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/email-template/remove-default-template/{template_id}:
+    post:
+      tags:
+        - Admin > Email Template
+      summary: remove default template
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: template_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/regions:
+    post:
+      tags:
+        - Admin > Regions
+      summary: store region
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Middle east
+                region_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
