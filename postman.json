@@ -119,7 +119,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/users?pagination_limit=10&page=",
+									"raw": "{{url}}/admin/users?deleted_users=&pagination_limit=10&page=&search=Nitesh Hamal&country=Nepal",
 									"host": [
 										"{{url}}"
 									],
@@ -130,8 +130,7 @@
 									"query": [
 										{
 											"key": "deleted_users",
-											"value": "",
-											"disabled": true
+											"value": ""
 										},
 										{
 											"key": "pagination_limit",
@@ -143,13 +142,11 @@
 										},
 										{
 											"key": "search",
-											"value": "Nitesh Hamal",
-											"disabled": true
+											"value": "Nitesh Hamal"
 										},
 										{
 											"key": "country",
-											"value": "China",
-											"disabled": true
+											"value": "Nepal"
 										}
 									]
 								}
@@ -5539,7 +5536,7 @@
 										},
 										{
 											"key": "business_id",
-											"value": "5",
+											"value": "6",
 											"type": "text"
 										},
 										{
@@ -5568,7 +5565,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/email-template?email_type=business&user_id=42&pagination_limit=3",
+									"raw": "{{url}}/admin/email-template?email_type=business&pagination_limit=3",
 									"host": [
 										"{{url}}"
 									],
@@ -5580,10 +5577,6 @@
 										{
 											"key": "email_type",
 											"value": "business"
-										},
-										{
-											"key": "user_id",
-											"value": "42"
 										},
 										{
 											"key": "pagination_limit",
@@ -5696,7 +5689,7 @@
 							"response": []
 						},
 						{
-							"name": "update default template status",
+							"name": "set default template",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -5721,7 +5714,7 @@
 									"formdata": [
 										{
 											"key": "status",
-											"value": "true6",
+											"value": "true",
 											"type": "text"
 										},
 										{
@@ -5732,14 +5725,14 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/email-template/status/:template_id",
+									"raw": "{{url}}/admin/email-template/set-default-template/:template_id",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"email-template",
-										"status",
+										"set-default-template",
 										":template_id"
 									],
 									"variable": [
@@ -5747,6 +5740,92 @@
 											"key": "template_id",
 											"value": ""
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove default template",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/email-template/remove-default-template/:template_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"email-template",
+										"remove-default-template",
+										":template_id"
+									],
+									"variable": [
+										{
+											"key": "template_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Regions",
+					"item": [
+						{
+							"name": "store region",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Middle east",
+											"type": "text"
+										},
+										{
+											"key": "region_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_3022.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/regions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"regions"
 									]
 								}
 							},
