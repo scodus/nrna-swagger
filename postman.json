@@ -5830,6 +5830,61 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "get all region list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/regions?pagination_limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"regions"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete region",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/regions/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"regions",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
