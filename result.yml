@@ -3992,6 +3992,34 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/regions/status/middle-east:
+    post:
+      tags:
+        - Admin > Regions
+      summary: update region status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: inactive
+                _method:
+                  type: string
+                  example: patch
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:

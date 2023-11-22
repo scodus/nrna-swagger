@@ -5936,6 +5936,47 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "update region status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "inactive",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/regions/status/middle-east",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"regions",
+										"status",
+										"middle-east"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
