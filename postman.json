@@ -5885,6 +5885,57 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "update region details",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Middle east",
+											"type": "text"
+										},
+										{
+											"key": "region_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_0643.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/regions/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"regions",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}

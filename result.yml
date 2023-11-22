@@ -3957,6 +3957,41 @@ paths:
           description: Successful response
           content:
             application/json: {}
+    post:
+      tags:
+        - Admin > Regions
+      summary: update region details
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Middle east
+                region_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
