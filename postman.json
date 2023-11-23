@@ -854,7 +854,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"country_name\":\"Thailand1\",\n    \"admin_id\":1,\n    \"color\":1234,\n\n    \"regions\":[\n        {\n            \"region_id\":1\n           \n        },\n        {\n             \"region_id\":2\n        }\n    ]\n}",
+									"raw": "{\n    \"country_name\":\"Nepal\",\n    \"admin_id\":1,\n    \"color\":1234,\n\n    \"regions\":[\n        {\n            \"region_id\":1\n           \n        },\n        {\n             \"region_id\":2\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -886,34 +886,13 @@
 									}
 								],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "country_name",
-											"value": "India",
-											"type": "text"
-										},
-										{
-											"key": "admin_id",
-											"value": "42",
-											"type": "text"
-										},
-										{
-											"key": "logo",
-											"type": "file",
-											"src": "/Users/hanciephago/Downloads/logo.png"
-										},
-										{
-											"key": "color",
-											"value": "123",
-											"type": "text"
-										},
-										{
-											"key": "_method",
-											"value": "PUT",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\n    \"country_name\":\"Nepal\",\n    \"admin_id\":1,\n    \"color\":1234,\n\n    \"regions\":[\n       \n        {\n             \"region_id\":4\n        }\n    ],\n    \"_method\":\"PUT\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
 									"raw": "{{url}}/admin/ncc/:slug",
@@ -2099,7 +2078,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 64,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 64,\n    \"designation\": \"Supervisor\",\n    \"order\": 2\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2866,6 +2845,11 @@
 										{
 											"key": "support_subtitle",
 											"value": "hh",
+											"type": "text"
+										},
+										{
+											"key": "show_candidate",
+											"value": "true",
 											"type": "text"
 										}
 									]
@@ -5792,7 +5776,7 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": "Middle east",
+											"value": "Asia",
 											"type": "text"
 										},
 										{
@@ -6889,7 +6873,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/ncc-candidates?ncc_id=1&pagination_limit=1",
+									"raw": "{{url}}/api/ncc-candidates?ncc_id=1&pagination_limit=2",
 									"host": [
 										"{{url}}"
 									],
@@ -6904,7 +6888,7 @@
 										},
 										{
 											"key": "pagination_limit",
-											"value": "1"
+											"value": "2"
 										}
 									]
 								}
@@ -6959,7 +6943,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/ncc?continent=Asia&pagination_limit=2&search=India",
+									"raw": "{{url}}/api/ncc?continent=Asia&pagination_limit=10&search=India&region=Asia",
 									"host": [
 										"{{url}}"
 									],
@@ -6974,11 +6958,15 @@
 										},
 										{
 											"key": "pagination_limit",
-											"value": "2"
+											"value": "10"
 										},
 										{
 											"key": "search",
 											"value": "India"
+										},
+										{
+											"key": "region",
+											"value": "Asia"
 										}
 									]
 								}
@@ -8022,6 +8010,29 @@
 											"key": "slug",
 											"value": ""
 										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Regions",
+					"item": [
+						{
+							"name": "get all regions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/regions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"regions"
 									]
 								}
 							},

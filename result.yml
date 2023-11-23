@@ -84,6 +84,7 @@ tags:
   - name: Public > Business Follower
   - name: Public > NBNS Follower
   - name: Public > Download Files
+  - name: Public > Regions
 paths:
   /admin/contact-us:
     get:
@@ -667,7 +668,7 @@ paths:
             schema:
               type: object
               example:
-                country_name: Thailand1
+                country_name: Nepal
                 admin_id: 1
                 color: 1234
                 regions:
@@ -691,25 +692,16 @@ paths:
       summary: update ncc
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
-              properties:
-                country_name:
-                  type: string
-                  example: India
-                admin_id:
-                  type: integer
-                  example: '42'
-                logo:
-                  type: string
-                  format: binary
-                color:
-                  type: integer
-                  example: '123'
-                _method:
-                  type: string
-                  example: PUT
+              example:
+                country_name: Nepal
+                admin_id: 1
+                color: 1234
+                regions:
+                  - region_id: 4
+                _method: PUT
       parameters:
         - name: Accept
           in: header
@@ -1549,7 +1541,7 @@ paths:
                 ncc_id: 1
                 member_id: 64
                 designation: Supervisor
-                order: 1
+                order: 2
       parameters:
         - name: Accept
           in: header
@@ -2033,6 +2025,9 @@ paths:
                 support_subtitle:
                   type: string
                   example: hh
+                show_candidate:
+                  type: boolean
+                  example: 'true'
       parameters:
         - name: Accept
           in: header
@@ -3900,7 +3895,7 @@ paths:
               properties:
                 name:
                   type: string
-                  example: Middle east
+                  example: Asia
                 region_image:
                   type: string
                   format: binary
@@ -4629,7 +4624,7 @@ paths:
           in: query
           schema:
             type: integer
-          example: '1'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -4677,12 +4672,17 @@ paths:
           in: query
           schema:
             type: integer
-          example: '2'
+          example: '10'
         - name: search
           in: query
           schema:
             type: string
           example: India
+        - name: region
+          in: query
+          schema:
+            type: string
+          example: Asia
       responses:
         '200':
           description: Successful response
@@ -5384,6 +5384,16 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/regions:
+    get:
+      tags:
+        - Public > Regions
+      summary: get all regions
       responses:
         '200':
           description: Successful response
