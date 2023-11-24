@@ -4246,7 +4246,10 @@ paths:
               properties:
                 status:
                   type: string
-                  example: active
+                  example: inactive
+                _method:
+                  type: string
+                  example: patch
       parameters:
         - name: slug
           in: path
@@ -4394,7 +4397,10 @@ paths:
               properties:
                 status:
                   type: string
-                  example: active
+                  example: inactive
+                _method:
+                  type: string
+                  example: patch
       parameters:
         - name: Accept
           in: header

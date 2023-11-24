@@ -6337,7 +6337,12 @@
 									"formdata": [
 										{
 											"key": "status",
-											"value": "active",
+											"value": "inactive",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
 											"type": "text"
 										}
 									]
@@ -6578,7 +6583,12 @@
 									"formdata": [
 										{
 											"key": "status",
-											"value": "active",
+											"value": "inactive",
+											"type": "text"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
 											"type": "text"
 										}
 									]
