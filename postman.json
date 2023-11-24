@@ -6112,6 +6112,11 @@
 											"type": "text"
 										},
 										{
+											"key": "author",
+											"value": "Hancie Phago",
+											"type": "text"
+										},
+										{
 											"key": "description",
 											"value": "fdgdg",
 											"type": "text"
@@ -6246,6 +6251,11 @@
 											"type": "text"
 										},
 										{
+											"key": "author",
+											"value": "Hancie Phago",
+											"type": "text"
+										},
+										{
 											"key": "description",
 											"value": "mero article description",
 											"type": "text"
@@ -6305,6 +6315,42 @@
 									"path": [
 										"admin",
 										"articles",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "active",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/articles/status/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"articles",
+										"status",
 										":slug"
 									],
 									"variable": [
@@ -6510,6 +6556,48 @@
 										{
 											"key": "pagination_limit",
 											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "active",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/press-release/status/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"press-release",
+										"status",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
 										}
 									]
 								}
