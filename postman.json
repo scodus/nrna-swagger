@@ -854,7 +854,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"country_name\":\"Nepal\",\n    \"admin_id\":1,\n    \"color\":1234,\n\n    \"regions\":[\n        {\n            \"region_id\":1\n           \n        },\n        {\n             \"region_id\":2\n        }\n    ]\n}",
+									"raw": "{\n    \"country_name\":\"Spain\",\n    \"admin_id\":1,\n    \"color\":1234,\n\n    \"regions\":[\n        {\n            \"region_id\":1\n           \n        },\n        {\n             \"region_id\":2\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -887,7 +887,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"country_name\":\"Nepal\",\n    \"admin_id\":1,\n    \"color\":1234,\n\n    \"regions\":[\n       \n        {\n             \"region_id\":4\n        }\n    ],\n    \"_method\":\"PUT\"\n}",
+									"raw": "{\n    \"country_name\":\"Nepal\",\n    \"admin_id\":1,\n    \"color\":1234,\n\n    \"regions\":[\n       \n        {\n             \"region_id\":6\n        },\n         {\n             \"region_id\":7\n        }\n        \n    ],\n    \"_method\":\"PUT\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -895,20 +895,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/admin/ncc/:slug",
+									"raw": "{{url}}/admin/ncc/nepal-1",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"ncc",
-										":slug"
-									],
-									"variable": [
-										{
-											"key": "slug",
-											"value": ""
-										}
+										"nepal-1"
 									]
 								}
 							},
@@ -5941,6 +5935,134 @@
 										"regions",
 										"status",
 										"middle-east"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Gallery",
+					"item": [
+						{
+							"name": "store image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "gallery_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_3022.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/gallery",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"gallery"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all images",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/gallery?pagination_limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"gallery"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete image",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/gallery/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"gallery",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update gallery images",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "gallery_image",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_2815.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/gallery/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"gallery",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
 									]
 								}
 							},

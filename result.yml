@@ -57,6 +57,7 @@ tags:
   - name: Admin > Download Files
   - name: Admin > Email Template
   - name: Admin > Regions
+  - name: Admin > Gallery
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -668,7 +669,7 @@ paths:
             schema:
               type: object
               example:
-                country_name: Nepal
+                country_name: Spain
                 admin_id: 1
                 color: 1234
                 regions:
@@ -685,7 +686,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /admin/ncc/{slug}:
+  /admin/ncc/nepal-1:
     post:
       tags:
         - Admin > Ncc
@@ -700,7 +701,8 @@ paths:
                 admin_id: 1
                 color: 1234
                 regions:
-                  - region_id: 4
+                  - region_id: 6
+                  - region_id: 7
                 _method: PUT
       parameters:
         - name: Accept
@@ -708,16 +710,12 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: slug
-          in: path
-          schema:
-            type: string
-          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
+  /admin/ncc/{slug}:
     get:
       tags:
         - Admin > Ncc
@@ -4004,6 +4002,89 @@ paths:
           schema:
             type: string
           example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/gallery:
+    post:
+      tags:
+        - Admin > Gallery
+      summary: store image
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                gallery_image:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Gallery
+      summary: get all images
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/gallery/{id}:
+    delete:
+      tags:
+        - Admin > Gallery
+      summary: delete image
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Gallery
+      summary: update gallery images
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                gallery_image:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
