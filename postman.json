@@ -6069,6 +6069,195 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Articles",
+					"item": [
+						{
+							"name": "create articles",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "sfgfdg",
+											"type": "text"
+										},
+										{
+											"key": "excerpt",
+											"value": "fgdfg",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "fdgdg",
+											"type": "text"
+										},
+										{
+											"key": "articleImage",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_3022.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/articles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"articles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all article",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/articles?pagination_limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"articles"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete article",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/articles/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"articles",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update article",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "mero article",
+											"type": "text"
+										},
+										{
+											"key": "excerpt",
+											"value": "mero article",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "mero article description",
+											"type": "text"
+										},
+										{
+											"key": "articleImage",
+											"type": "file",
+											"src": "/Users/hanciephago/Downloads/IMG_3022.jpg"
+										},
+										{
+											"key": "_method",
+											"value": "put",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/articles/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"articles",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show single article",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/articles/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"articles",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			],
 			"auth": {
@@ -8155,6 +8344,89 @@
 									"path": [
 										"api",
 										"regions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Gallery",
+					"item": [
+						{
+							"name": "get all images",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/gallery",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"gallery"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Articles",
+					"item": [
+						{
+							"name": "get all articles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/articles?pagination_limit=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"articles"
+									],
+									"query": [
+										{
+											"key": "pagination_limit",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show single article",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/articles/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"articles",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": ""
+										}
 									]
 								}
 							},

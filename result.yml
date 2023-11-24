@@ -58,6 +58,7 @@ tags:
   - name: Admin > Email Template
   - name: Admin > Regions
   - name: Admin > Gallery
+  - name: Admin > Articles
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -86,6 +87,8 @@ tags:
   - name: Public > NBNS Follower
   - name: Public > Download Files
   - name: Public > Regions
+  - name: Public > Gallery
+  - name: Public > Articles
 paths:
   /admin/contact-us:
     get:
@@ -4090,6 +4093,126 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/articles:
+    post:
+      tags:
+        - Admin > Articles
+      summary: create articles
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: sfgfdg
+                excerpt:
+                  type: string
+                  example: fgdfg
+                description:
+                  type: string
+                  example: fdgdg
+                articleImage:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Articles
+      summary: get all article
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/articles/{slug}:
+    delete:
+      tags:
+        - Admin > Articles
+      summary: delete article
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Articles
+      summary: update article
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: mero article
+                excerpt:
+                  type: string
+                  example: mero article
+                description:
+                  type: string
+                  example: mero article description
+                articleImage:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Articles
+      summary: show single article
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
@@ -5475,6 +5598,54 @@ paths:
       tags:
         - Public > Regions
       summary: get all regions
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/gallery:
+    get:
+      tags:
+        - Public > Gallery
+      summary: get all images
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/articles:
+    get:
+      tags:
+        - Public > Articles
+      summary: get all articles
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/articles/{slug}:
+    get:
+      tags:
+        - Public > Articles
+      summary: show single article
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
