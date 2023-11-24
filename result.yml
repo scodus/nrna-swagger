@@ -59,6 +59,7 @@ tags:
   - name: Admin > Regions
   - name: Admin > Gallery
   - name: Admin > Articles
+  - name: Admin > Press Release
   - name: Public
   - name: Public > Auth
   - name: Public > Countries
@@ -89,6 +90,7 @@ tags:
   - name: Public > Regions
   - name: Public > Gallery
   - name: Public > Articles
+  - name: Public > Press Release
 paths:
   /admin/contact-us:
     get:
@@ -4213,6 +4215,127 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /admin/press-release:
+    post:
+      tags:
+        - Admin > Press Release
+      summary: store press release data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: press title
+                excerpt:
+                  type: string
+                  example: press excerpt
+                description:
+                  type: string
+                  example: press description
+                pressReleaseImage:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > Press Release
+      summary: get all press data
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/press-release/{slug}:
+    get:
+      tags:
+        - Admin > Press Release
+      summary: get single press release
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Press Release
+      summary: update press release data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: press title1
+                excerpt:
+                  type: string
+                  example: press excerpt
+                description:
+                  type: string
+                  example: press description
+                pressReleaseImage:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: put
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Press Release
+      summary: delete press release
+      parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/login:
     post:
       tags:
@@ -5641,6 +5764,43 @@ paths:
         - Public > Articles
       summary: show single article
       parameters:
+        - name: slug
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/press-release:
+    get:
+      tags:
+        - Public > Press Release
+      summary: show all press release data
+      parameters:
+        - name: pagination_limit
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/press-release/{slug}:
+    get:
+      tags:
+        - Public > Press Release
+      summary: show single press release data
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
         - name: slug
           in: path
           schema:
