@@ -2843,7 +2843,7 @@
 										},
 										{
 											"key": "terms_conditions",
-											"value": "terms and conditions",
+											"value": "terms and conditin",
 											"type": "text"
 										},
 										{
@@ -3802,12 +3802,12 @@
 									"formdata": [
 										{
 											"key": "fullname",
-											"value": "Business 2",
+											"value": "Bhutan Business",
 											"type": "text"
 										},
 										{
 											"key": "email",
-											"value": "business22@gmail.com",
+											"value": "business224@gmail.com",
 											"type": "text"
 										},
 										{
@@ -3867,7 +3867,7 @@
 										},
 										{
 											"key": "country",
-											"value": "Nepal",
+											"value": "Bhutan",
 											"type": "text"
 										}
 									]
@@ -5991,7 +5991,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "NBNs ",
+											"value": "My Pic",
 											"type": "text"
 										},
 										{

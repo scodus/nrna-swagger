@@ -2028,7 +2028,7 @@ paths:
                   example: 'true'
                 terms_conditions:
                   type: string
-                  example: terms and conditions
+                  example: terms and conditin
                 tiktok_url:
                   type: string
                   example: tiktok.com
@@ -2649,10 +2649,10 @@ paths:
               properties:
                 fullname:
                   type: string
-                  example: Business 2
+                  example: Bhutan Business
                 email:
                   type: string
-                  example: business22@gmail.com
+                  example: business224@gmail.com
                 phone:
                   type: integer
                   example: '98345445'
@@ -2688,7 +2688,7 @@ paths:
                   example: '1'
                 country:
                   type: string
-                  example: Nepal
+                  example: Bhutan
       security:
         - bearerAuth: []
       parameters:
@@ -4037,7 +4037,7 @@ paths:
               properties:
                 title:
                   type: string
-                  example: 'NBNs '
+                  example: My Pic
                 gallery_image:
                   type: string
                   format: binary
