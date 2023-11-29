@@ -198,7 +198,7 @@ paths:
             schema:
               type: object
               example:
-                email: nitesh0hamal@gmail.com
+                email: nitesh01hamal@gmail.com
                 first_name: Nitesh
                 middle_name: ''
                 last_name: Hamal
@@ -1511,11 +1511,6 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: ncc_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
         - name: pagination_limit
           in: query
           schema:
@@ -1525,7 +1520,7 @@ paths:
           in: query
           schema:
             type: string
-          example: Nepal
+          example: Anguilla
       responses:
         '200':
           description: Successful response
@@ -2031,6 +2026,21 @@ paths:
                 show_candidate:
                   type: boolean
                   example: 'true'
+                terms_conditions:
+                  type: string
+                  example: terms and conditions
+                tiktok_url:
+                  type: string
+                  example: tiktok.com
+                facebook_url:
+                  type: string
+                  example: facebook.com
+                twitter_url:
+                  type: string
+                  example: twitter.com
+                privacy_policy:
+                  type: string
+                  example: privacy policy
       parameters:
         - name: Accept
           in: header
@@ -2926,10 +2936,10 @@ paths:
                   example: password1
                 new_password:
                   type: string
-                  example: password
+                  example: password1
                 new_password_confirmation:
                   type: string
-                  example: password
+                  example: password1
       security:
         - bearerAuth: []
       parameters:
@@ -4025,6 +4035,9 @@ paths:
             schema:
               type: object
               properties:
+                title:
+                  type: string
+                  example: 'NBNs '
                 gallery_image:
                   type: string
                   format: binary
@@ -5025,16 +5038,16 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: ncc_id
-          in: query
-          schema:
-            type: integer
-          example: '1'
         - name: pagination_limit
           in: query
           schema:
             type: integer
           example: '2'
+        - name: country
+          in: query
+          schema:
+            type: string
+          example: Anguilla
       responses:
         '200':
           description: Successful response
@@ -5455,7 +5468,7 @@ paths:
             schema:
               type: object
               example:
-                email: hanciewanephago@gmail.com
+                email: hanciewanephago1@gmail.com
                 first_name: Hancie
                 middle_name: Wanem
                 last_name: Limbu

@@ -166,7 +166,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"nitesh0hamal@gmail.com\",\n    \"first_name\": \"Nitesh\",\n    \"middle_name\": \"\",\n    \"last_name\": \"Hamal\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"9825915122\", // nullable\n    \"city\": \"KTM\", // nullable\n    \"approval_status\": \"approved\" // nullable\n}",
+									"raw": "{\n    \"email\": \"nitesh01hamal@gmail.com\",\n    \"first_name\": \"Nitesh\",\n    \"middle_name\": \"\",\n    \"last_name\": \"Hamal\",\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"9825915122\", // nullable\n    \"city\": \"KTM\", // nullable\n    \"approval_status\": \"approved\" // nullable\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2033,7 +2033,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/admin/ncc-candidates?ncc_id=1&pagination_limit=1&country=Nepal",
+									"raw": "{{url}}/admin/ncc-candidates?pagination_limit=1&country=Anguilla",
 									"host": [
 										"{{url}}"
 									],
@@ -2044,7 +2044,8 @@
 									"query": [
 										{
 											"key": "ncc_id",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "pagination_limit",
@@ -2052,7 +2053,7 @@
 										},
 										{
 											"key": "country",
-											"value": "Nepal"
+											"value": "Anguilla"
 										}
 									]
 								}
@@ -2656,14 +2657,12 @@
 										{
 											"key": "mission",
 											"value": "ccc",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "vision",
 											"value": "bbb",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "tagline_author",
@@ -2730,14 +2729,12 @@
 										{
 											"key": "vision_subtitle",
 											"value": "hy",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "mission_subtitle",
 											"value": "hy",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "about_title",
@@ -2747,14 +2744,12 @@
 										{
 											"key": "vision_title",
 											"value": "Vision Title",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "mission_title",
 											"value": "Mission Title",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "about_banner",
@@ -2844,6 +2839,31 @@
 										{
 											"key": "show_candidate",
 											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "terms_conditions",
+											"value": "terms and conditions",
+											"type": "text"
+										},
+										{
+											"key": "tiktok_url",
+											"value": "tiktok.com",
+											"type": "text"
+										},
+										{
+											"key": "facebook_url",
+											"value": "facebook.com",
+											"type": "text"
+										},
+										{
+											"key": "twitter_url",
+											"value": "twitter.com",
+											"type": "text"
+										},
+										{
+											"key": "privacy_policy",
+											"value": "privacy policy",
 											"type": "text"
 										}
 									]
@@ -4263,12 +4283,12 @@
 										},
 										{
 											"key": "new_password",
-											"value": "password",
+											"value": "password1",
 											"type": "text"
 										},
 										{
 											"key": "new_password_confirmation",
-											"value": "password",
+											"value": "password1",
 											"type": "text"
 										}
 									]
@@ -5970,9 +5990,14 @@
 									"mode": "formdata",
 									"formdata": [
 										{
+											"key": "title",
+											"value": "NBNs ",
+											"type": "text"
+										},
+										{
 											"key": "gallery_image",
 											"type": "file",
-											"src": "/Users/hanciephago/Downloads/IMG_3022.jpg"
+											"src": "/Users/hanciephago/Downloads/logo.png"
 										}
 									]
 								},
@@ -7551,7 +7576,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/ncc-candidates?ncc_id=1&pagination_limit=2",
+									"raw": "{{url}}/api/ncc-candidates?pagination_limit=2&country=Anguilla",
 									"host": [
 										"{{url}}"
 									],
@@ -7562,11 +7587,16 @@
 									"query": [
 										{
 											"key": "ncc_id",
-											"value": "1"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "pagination_limit",
 											"value": "2"
+										},
+										{
+											"key": "country",
+											"value": "Anguilla"
 										}
 									]
 								}
@@ -8182,7 +8212,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"hanciewanephago@gmail.com\",\n    \"first_name\": \"Hancie\",\n    \"middle_name\": \"Wanem\",\n    \"last_name\": \"Limbu\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
+									"raw": "{\n    \"email\": \"hanciewanephago1@gmail.com\",\n    \"first_name\": \"Hancie\",\n    \"middle_name\": \"Wanem\",\n    \"last_name\": \"Limbu\",\n    \"password\": \"password\",     // nullable\n    \"password_confirmation\": \"password\",    // nullable\n    \"country_of_residence\": \"Nepal\",\n    \"phone\": \"1234\",    // nullable\n    \"city\": \"KTM\"      // nullable\n}",
 									"options": {
 										"raw": {
 											"language": "json"
