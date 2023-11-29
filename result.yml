@@ -159,29 +159,11 @@ paths:
           schema:
             type: string
           example: application/json
-        - name: deleted_users
-          in: query
-          schema:
-            type: string
         - name: pagination_limit
           in: query
           schema:
             type: integer
           example: '10'
-        - name: page
-          in: query
-          schema:
-            type: string
-        - name: search
-          in: query
-          schema:
-            type: string
-          example: Nitesh Hamal
-        - name: country
-          in: query
-          schema:
-            type: string
-          example: Nepal
       responses:
         '200':
           description: Successful response
@@ -438,6 +420,22 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/user/delete:
+    delete:
+      tags:
+        - Admin > Users
+      summary: softdelete user
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -5268,6 +5266,11 @@ paths:
           schema:
             type: integer
           example: '1'
+        - name: country
+          in: query
+          schema:
+            type: string
+          example: Nepal
       responses:
         '200':
           description: Successful response
