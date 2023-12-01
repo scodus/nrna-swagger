@@ -1375,9 +1375,10 @@ paths:
               type: object
               example:
                 ncc_id: 2
-                member_id: 42
+                member_id: 143
                 designation: Supervisor
                 order: 1
+                type: nfea
       parameters:
         - name: Accept
           in: header
@@ -1401,9 +1402,10 @@ paths:
               type: object
               example:
                 ncc_id: 1
-                member_id: 21
+                member_id: 42
                 designation: Supervisor
                 order: 1
+                type: nfea
                 _method: put
       parameters:
         - name: Accept
@@ -1414,9 +1416,8 @@ paths:
         - name: our_team_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '3'
       responses:
         '200':
           description: Successful response
@@ -4992,12 +4993,17 @@ paths:
           in: query
           schema:
             type: integer
-          example: '2'
+          example: '20'
         - name: category_id
           in: query
           schema:
             type: integer
           example: '2'
+        - name: type
+          in: query
+          schema:
+            type: string
+          example: nfea
       responses:
         '200':
           description: Successful response

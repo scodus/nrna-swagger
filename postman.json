@@ -1876,7 +1876,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n    \"ncc_id\": 2,\n    \"member_id\": 42,\n    \"designation\": \"Supervisor\",\n    \"order\": 1\n}",
+									"raw": "{\n    \n    \"ncc_id\": 2,\n    \"member_id\": 143,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"type\":\"nfea\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1909,7 +1909,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 21,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"_method\": \"put\"\n}",
+									"raw": "{\n    \"ncc_id\": 1,\n    \"member_id\": 42,\n    \"designation\": \"Supervisor\",\n    \"order\": 1,\n    \"type\":\"nfea\",\n    \"_method\": \"put\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1929,7 +1929,7 @@
 									"variable": [
 										{
 											"key": "our_team_id",
-											"value": "3"
+											"value": ""
 										}
 									]
 								}
@@ -7531,7 +7531,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/our-teams?ncc_id=2&pagination_limit=2&category_id=2",
+									"raw": "{{url}}/api/our-teams?ncc_id=2&pagination_limit=20&category_id=2&type=nfea",
 									"host": [
 										"{{url}}"
 									],
@@ -7546,11 +7546,15 @@
 										},
 										{
 											"key": "pagination_limit",
-											"value": "2"
+											"value": "20"
 										},
 										{
 											"key": "category_id",
 											"value": "2"
+										},
+										{
+											"key": "type",
+											"value": "nfea"
 										}
 									]
 								}
