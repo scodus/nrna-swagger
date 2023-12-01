@@ -7531,7 +7531,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/our-teams?ncc_id=2&pagination_limit=20&category_id=2&type=nfea",
+									"raw": "{{url}}/api/our-teams?pagination_limit=20",
 									"host": [
 										"{{url}}"
 									],
@@ -7542,7 +7542,8 @@
 									"query": [
 										{
 											"key": "ncc_id",
-											"value": "2"
+											"value": "2",
+											"disabled": true
 										},
 										{
 											"key": "pagination_limit",
@@ -7550,11 +7551,13 @@
 										},
 										{
 											"key": "category_id",
-											"value": "2"
+											"value": "2",
+											"disabled": true
 										},
 										{
 											"key": "type",
-											"value": "nfea"
+											"value": "nfea",
+											"disabled": true
 										}
 									]
 								}
@@ -7609,7 +7612,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/ncc-candidates?pagination_limit=2&country=Anguilla",
+									"raw": "{{url}}/api/ncc-candidates?ncc_id=1&pagination_limit=2&country=Anguilla",
 									"host": [
 										"{{url}}"
 									],
@@ -7620,8 +7623,7 @@
 									"query": [
 										{
 											"key": "ncc_id",
-											"value": "1",
-											"disabled": true
+											"value": "1"
 										},
 										{
 											"key": "pagination_limit",
@@ -7937,7 +7939,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/business-categories/?status=1&country=Nepal",
+									"raw": "{{url}}/api/business-categories/?status=1&country=Bhutan&user_id=61",
 									"host": [
 										"{{url}}"
 									],
@@ -7953,7 +7955,11 @@
 										},
 										{
 											"key": "country",
-											"value": "Nepal"
+											"value": "Bhutan"
+										},
+										{
+											"key": "user_id",
+											"value": "61"
 										}
 									]
 								}
